@@ -1,5 +1,6 @@
 /* @flow */
 import React, { Children, Component } from 'react';
+import { Manager } from 'react-popper';
 import { findDOMNode } from 'react-dom';
 import { composeEventHandlers, generateId, isRenderProp } from '../utils';
 import ModifiersContext from '../Dialog/ModifiersContext';
@@ -45,38 +46,38 @@ export default class Popover extends Component<PopoverProps, PopoverState> {
     return (
       <ModifiersContext.Consumer>
         {(contextModifiers) => {
-          const { modifiers, ...restProps } = this.props;
+          const { modifiers, ...rootProps } = this.props;
           const isOpen = this.getControllableValue('isOpen');
 
-          const rootProps = {
-            ...restProps,
-            modifiers: modifiers || contextModifiers,
-            tag: 'span'
+          const contentProps = {
+            modifiers: modifiers || contextModifiers
           };
 
           return (
-            <Root {...rootProps}>
-              {this.renderTrigger()}
-              {isOpen && this.renderContent()}
-              {isOpen && (
-                <EventListener
-                  listeners={[
-                    {
-                      target: 'document',
-                      event: 'click',
-                      handler: this.handleDocumentClick,
-                      options: true
-                    },
-                    {
-                      target: 'document',
-                      event: 'keydown',
-                      handler: this.handleDocumentKeydown,
-                      options: true
-                    }
-                  ]}
-                />
-              )}
-            </Root>
+            <Manager>
+              <Root {...rootProps}>
+                {this.renderTrigger()}
+                {isOpen && this.renderContent(contentProps)}
+                {isOpen && (
+                  <EventListener
+                    listeners={[
+                      {
+                        target: 'document',
+                        event: 'click',
+                        handler: this.handleDocumentClick,
+                        options: true
+                      },
+                      {
+                        target: 'document',
+                        event: 'keydown',
+                        handler: this.handleDocumentKeydown,
+                        options: true
+                      }
+                    ]}
+                  />
+                )}
+              </Root>
+            </Manager>
           );
         }}
       </ModifiersContext.Consumer>
@@ -115,6 +116,7 @@ export default class Popover extends Component<PopoverProps, PopoverState> {
       hasArrow,
       modifiers,
       placement,
+      positionFixed,
       subtitle,
       title
     } = this.props;
@@ -125,6 +127,7 @@ export default class Popover extends Component<PopoverProps, PopoverState> {
       id: contentId,
       modifiers,
       placement,
+      positionFixed,
       ref: this.setContentRef,
       subtitle,
       tabIndex: 0,
