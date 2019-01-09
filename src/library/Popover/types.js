@@ -1,6 +1,7 @@
 /* @flow */
 import { PLACEMENT } from './constants';
 
+import type { PopperProps } from 'react-popper/lib/cjs/Popper';
 import type {
   ComponentTheme,
   ComponentThemeFn,
@@ -52,6 +53,7 @@ export type PopoverStateAndHelpers = {
   helpers: PopoverHelpers
 };
 
+export type PopoverRenderMethod = (props: Object) => React$Node;
 export type PopoverPropGetter = (props?: Object) => Object;
 export type PopoverRenderFn = (props?: PopoverRenderProps) => React$Node;
 type PopoverRenderProps = {
@@ -78,7 +80,7 @@ export type PopoverTriggerProps = {
   cursor?: string
 };
 
-export type RtlPopperProps = {
+export type RtlPopperProps = PopperProps & {
   placement?: Placement,
   theme: ThemeObj
 };

@@ -22,6 +22,7 @@ export default function createThemedComponent(
     );
   };
 
+  // $FlowFixMe - `WrappedComponent.propTypes` missing in `React.AbstractComponentStatics`
   Wrapper.propTypes = WrappedComponent.propTypes;
 
   Wrapper.displayName = wrapDisplayName(WrappedComponent, 'Themed');

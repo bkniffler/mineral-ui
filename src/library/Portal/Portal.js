@@ -10,7 +10,7 @@ export default class Portal extends Component<PortalProps> {
 
   node: ?HTMLElement;
 
-  constructor(props) {
+  constructor(props: PortalProps) {
     super(props);
 
     if (canUseDOM) {
@@ -19,14 +19,22 @@ export default class Portal extends Component<PortalProps> {
   }
 
   componentDidMount() {
-    canUseDOM && document.body.appendChild(this.node);
+    canUseDOM &&
+      document.body &&
+      this.node &&
+      document.body.appendChild(this.node);
   }
 
   componentWillUnmount() {
-    canUseDOM && document.body.removeChild(this.node);
+    canUseDOM &&
+      document.body &&
+      this.node &&
+      document.body.removeChild(this.node);
   }
 
   render() {
-    return createPortal(this.props.children, this.node);
+    return canUseDOM && this.node
+      ? createPortal(this.props.children, this.node)
+      : null;
   }
 }

@@ -16,7 +16,7 @@ import type {
   PopoverDefaultProps,
   PopoverProps,
   PopoverPropGetter,
-  PopoverRenderFn,
+  PopoverRenderMethod,
   PopoverState,
   PopoverStateAndHelpers
 } from './types';
@@ -139,7 +139,7 @@ export default class Popover extends Component<PopoverProps, PopoverState> {
     };
   };
 
-  renderContent: PopoverRenderFn = (props = {}) => {
+  renderContent: PopoverRenderMethod = (props = {}) => {
     const { content, usePortal } = this.props;
     let popoverContent;
 
@@ -197,7 +197,7 @@ export default class Popover extends Component<PopoverProps, PopoverState> {
     };
   };
 
-  renderTrigger: PopoverRenderFn = (props = {}) => {
+  renderTrigger: PopoverRenderMethod = (props = {}) => {
     const { children } = this.props;
 
     if (isRenderProp(children)) {
