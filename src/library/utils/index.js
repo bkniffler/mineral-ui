@@ -4,5 +4,6 @@ export { default as composeEventHandlers } from './composeEventHandlers';
 export * from './generateId';
 export { default as isRenderProp } from './isRenderProp';
 export { default as isValidProp } from './isValidProp';
+export { component } from './propTypes';
 export { default as reactProps } from './reactProps';
 export { default as rtlTextAlign } from './rtlTextAlign';

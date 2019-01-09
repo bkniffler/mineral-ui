@@ -1,5 +1,5 @@
 /* @flow */
-import React, { PureComponent } from 'react';
+import React, { forwardRef, PureComponent } from 'react';
 import range from 'lodash.range';
 import IconChevronLeft from '../Icon/IconChevronLeft';
 import IconChevronRight from '../Icon/IconChevronRight';
@@ -9,7 +9,7 @@ import {
   PagesEllipsisButton as EllipsisButton
 } from './styled';
 
-import type { PagesProps } from './types';
+import type { IncrementButtonProps, PagesProps } from './types';
 
 const firstPage = (current) => current === 1;
 const lastPage = (current, total) => current === total;
@@ -94,43 +94,46 @@ const getPageButtons = ({
 };
 
 // eslint-disable-next-line react/display-name
-const IncrementButton = ({
-  currentPage,
-  direction,
-  focusedNodeWhenDisabled,
-  handleIncrement,
-  messages,
-  size,
-  totalPages,
-  ...restProps
-}: PagesProps & {
-  direction: string,
-  focusedNodeWhenDisabled: ?HTMLButtonElement
-}) => {
-  const next = direction === 'next';
-  const incrementIcon = next ? <IconChevronRight /> : <IconChevronLeft />;
-  const iconPosition = next ? 'iconEnd' : 'iconStart';
+const IncrementButton = forwardRef<IncrementButtonProps, HTMLButtonElement>(
+  (
+    {
+      currentPage,
+      direction,
+      focusedNodeWhenDisabled,
+      handleIncrement,
+      messages,
+      size,
+      totalPages,
+      ...restProps
+    }: IncrementButtonProps,
+    ref: any
+  ) => {
+    const next = direction === 'next';
+    const incrementIcon = next ? <IconChevronRight /> : <IconChevronLeft />;
+    const iconPosition = next ? 'iconEnd' : 'iconStart';
 
-  const handleClick = (next) => {
-    handleIncrement(next, (nextPage) => {
-      isDisabled(next, nextPage, totalPages) &&
-        focusedNodeWhenDisabled &&
-        focusedNodeWhenDisabled.focus();
-    });
-  };
+    const handleClick = (next) => {
+      handleIncrement(next, (nextPage) => {
+        isDisabled(next, nextPage, totalPages) &&
+          focusedNodeWhenDisabled &&
+          focusedNodeWhenDisabled.focus();
+      });
+    };
 
-  const buttonProps = {
-    children: messages[direction],
-    disabled: isDisabled(next, currentPage, totalPages),
-    [iconPosition]: incrementIcon,
-    minimal: true,
-    onClick: handleClick.bind(null, next),
-    size,
-    ...restProps
-  };
+    const buttonProps = {
+      children: messages[direction],
+      disabled: isDisabled(next, currentPage, totalPages),
+      [iconPosition]: incrementIcon,
+      minimal: true,
+      onClick: handleClick.bind(null, next),
+      ref,
+      size,
+      ...restProps
+    };
 
-  return <Button {...buttonProps} />;
-};
+    return <Button {...buttonProps} />;
+  }
+);
 
 export default class Pages extends PureComponent<PagesProps> {
   static displayName = 'Pages';
