@@ -1,7 +1,6 @@
 /* @flow */
 import React from 'react';
 import { mount } from 'enzyme';
-import semver from 'semver';
 import { createStyledComponent } from '../../styles';
 
 const mountButton = (props = {}, styles = {}, options = {}) => {
@@ -54,13 +53,6 @@ describe('createStyledComponent', () => {
   });
 
   describe('with forwardProps option', () => {
-    if (semver.lt(React.version, '16.0.0')) {
-      // eslint-disable-next-line no-console
-      console.log(
-        'NOTE: The following warning is expected and safe to ignore.'
-      );
-    }
-
     const wrapper = mountButton(
       { forwardme: 'true' },
       {},

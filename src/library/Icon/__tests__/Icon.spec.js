@@ -14,7 +14,9 @@ function shallowIcon(props = {}) {
 }
 
 describe('Icon', () => {
-  testDemoExamples(examples, { exclude: ['categories'] });
+  testDemoExamples(examples, {
+    exclude: ['categories']
+  });
 
   it('renders', () => {
     const icon = shallowIcon();

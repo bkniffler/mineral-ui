@@ -74,8 +74,7 @@ const stripReactTextTags = (string: string) => {
 
 describe('Table', () => {
   testDemoExamples(examples, {
-    exclude: ['large-data-sets'],
-    contextPolyfill: true
+    exclude: ['large-data-sets']
   });
 
   it('renders', () => {

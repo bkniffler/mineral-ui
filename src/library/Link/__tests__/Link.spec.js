@@ -17,7 +17,9 @@ function shallowLink(props = {}) {
 }
 
 describe('Link', () => {
-  testDemoExamples(examples, { exclude: ['react-router'] });
+  testDemoExamples(examples, {
+    exclude: ['react-router']
+  });
 
   it('renders', () => {
     const link = shallowLink();
