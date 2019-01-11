@@ -1,5 +1,6 @@
 /* @flow */
 import React from 'react';
+import hoistNonReactStatics from 'hoist-non-react-statics';
 import wrapDisplayName from 'recompose/wrapDisplayName';
 import withTheme from './withTheme';
 import ThemeProvider from './ThemeProvider';
@@ -26,6 +27,8 @@ export default function createThemedComponent(
   Wrapper.propTypes = WrappedComponent.propTypes;
 
   Wrapper.displayName = wrapDisplayName(WrappedComponent, 'Themed');
+
+  hoistNonReactStatics(Wrapper, WrappedComponent);
 
   return withTheme(Wrapper);
 }
