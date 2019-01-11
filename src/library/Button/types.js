@@ -15,6 +15,7 @@ export type ButtonProps = {
   circular?: boolean,
   disabled?: boolean,
   element?: $FlowFixMe, // Should allow string | React$ComponentType<*>
+  forwardedRef?: React$Ref<*>,
   fullWidth?: boolean,
   iconEnd?: React$Element<*>,
   iconStart?: React$Element<*>,

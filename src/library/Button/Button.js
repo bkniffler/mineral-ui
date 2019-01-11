@@ -1,13 +1,14 @@
 /* @flow */
 import React, { Component, cloneElement } from 'react';
 import memoizeOne from 'memoize-one';
+import withForwardRef from '../utils/withForwardRef';
 import { createButtonRootNode, Content, Inner } from './styled';
 import { ICON_SIZE, SIZE } from './constants';
 
 import { buttonPropTypes } from './propTypes';
 import type { ButtonDefaultProps, ButtonProps } from './types';
 
-export default class Button extends Component<ButtonProps> {
+class Button extends Component<ButtonProps> {
   static displayName = 'Button';
 
   static defaultProps: ButtonDefaultProps = {
@@ -29,6 +30,7 @@ export default class Button extends Component<ButtonProps> {
     const {
       children,
       disabled,
+      forwardedRef,
       iconStart,
       iconEnd,
       size = Button.defaultProps.size,
@@ -39,6 +41,7 @@ export default class Button extends Component<ButtonProps> {
 
     const rootProps = {
       disabled,
+      ref: forwardedRef,
       size,
       tabIndex: disabled ? -1 : undefined,
       text: children,
@@ -67,3 +70,8 @@ export default class Button extends Component<ButtonProps> {
     );
   }
 }
+
+export default withForwardRef<
+  React$Config<ButtonProps, ButtonDefaultProps>,
+  Button
+>(Button);
