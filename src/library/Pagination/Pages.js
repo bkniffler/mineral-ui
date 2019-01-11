@@ -135,6 +135,8 @@ const IncrementButton = forwardRef<IncrementButtonProps, HTMLButtonElement>(
   }
 );
 
+IncrementButton.displayName = 'IncrementButton';
+
 export default class Pages extends PureComponent<PagesProps> {
   static displayName = 'Pages';
 
