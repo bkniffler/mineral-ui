@@ -51,6 +51,7 @@
     "fast-memoize": "2.5.1",
     "focus-trap-react": "3.1.2",
     "fontfaceobserver": "2.0.13",
+    "hoist-non-react-statics": "3.2.1",
     "lodash.debounce": "4.0.8",
     "lodash.range": "3.2.0",
     "memoize-one": "4.0.3",
