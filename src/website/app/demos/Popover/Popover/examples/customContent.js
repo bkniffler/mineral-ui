@@ -24,7 +24,8 @@ control of the content. ${renderPropsDescription}`,
       const content = ({ props }) => {
         // Your root element must be a Popper component.
         // import { Popper } from 'react-popper';
-        const Root = createStyledComponent(Popper, ({ theme }) => ({
+
+        const Content = createStyledComponent('div', ({ theme }) => ({
           backgroundColor: theme.backgroundColor_dangerPrimary,
           color: theme.color_white,
           margin: theme.space_inset_sm,
@@ -32,13 +33,23 @@ control of the content. ${renderPropsDescription}`,
           zIndex: theme.zIndex_100
         }), {
           includeStyleReset: true,
-          filterProps: ['hasArrow']
         });
 
         return (
-          <Root {...props}>
-            <DemoContent />
-          </Root>
+          <Popper>
+            {(popperProps) => {
+              const contentProps = {
+                ...props,
+                ...popperProps
+              };
+
+              return (
+                <Content {...contentProps} >
+                  <DemoContent />
+                </Content>
+              );
+            }}
+          </Popper>
         );
       };
 
