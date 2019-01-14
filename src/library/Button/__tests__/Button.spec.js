@@ -6,7 +6,6 @@ import Button from '../Button';
 import * as styled from '../styled';
 import examples from '../../../website/app/demos/Button/Button/examples';
 import testDemoExamples from '../../../../utils/testDemoExamples';
-import testThemeOverrides from '../../../../utils/testThemeOverrides';
 
 function shallowButton(props = {}) {
   const buttonProps = {
@@ -40,11 +39,6 @@ describe('Button', () => {
     const button = shallowButton();
 
     expect(button.exists()).toEqual(true);
-  });
-
-  describe('theme overrides', () => {
-    testThemeOverrides(<Button />, ['Button_backgroundColor']);
-    testThemeOverrides(<Button primary />, ['Button_backgroundColor_primary']);
   });
 
   it('calls onClick when clicked', () => {

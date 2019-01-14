@@ -6,7 +6,6 @@ import Button from '../../../library/Button';
 import ButtonGroup from '../ButtonGroup';
 import examples from '../../../website/app/demos/ButtonGroup/ButtonGroup/examples';
 import testDemoExamples from '../../../../utils/testDemoExamples';
-import testThemeOverrides from '../../../../utils/testThemeOverrides';
 
 const defaultProps = {
   'aria-label': 'Test',
@@ -41,15 +40,6 @@ describe('ButtonGroup', () => {
     const buttonGroup = shallowButtonGroup();
 
     expect(buttonGroup.exists()).toEqual(true);
-  });
-
-  describe('theme overrides', () => {
-    testThemeOverrides(
-      <ButtonGroup aria-label="Test">
-        <Button>Content</Button>
-      </ButtonGroup>,
-      ['ButtonGroupButton_borderStartColor']
-    );
   });
 
   describe('event handlers', () => {
