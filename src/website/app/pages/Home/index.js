@@ -625,7 +625,7 @@ const HeroCanvas = createStyledComponent(Canvas, styles.heroCanvas);
 const Intro = createStyledComponent(Markdown, styles.intro);
 const LinkButton = createStyledComponent(SiteButton, styles.button, {
   withProps: {
-    element: Link,
+    as: Link,
     size: 'jumbo',
     type: null
   }
@@ -754,7 +754,7 @@ export default class Home extends Component<Props, State> {
                         },
                         {
                           withProps: {
-                            element: Link,
+                            as: Link,
                             iconStart: navExpanded ? (
                               <IconFavorite />
                             ) : (

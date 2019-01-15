@@ -7,15 +7,15 @@ import { createThemedComponent } from '../../library/themes';
 import IconLaunch from 'mineral-ui-icons/IconLaunch';
 import Link from '../../library/Link';
 
-type Props = {
+type SiteLinkProps = {
+  as?: $FlowFixMe,
   children?: React$Node,
-  element?: $FlowFixMe,
   href?: string,
   to?: string
 };
 
 // prettier-ignore
-const componentTheme = baseTheme => ({
+const siteLinkTheme = baseTheme => ({
   Link_borderColor_focus: baseTheme.SiteLink_borderColor_focus || baseTheme.borderColor_theme_focus,
   Link_color: baseTheme.SiteLink_color || baseTheme.color_theme,
   Link_color_active: baseTheme.SiteLink_color_active || baseTheme.color_theme_active,
@@ -26,7 +26,7 @@ const componentTheme = baseTheme => ({
 });
 
 const ThemedLink = createThemedComponent(Link, ({ theme }) => ({
-  ...componentTheme(theme)
+  ...siteLinkTheme(theme)
 }));
 
 const Root = createStyledComponent(ThemedLink, ({ href, theme }) => {
@@ -71,12 +71,12 @@ const Root = createStyledComponent(ThemedLink, ({ href, theme }) => {
   return styles;
 });
 
-export default function SiteLink(props: Props) {
-  const { children, element, href, to, ...restProps } = props;
+export default function SiteLink(props: SiteLinkProps) {
+  const { children, as, href, to, ...restProps } = props;
   const isExternal = href && !href.startsWith('#');
 
   const rootProps = {
-    element: to ? element || ReactRouterLink : element,
+    as: to ? as || ReactRouterLink : as,
     href,
     target: isExternal ? '_blank' : undefined,
     to,
