@@ -19,7 +19,6 @@ export default createStyledComponent(
     }
   }),
   {
-    displayName: 'Figure',
     includeStyleReset: true
   }
 );

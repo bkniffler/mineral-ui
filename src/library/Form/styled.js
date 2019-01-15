@@ -11,7 +11,6 @@ export const FormFieldRoot = createStyledComponent(
   'div',
   {},
   {
-    displayName: 'FormField',
     includeStyleReset: true
   }
 );
@@ -50,9 +49,6 @@ export const FormFieldDividerRoot = createStyledComponent(
       height: theme.FormFieldDivider_borderWidth,
       margin: `${theme.FormFieldDivider_margin} 0`
     };
-  },
-  {
-    displayName: 'FormFieldDivider'
   }
 );
 
@@ -93,7 +89,6 @@ export const FormFieldsetRoot = createStyledComponent(
     };
   },
   {
-    displayName: 'FormFieldset',
     includeStyleReset: true,
     rootEl: 'fieldset'
   }

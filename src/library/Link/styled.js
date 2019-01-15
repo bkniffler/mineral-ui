@@ -40,7 +40,6 @@ export const Link = createStyledComponent(
     };
   },
   {
-    displayName: 'Link',
     filterProps: ['variant']
   }
 );

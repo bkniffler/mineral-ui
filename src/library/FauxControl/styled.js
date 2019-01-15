@@ -47,7 +47,6 @@ export const FauxControlRoot = createStyledComponent(
     };
   },
   {
-    displayName: 'FauxControl',
     includeStyleReset: true
   }
 );
@@ -144,9 +143,6 @@ export const Underlay = createStyledComponent(
       top: 0,
       zIndex: -1
     };
-  },
-  {
-    displayName: 'Underlay'
   }
 );
 
@@ -252,9 +248,6 @@ export const createControlNode: CreateRootNode<FauxControlProps> = (props) => {
           }
         }
       };
-    },
-    {
-      displayName: 'Control'
     }
   );
 };

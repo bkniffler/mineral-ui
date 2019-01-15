@@ -18,10 +18,7 @@ export const TruncateRoot = createStyledComponent(
         outline: 'none'
       }
     }
-  }),
-  {
-    displayName: 'Truncate'
-  }
+  })
 );
 
 export const Tooltip = createStyledComponent(_Tooltip, {

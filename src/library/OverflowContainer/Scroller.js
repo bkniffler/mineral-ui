@@ -28,7 +28,6 @@ export default createStyledComponent(
   ThemedOverflowContainer,
   getScrollerStyles,
   {
-    displayName: 'Scroller',
     forwardProps: ['containerRef']
   }
 );

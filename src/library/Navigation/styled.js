@@ -39,7 +39,6 @@ export const NavigationRoot = createStyledComponent(
     };
   },
   {
-    displayName: 'Navigation',
     filterProps: ['prefix'],
     includeStyleReset: true
   }
@@ -119,7 +118,6 @@ const NavItemButton = createStyledComponent(
     };
   },
   {
-    displayName: 'NavItem',
     filterProps: ['prefix', 'type']
   }
 );

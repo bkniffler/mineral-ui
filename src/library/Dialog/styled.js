@@ -32,7 +32,6 @@ export const DialogRoot = createStyledComponent(
     top: 0
   }),
   {
-    displayName: 'Dialog',
     filterProps: ['title'],
     includeStyleReset: true
   }
@@ -54,9 +53,6 @@ export const DialogActionsRoot = createStyledComponent(
         [marginProperty]: theme.DialogActionsItem_margin
       }
     };
-  },
-  {
-    displayName: 'DialogActions'
   }
 );
 
@@ -71,9 +67,6 @@ export const DialogAnimate = createStyledComponent(
       willChange: 'opacity',
       zIndex: theme.Dialog_zIndex
     };
-  },
-  {
-    displayName: 'Animate'
   }
 );
 
@@ -103,9 +96,6 @@ export const DialogBodyRoot = createStyledComponent(
         marginBottom: marginVertical
       }
     };
-  },
-  {
-    displayName: 'DialogBody'
   }
 );
 
@@ -173,7 +163,6 @@ export const DialogCloseButton = createStyledComponent(
     };
   },
   {
-    displayName: 'CloseButton',
     withProps: {
       iconStart: <IconClose />,
       minimal: true,
@@ -220,9 +209,6 @@ export const DialogContent = createStyledComponent(
       position: 'relative',
       ...getSizeStyles(size)
     };
-  },
-  {
-    displayName: 'DialogContent'
   }
 );
 
@@ -232,7 +218,6 @@ export const DialogFooterRoot = createStyledComponent(
     flex: '0 0 auto'
   },
   {
-    displayName: 'DialogFooter',
     withProps: { element: 'footer' }
   }
 );
@@ -245,7 +230,6 @@ export const DialogHeaderRoot = createStyledComponent(
     justifyContent: 'space-between'
   },
   {
-    displayName: 'DialogHeader',
     withProps: { element: 'header' }
   }
 );
@@ -268,9 +252,6 @@ export const DialogOverlay = createStyledComponent(
       right: 0,
       top: 0
     };
-  },
-  {
-    displayName: 'Overlay'
   }
 );
 
@@ -323,9 +304,6 @@ export const DialogTitleRoot = createStyledComponent(
         [marginProperty]: theme.DialogTitleIcon_margin
       }
     };
-  },
-  {
-    displayName: 'DialogTitle'
   }
 );
 

@@ -59,7 +59,6 @@ export const FlexRoot = createStyledComponent(
       theme
     }),
   {
-    displayName: 'Flex',
     filterProps: ['inline']
   }
 );
@@ -101,7 +100,6 @@ export const createFlexItemRootNode: CreateRootNode<FlexItemProps> = (
         theme
       }),
     {
-      displayName: 'FlexItem',
       filterProps: ['inline', 'minWidth', 'width']
     }
   );

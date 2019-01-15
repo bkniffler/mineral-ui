@@ -8,7 +8,6 @@ export default createStyledComponent(
     marginLeft: theme.space_inline_xs
   }),
   {
-    displayName: 'FigCaption',
     includeStyleReset: true
   }
 );

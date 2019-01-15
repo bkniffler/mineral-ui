@@ -30,9 +30,6 @@ export const OverflowContainerRoot = createStyledComponent(
           }
         : undefined)
     };
-  },
-  {
-    displayName: 'OverflowContainer'
   }
 );
 
@@ -57,9 +54,6 @@ export const OverflowContainerWithShadowsRoot = createStyledComponent(
           }
         }
       : undefined;
-  },
-  {
-    displayName: 'OverflowContainerWithShadows'
   }
 );
 

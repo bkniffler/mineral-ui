@@ -58,7 +58,6 @@ export const AvatarRoot = createStyledComponent(
     };
   },
   {
-    displayName: 'Avatar',
     filterProps: ['icon'],
     includeStyleReset: true
   }

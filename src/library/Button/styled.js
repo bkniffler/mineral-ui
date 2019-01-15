@@ -232,7 +232,6 @@ export const Button = createStyledComponent(
     };
   },
   {
-    displayName: 'Button',
     filterProps: ['primary', 'text', 'variant'],
     includeStyleReset: true
   }

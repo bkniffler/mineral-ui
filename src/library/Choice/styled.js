@@ -41,7 +41,6 @@ export const ChoiceRoot = createStyledComponent(
     };
   },
   {
-    displayName: 'Choice',
     includeStyleReset: true
   }
 );
@@ -116,9 +115,6 @@ export const Text = createStyledComponent(
 
       ...(hideLabel ? hideVisually() : undefined)
     };
-  },
-  {
-    displayName: 'Text'
   }
 );
 
@@ -155,9 +151,6 @@ export const Control = createStyledComponent(
         width: '100%'
       }
     };
-  },
-  {
-    displayName: 'Control'
   }
 );
 
@@ -183,7 +176,6 @@ export const ChoiceGroupRoot = createStyledComponent(
     };
   },
   {
-    displayName: 'ChoiceGroup',
     includeStyleReset: true
   }
 );

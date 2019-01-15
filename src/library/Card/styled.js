@@ -35,7 +35,6 @@ export const CardRoot = createStyledComponent(
     };
   },
   {
-    displayName: 'Card',
     includeStyleReset: true
   }
 );
@@ -52,32 +51,24 @@ export const CardRow = createStyledComponent(
       paddingRight: theme.CardRow_paddingHorizontal
     };
   },
-  {
-    displayName: 'CardRow'
-  }
+  {}
 );
 
-export const CardActionsRoot = createStyledComponent(
-  CardRow,
-  (props) => {
-    const theme = {
-      ...cardActionsTheme(props.theme),
-      ...cardTheme(props.theme)
-    };
+export const CardActionsRoot = createStyledComponent(CardRow, (props) => {
+  const theme = {
+    ...cardActionsTheme(props.theme),
+    ...cardTheme(props.theme)
+  };
 
-    return {
-      display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'flex-end',
-      // We subtract `theme.CardActionsAction_spaceInline` because of the marginBottom on Action.
-      marginBottom: `${parseFloat(theme.CardRow_marginVertical) -
-        parseFloat(theme.CardActionsAction_spaceInline)}em`
-    };
-  },
-  {
-    displayName: 'CardActions'
-  }
-);
+  return {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'flex-end',
+    // We subtract `theme.CardActionsAction_spaceInline` because of the marginBottom on Action.
+    marginBottom: `${parseFloat(theme.CardRow_marginVertical) -
+      parseFloat(theme.CardActionsAction_spaceInline)}em`
+  };
+});
 
 export const CardAction = createStyledComponent('span', (props) => {
   const theme = {
@@ -102,21 +93,15 @@ export const CardAction = createStyledComponent('span', (props) => {
   };
 });
 
-export const CardBlockRoot = createStyledComponent(
-  CardRow,
-  (props) => {
-    const theme = cardTheme(props.theme);
+export const CardBlockRoot = createStyledComponent(CardRow, (props) => {
+  const theme = cardTheme(props.theme);
 
-    return {
-      '&:last-child': {
-        marginBottom: theme.CardRow_marginVerticalLast
-      }
-    };
-  },
-  {
-    displayName: 'CardBlock'
-  }
-);
+  return {
+    '&:last-child': {
+      marginBottom: theme.CardRow_marginVerticalLast
+    }
+  };
+});
 
 export const CardBlockInner = createStyledComponent('div', (props) => {
   const theme = cardBlockTheme(props.theme);
@@ -127,24 +112,18 @@ export const CardBlockInner = createStyledComponent('div', (props) => {
   };
 });
 
-export const CardDividerRoot = createStyledComponent(
-  'div',
-  (props) => {
-    const theme = {
-      ...cardDividerTheme(props.theme),
-      ...cardTheme(props.theme)
-    };
+export const CardDividerRoot = createStyledComponent('div', (props) => {
+  const theme = {
+    ...cardDividerTheme(props.theme),
+    ...cardTheme(props.theme)
+  };
 
-    return {
-      backgroundColor: theme.CardDivider_borderColor,
-      height: theme.CardDivider_borderWidth,
-      margin: `${theme.CardRow_marginVertical} 0`
-    };
-  },
-  {
-    displayName: 'CardDivider'
-  }
-);
+  return {
+    backgroundColor: theme.CardDivider_borderColor,
+    height: theme.CardDivider_borderWidth,
+    margin: `${theme.CardRow_marginVertical} 0`
+  };
+});
 
 export const CardFooterRoot = createStyledComponent(
   'div',
@@ -172,9 +151,6 @@ export const CardFooterRoot = createStyledComponent(
       paddingBottom: '0.01em', // Necessary to prevent margin collapse of last-child
       paddingTop: '0.01em' // Necessary to prevent margin collapse of first-child
     };
-  },
-  {
-    displayName: 'CardFooter'
   }
 );
 
@@ -292,7 +268,6 @@ export const CardImageRoot = createStyledComponent(
     };
   },
   {
-    displayName: 'CardImage',
     rootEl: 'img'
   }
 );
@@ -317,21 +292,12 @@ export const CardStatusRoot = createStyledComponent(
         width: theme.CardStatusIcon_size
       }
     };
-  },
-  {
-    displayName: 'CardStatus'
   }
 );
 
-export const CardTitleRoot = createStyledComponent(
-  CardRow,
-  {
-    display: 'flex'
-  },
-  {
-    displayName: 'CardTitle'
-  }
-);
+export const CardTitleRoot = createStyledComponent(CardRow, {
+  display: 'flex'
+});
 
 export const CardTitleAvatar = createStyledComponent(
   'span',

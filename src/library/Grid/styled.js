@@ -8,7 +8,6 @@ export const GridRoot = createStyledComponent(
   Flex,
   { display: 'flex' },
   {
-    displayName: 'Grid',
     filterProps: ['direction', 'inline', 'justifyContent'],
     withProps: { wrap: true }
   }
@@ -62,7 +61,6 @@ export const GridItemRoot = createStyledComponent(
     };
   },
   {
-    displayName: 'GridItem',
     filterProps: ['alignSelf', 'grow', 'inline', 'width'],
     withProps: { shrink: 0 }
   }

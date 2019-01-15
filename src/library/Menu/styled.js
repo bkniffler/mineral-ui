@@ -9,71 +9,58 @@ export const MenuRoot = createStyledComponent(
   'div',
   {},
   {
-    displayName: 'Menu',
     includeStyleReset: true
   }
 );
 
-export const MenuDividerRoot = createStyledComponent(
-  'div',
-  (props) => {
-    const theme = menuDividerTheme(props.theme);
+export const MenuDividerRoot = createStyledComponent('div', (props) => {
+  const theme = menuDividerTheme(props.theme);
 
-    return {
-      backgroundColor: theme.MenuDivider_borderColor,
-      height: theme.MenuDivider_borderWidth,
-      margin: `${theme.MenuDivider_margin} 0`
-    };
-  },
-  {
-    displayName: 'MenuDivider'
-  }
-);
+  return {
+    backgroundColor: theme.MenuDivider_borderColor,
+    height: theme.MenuDivider_borderWidth,
+    margin: `${theme.MenuDivider_margin} 0`
+  };
+});
 
-export const MenuGroupTitle = createStyledComponent(
-  'h3',
-  (props) => {
-    const theme = {
-      ...menuGroupTheme(props.theme),
-      ...menuItemTheme(props.theme)
-    };
+export const MenuGroupTitle = createStyledComponent('h3', (props) => {
+  const theme = {
+    ...menuGroupTheme(props.theme),
+    ...menuItemTheme(props.theme)
+  };
 
-    const paddingBottom = getNormalizedValue(
-      theme.MenuGroupTitle_paddingBottom,
-      theme.MenuGroupTitle_fontSize
-    );
+  const paddingBottom = getNormalizedValue(
+    theme.MenuGroupTitle_paddingBottom,
+    theme.MenuGroupTitle_fontSize
+  );
 
-    const paddingTop = getNormalizedValue(
-      theme.MenuGroupTitle_paddingTop,
-      theme.MenuGroupTitle_fontSize
-    );
+  const paddingTop = getNormalizedValue(
+    theme.MenuGroupTitle_paddingTop,
+    theme.MenuGroupTitle_fontSize
+  );
 
-    // We need to use MenuItem's padding, to match
-    const paddingHorizontal = getNormalizedValue(
-      theme.MenuItem_paddingHorizontal,
-      theme.MenuGroupTitle_fontSize
-    );
+  // We need to use MenuItem's padding, to match
+  const paddingHorizontal = getNormalizedValue(
+    theme.MenuItem_paddingHorizontal,
+    theme.MenuGroupTitle_fontSize
+  );
 
-    const marginTop = getNormalizedValue(
-      theme.MenuGroupTitle_marginTop,
-      theme.MenuGroupTitle_fontSize
-    );
+  const marginTop = getNormalizedValue(
+    theme.MenuGroupTitle_marginTop,
+    theme.MenuGroupTitle_fontSize
+  );
 
-    return {
-      fontSize: theme.MenuGroupTitle_fontSize,
-      fontWeight: theme.MenuGroupTitle_fontWeight,
-      margin: 0,
-      padding: `${paddingTop} ${paddingHorizontal} ${paddingBottom}`,
+  return {
+    fontSize: theme.MenuGroupTitle_fontSize,
+    fontWeight: theme.MenuGroupTitle_fontWeight,
+    margin: 0,
+    padding: `${paddingTop} ${paddingHorizontal} ${paddingBottom}`,
 
-      '&:not(:first-child)': {
-        marginTop
-      }
-    };
-  },
-  {
-    displayName: 'MenuGroupTitle'
-  }
-);
+    '&:not(:first-child)': {
+      marginTop
+    }
+  };
+});
 
 export const createMenuItemRootNode: CreateRootNode<
   MenuItemProps,
@@ -158,7 +145,6 @@ export const createMenuItemRootNode: CreateRootNode<
       };
     },
     {
-      displayName: 'MenuItem',
       rootEl: element
     }
   );

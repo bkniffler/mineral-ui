@@ -20,18 +20,12 @@ const ThemedFauxControl = createThemedComponent(
     )
 );
 
-export const TextAreaRoot = createStyledComponent(
-  ThemedFauxControl,
-  {
-    alignItems: 'center',
-    cursor: 'text',
-    display: 'flex',
-    width: '100%'
-  },
-  {
-    displayName: 'TextArea'
-  }
-);
+export const TextAreaRoot = createStyledComponent(ThemedFauxControl, {
+  alignItems: 'center',
+  cursor: 'text',
+  display: 'flex',
+  width: '100%'
+});
 
 export const Input = createStyledComponent(
   'textarea',

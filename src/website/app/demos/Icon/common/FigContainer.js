@@ -9,7 +9,6 @@ export default createStyledComponent(
     marginLeft: `-${theme.space_inline_xs}`
   }),
   {
-    displayName: 'FigContainer',
     includeStyleReset: true
   }
 );

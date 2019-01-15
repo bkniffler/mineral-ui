@@ -105,7 +105,6 @@ _With a style object and additional options_
 const StyledSample = createStyledComponent(Sample, {
   outline: '3px dashed tomato'
 }, {
-  displayName: 'StyledSample',
   includeStyleReset: true
 });
 ```

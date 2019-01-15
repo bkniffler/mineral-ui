@@ -52,7 +52,6 @@ export const TableRoot = createStyledComponent(
     width: '100%'
   },
   {
-    displayName: 'Table',
     rootEl: 'table',
     includeStyleReset: true
   }
@@ -62,7 +61,6 @@ export const TableBody = createStyledComponent(
   'tbody',
   {},
   {
-    displayName: 'TableBody',
     rootEl: 'tbody'
   }
 );
@@ -113,7 +111,6 @@ export const createTableCellRootNode: CreateRootNode<
       };
     },
     {
-      displayName: 'TableCell',
       rootEl: element
     }
   );
@@ -136,7 +133,6 @@ export const TableHeaderRoot = createStyledComponent(
         };
   },
   {
-    displayName: 'TableHeader',
     rootEl: 'thead'
   }
 );
@@ -213,7 +209,6 @@ export const createTableHeaderCellRootNode: CreateRootNode<
       };
     },
     {
-      displayName: 'TableHeaderCell',
       filterProps: ['width'],
       forwardProps: ['element', 'noPadding', 'textAlign'],
       rootEl: element,
@@ -285,7 +280,6 @@ export const TableRowRoot = createStyledComponent(
     };
   },
   {
-    displayName: 'TableRow',
     rootEl: 'tr'
   }
 );
@@ -333,7 +327,6 @@ export const TableSortableHeaderCellRoot = createStyledComponent(
     };
   },
   {
-    displayName: 'TableSortableHeaderCell',
     withProps: { noPadding: true }
   }
 );
@@ -426,7 +419,6 @@ export const TableTitleRoot = createStyledComponent(
     };
   },
   {
-    displayName: 'Caption',
     rootEl: 'caption'
   }
 );

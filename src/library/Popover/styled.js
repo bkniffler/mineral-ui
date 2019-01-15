@@ -6,16 +6,10 @@ import CardTitle from '../Card/CardTitle';
 import { popoverArrowTheme, popoverContentTheme } from './themes';
 import { ARROW_SIZE } from './constants';
 
-export const PopoverRoot = createStyledComponent(
-  'span',
-  {
-    color: null,
-    display: 'inline-block'
-  },
-  {
-    displayName: 'Popover'
-  }
-);
+export const PopoverRoot = createStyledComponent('span', {
+  color: null,
+  display: 'inline-block'
+});
 
 export const PopoverContentWrapper = createStyledComponent(
   'div',
@@ -50,7 +44,6 @@ export const PopoverContentWrapper = createStyledComponent(
     };
   },
   {
-    displayName: 'PopoverContent',
     includeStyleReset: true
   }
 );
@@ -134,7 +127,6 @@ export const PopoverArrowRoot = createStyledComponent(
     };
   },
   {
-    displayName: 'PopoverArrow',
     rootEl: 'span'
   }
 );
@@ -144,8 +136,5 @@ export const PopoverTriggerWrapper = createStyledComponent(
   ({ cursor }) => ({
     cursor,
     display: 'inline-block'
-  }),
-  {
-    displayName: 'PopoverTrigger'
-  }
+  })
 );

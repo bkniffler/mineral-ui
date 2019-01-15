@@ -50,9 +50,6 @@ export const TextInputRoot = createStyledComponent(
         }
       }
     };
-  },
-  {
-    displayName: 'TextInput'
   }
 );
 
@@ -88,7 +85,6 @@ export const Input = createStyledComponent(
     };
   },
   {
-    displayName: 'Input',
     rootEl: 'input',
     forwardProps: ['size']
   }

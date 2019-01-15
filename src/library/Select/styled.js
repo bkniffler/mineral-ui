@@ -21,19 +21,13 @@ const ThemedDropdown = createThemedComponent(Dropdown, ({ theme: baseTheme }) =>
   )
 );
 
-export const SelectRoot = createStyledComponent(
-  ThemedDropdown,
-  {
-    width: '100%',
+export const SelectRoot = createStyledComponent(ThemedDropdown, {
+  width: '100%',
 
-    '& > span': {
-      width: '100%'
-    }
-  },
-  {
-    displayName: 'Select'
+  '& > span': {
+    width: '100%'
   }
-);
+});
 
 export const contentWidthModifier = {
   enabled: true,
@@ -112,9 +106,6 @@ export const SelectTriggerRoot = createStyledComponent(
         marginRight: rtl ? theme.SelectIcon_marginHorizontal : null
       }
     };
-  },
-  {
-    displayName: 'SelectTrigger'
   }
 );
 
@@ -133,20 +124,11 @@ export const Trigger = createStyledComponent(
       height: getNormalizedValue(theme[`Select_height_${size}`], fontSize),
       minWidth: 0
     };
-  },
-  {
-    displayName: 'Trigger'
   }
 );
 
-export const TriggerContent = createStyledComponent(
-  'span',
-  {
-    ...ellipsis(null),
-    userSelect: 'none',
-    width: '100%'
-  },
-  {
-    displayName: 'TriggerContent'
-  }
-);
+export const TriggerContent = createStyledComponent('span', {
+  ...ellipsis(null),
+  userSelect: 'none',
+  width: '100%'
+});

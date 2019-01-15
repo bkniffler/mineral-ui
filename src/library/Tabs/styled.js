@@ -26,7 +26,6 @@ export const TabsRoot = createStyledComponent(
     };
   },
   {
-    displayName: 'Tabs',
     includeStyleReset: true
   }
 );
@@ -107,7 +106,6 @@ export const TabAnchor = createStyledComponent(
     };
   },
   {
-    displayName: 'Tab',
     filterProps: ['title'],
     withProps: {
       element: 'a',
@@ -172,9 +170,6 @@ const TabListArrowButton = createStyledComponent(
         height: '100%'
       }
     };
-  },
-  {
-    displayName: 'ArrowButton'
   }
 );
 
@@ -211,7 +206,6 @@ export const TabListInner = createStyledComponent(
     };
   },
   {
-    displayName: 'Inner',
     withProps: {
       hideScrollbars: true,
       // We handle our own "scroll with the keyboard" interaction in Tabs, so
@@ -289,10 +283,7 @@ export const TabListRoot = createStyledComponent(
           }
         }
       : undefined)
-  }),
-  {
-    displayName: 'TabList'
-  }
+  })
 );
 
 // eslint-disable-next-line react/display-name
@@ -361,7 +352,6 @@ export const TabPanelRoot = createStyledComponent(
     };
   },
   {
-    displayName: 'TabPanel',
     withProps: {
       role: 'tabpanel'
     }

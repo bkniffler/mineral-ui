@@ -8,7 +8,6 @@ export default createStyledComponent(
     position: 'static'
   },
   {
-    displayName: 'DemoDialog',
     withProps: {
       closeOnClickOutside: false,
       closeOnEscape: false,

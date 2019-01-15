@@ -137,7 +137,6 @@ export const ButtonGroupRoot = createStyledComponent(
     };
   },
   {
-    displayName: 'ButtonGroup',
     includeStyleReset: true
   }
 );

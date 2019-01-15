@@ -36,7 +36,6 @@ export const DropdownContentWrapper = createStyledComponent(
     };
   },
   {
-    displayName: 'DropdownContent',
     includeStyleReset: true,
     filterProps: ['hasArrow', 'wide']
   }
