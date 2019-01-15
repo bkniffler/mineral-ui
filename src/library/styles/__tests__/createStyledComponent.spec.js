@@ -9,17 +9,6 @@ const mountButton = (props = {}, styles = {}, options = {}) => {
 };
 
 describe('createStyledComponent', () => {
-  const wrapper = mountButton({ type: 'button', xyz: true });
-  const button = wrapper.childAt(0);
-
-  it('forwards valid DOM attributes', () => {
-    expect(button.props().type).toBeDefined();
-  });
-
-  it('filters invalid DOM attributes', () => {
-    expect(button.props().xyz).toBeUndefined();
-  });
-
   describe('with withProps option', () => {
     const wrapper = mountButton(
       {},
@@ -34,55 +23,6 @@ describe('createStyledComponent', () => {
 
     it('passes props to component', () => {
       expect(button.props().type).toBe('button');
-    });
-  });
-
-  describe('with filterProps option', () => {
-    const wrapper = mountButton(
-      { value: 'test' },
-      {},
-      {
-        filterProps: ['value']
-      }
-    );
-    const button = wrapper.childAt(0);
-
-    it('filters filterProps', () => {
-      expect(button.props().filterMe).toBeUndefined();
-    });
-  });
-
-  describe('with forwardProps option', () => {
-    const wrapper = mountButton(
-      { forwardme: 'true' },
-      {},
-      {
-        forwardProps: ['forwardme']
-      }
-    );
-    const button = wrapper.childAt(0);
-
-    it('forwards forwardme', () => {
-      expect(button.props().forwardme).toBeDefined();
-    });
-  });
-
-  describe('with rootEl option', () => {
-    const Image = createStyledComponent('img', {});
-    const StyledImage = createStyledComponent(
-      Image,
-      {},
-      {
-        rootEl: 'div'
-      }
-    );
-
-    const wrapper = mount(<StyledImage src="http" />);
-    const image = wrapper.childAt(0);
-
-    it('filters invalid DOM attributes', () => {
-      // src is invalid here because rootEl is div
-      expect(image.props().src).toBeUndefined();
     });
   });
 

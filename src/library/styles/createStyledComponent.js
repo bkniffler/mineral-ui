@@ -3,7 +3,6 @@
 import styled from '@emotion/styled';
 import withPropsFn from 'recompose/withProps';
 import componentStyleReset from './componentStyleReset';
-import isValidProp from '../utils/isValidProp';
 
 import type { CreateStyledComponent, StyleFn } from './types';
 
@@ -12,14 +11,8 @@ const createStyledComponent: CreateStyledComponent = (
   styles,
   options = {}
 ) => {
-  const {
-    displayName,
-    filterProps = [],
-    forwardProps = [],
-    includeStyleReset,
-    rootEl,
-    withProps
-  } = options;
+  const { includeStyleReset, withProps, ...restOptions } = options;
+
   const outStyles: StyleFn = (props, context) => {
     let componentStyles =
       typeof styles === 'function' ? styles(props, context) : styles;
@@ -39,23 +32,7 @@ const createStyledComponent: CreateStyledComponent = (
     return componentStyles;
   };
 
-  const styledComponent = styled(element, {
-    ...(process.env.NODE_ENV !== 'production' && displayName
-      ? { label: displayName }
-      : undefined),
-    shouldForwardProp: (prop) => {
-      /*
-       * These props are filtered in Emotion's default implementation of
-       * shouldForwardProp, which this overrides.
-       */
-      const filteredProps = ['innerRef', 'theme'].concat(filterProps);
-      const isFiltered = filteredProps.indexOf(prop) !== -1;
-      const isForwarded = forwardProps.indexOf(prop) !== -1;
-      const tag = typeof element === 'string' ? element : rootEl;
-
-      return !isFiltered && (isForwarded || isValidProp(tag, prop));
-    }
-  })(outStyles);
+  const styledComponent = styled(element, restOptions)(outStyles);
 
   return withProps ? withPropsFn(withProps)(styledComponent) : styledComponent;
 };

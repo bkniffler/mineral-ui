@@ -19,11 +19,7 @@ export type CreateStyledComponent = (
     | string,
   styles: Styles,
   options?: {
-    displayName?: string,
-    filterProps?: Array<string>,
-    forwardProps?: Array<string>,
     includeStyleReset?: boolean,
-    rootEl?: string,
     withProps?: Object
   }
 ) => React$ComponentType<*>;
