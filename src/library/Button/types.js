@@ -14,7 +14,6 @@ export type ButtonProps = {
   children?: React$Node,
   circular?: boolean,
   disabled?: boolean,
-  element?: $FlowFixMe, // Should allow string | React$ComponentType<*>
   forwardedRef?: React$Ref<*>,
   fullWidth?: boolean,
   iconEnd?: React$Element<*>,
@@ -28,9 +27,7 @@ export type ButtonProps = {
 };
 
 export type ButtonDefaultProps = {
-  element: $FlowFixMe, // Should allow string | React$ComponentType<*>
-  size: Size,
-  type: string
+  size: Size
 };
 
 export type ButtonThemeFn = ComponentThemeFn<ButtonTheme>;

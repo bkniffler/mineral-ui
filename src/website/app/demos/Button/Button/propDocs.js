@@ -18,13 +18,6 @@ const propDocs: ComponentPropDocs = {
     description: 'Disables the Button',
     type: 'boolean'
   },
-  element: {
-    description:
-      'Element to be used as the root node - e.g. `a` can be used to create a link that is styled like a Button',
-    type: 'string | React$ComponentType<*>',
-    // $FlowFixMe - defaultProps missing in React.AbstractComponentStatics
-    defaultValue: `'${Button.defaultProps.element}'`
-  },
   fullWidth: {
     description: 'Stretch Button to fill its container',
     type: 'boolean'
@@ -63,9 +56,7 @@ const propDocs: ComponentPropDocs = {
   },
   type: {
     description: 'Available types',
-    type: 'string',
-    // $FlowFixMe - defaultProps missing in React.AbstractComponentStatics
-    defaultValue: `'${Button.defaultProps.type}'`
+    type: 'string'
   },
   variant: {
     description: 'Available variants',
