@@ -1,6 +1,6 @@
 /* @flow */
 import { hideVisually } from 'polished';
-import { createStyledComponent, getNormalizedValue } from '../styles';
+import { componentStyleReset, createStyledComponent, getNormalizedValue } from '../styles';
 import { choiceTheme, choiceGroupTheme } from './themes';
 
 export const ChoiceRoot = createStyledComponent(
@@ -10,6 +10,8 @@ export const ChoiceRoot = createStyledComponent(
     const labelPositionStart = labelPosition === 'start';
 
     return {
+      ...componentStyleReset(baseTheme),
+
       alignItems: 'center',
       cursor: !disabled && 'pointer',
       display: 'flex',
@@ -39,9 +41,6 @@ export const ChoiceRoot = createStyledComponent(
           }
         : undefined)
     };
-  },
-  {
-    includeStyleReset: true
   }
 );
 
@@ -160,6 +159,8 @@ export const ChoiceGroupRoot = createStyledComponent(
     const theme = choiceGroupTheme(baseTheme);
 
     return {
+      ...componentStyleReset(baseTheme),
+      
       display: 'flex',
       flexDirection: inline ? 'row' : 'column',
 
@@ -174,8 +175,5 @@ export const ChoiceGroupRoot = createStyledComponent(
           : undefined
       }
     };
-  },
-  {
-    includeStyleReset: true
   }
 );

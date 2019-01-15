@@ -1,5 +1,5 @@
 /* @flow */
-import { createStyledComponent } from '../styles';
+import { componentStyleReset, createStyledComponent } from '../styles';
 import { createThemedComponent } from '../themes';
 import CardBlock from '../Card/CardBlock';
 import CardTitle from '../Card/CardTitle';
@@ -17,6 +17,8 @@ export const PopoverContentWrapper = createStyledComponent(
     const theme = popoverContentTheme(baseTheme);
 
     return {
+      ...componentStyleReset(baseTheme),
+
       backgroundColor: theme.PopoverContent_backgroundColor,
       border: `1px solid ${theme.PopoverContent_borderColor}`,
       borderRadius: theme.PopoverContent_borderRadius,
@@ -42,9 +44,6 @@ export const PopoverContentWrapper = createStyledComponent(
         visibility: 'hidden'
       }
     };
-  },
-  {
-    includeStyleReset: true
   }
 );
 

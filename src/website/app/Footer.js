@@ -2,6 +2,7 @@
 import React from 'react';
 import withProps from 'recompose/withProps';
 import {
+  componentStyleReset,
   createStyledComponent,
   getNormalizedValue
 } from '../../library/styles';
@@ -27,6 +28,8 @@ const Root = withProps({ element: 'footer' })(
   createStyledComponent(
     ThemedSection,
     ({ theme }) => ({
+      ...componentStyleReset(theme),
+
       backgroundColor: theme.color_black,
       color: theme.color_gray_40,
       fontWeight: theme.fontWeight_medium,
@@ -60,10 +63,7 @@ const Root = withProps({ element: 'footer' })(
           }
         }
       }
-    }),
-    {
-      includeStyleReset: true
-    }
+    })
   )
 );
 

@@ -1,5 +1,5 @@
 /* @flow */
-import { createStyledComponent } from '../styles';
+import { componentStyleReset, createStyledComponent } from '../styles';
 import { createThemedComponent } from '../themes';
 import Button from '../Button';
 import { ALIGN, INTERNAL_TYPE } from './constants';
@@ -18,6 +18,8 @@ export const NavigationRoot = createStyledComponent(
     };
 
     return {
+      ...componentStyleReset(baseTheme),
+
       backgroundColor: theme[`${prefix}Nav_backgroundColor${type}`],
       borderBottom: theme[`${prefix}Nav_border`],
       display: 'flex',
@@ -39,8 +41,7 @@ export const NavigationRoot = createStyledComponent(
     };
   },
   {
-    filterProps: ['prefix'],
-    includeStyleReset: true
+    filterProps: ['prefix']
   }
 );
 

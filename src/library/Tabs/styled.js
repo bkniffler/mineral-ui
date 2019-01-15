@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react';
 import withProps from 'recompose/withProps';
-import { createStyledComponent, pxToEm } from '../styles';
+import { componentStyleReset, createStyledComponent, pxToEm } from '../styles';
 import { createThemedComponent } from '../themes';
 import { ie10Plus } from '../utils/cssSelectors';
 import Button from '../Button';
@@ -12,7 +12,7 @@ import { tabTheme, tabListTheme, tabPanelTheme } from './themes';
 
 export const TabsRoot = createStyledComponent(
   'div',
-  ({ height, position }) => {
+  ({ height, position, theme }) => {
     const flexDirection = {
       bottom: 'column-reverse',
       end: 'row-reverse',
@@ -21,13 +21,12 @@ export const TabsRoot = createStyledComponent(
     };
 
     return {
+      ...componentStyleReset(theme),
+
       display: 'flex',
       flexDirection: flexDirection[position],
       height
     };
-  },
-  {
-    includeStyleReset: true
   }
 );
 

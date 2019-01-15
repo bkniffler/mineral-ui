@@ -17,8 +17,5 @@ export default createStyledComponent(
     '& > [role="img"]': {
       marginRight: theme.space_inline_xs
     }
-  }),
-  {
-    includeStyleReset: true
-  }
+  })
 );

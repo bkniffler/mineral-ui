@@ -1,7 +1,7 @@
 /* @flow */
 import withProps from 'recompose/withProps';
 import { hideVisually } from 'polished';
-import { createStyledComponent, getNormalizedValue, pxToEm } from '../styles';
+import { componentStyleReset, createStyledComponent, getNormalizedValue, pxToEm } from '../styles';
 import { createThemedComponent, mapComponentThemes } from '../themes';
 import { rtlTextAlign } from '../utils';
 import Checkbox from '../Checkbox';
@@ -47,14 +47,15 @@ export const TableOverflowContainer = createThemedComponent(
 
 export const TableRoot = createStyledComponent(
   'table',
-  {
+  ({ theme }) => ({
+    ...componentStyleReset(theme),
+
     borderCollapse: 'collapse',
     borderSpacing: 0,
     width: '100%'
-  },
+  }),
   {
-    rootEl: 'table',
-    includeStyleReset: true
+    rootEl: 'table'
   }
 );
 

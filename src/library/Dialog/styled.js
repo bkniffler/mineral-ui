@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react';
 import withProps from 'recompose/withProps';
-import { createStyledComponent, getNormalizedValue } from '../styles';
+import { componentStyleReset, createStyledComponent, getNormalizedValue } from '../styles';
 import { createThemedComponent, mapComponentThemes } from '../themes';
 import Button from '../Button';
 import Text from '../Text';
@@ -21,7 +21,9 @@ import type { DialogRowDefaultProps, DialogRowProps } from './types';
 
 export const DialogRoot = createStyledComponent(
   'div',
-  ({ modeless }) => ({
+  ({ modeless, theme }) => ({
+    ...componentStyleReset(theme),
+
     alignItems: 'center',
     bottom: 0,
     display: 'flex',
@@ -33,8 +35,7 @@ export const DialogRoot = createStyledComponent(
     top: 0
   }),
   {
-    filterProps: ['title'],
-    includeStyleReset: true
+    filterProps: ['title']
   }
 );
 
@@ -260,6 +261,8 @@ export const createDialogRowRootNode: CreateRootNode<
       const fontSize = theme.DialogRow_fontSize;
 
       return {
+        ...componentStyleReset(baseTheme),
+
         fontSize,
         margin: `${getNormalizedValue(
           theme.DialogRow_marginVertical,
@@ -273,7 +276,6 @@ export const createDialogRowRootNode: CreateRootNode<
       };
     },
     {
-      includeStyleReset: true,
       rootEl: element
     }
   );

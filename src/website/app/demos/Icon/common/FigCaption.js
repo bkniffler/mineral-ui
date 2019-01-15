@@ -6,8 +6,5 @@ export default createStyledComponent(
   ({ theme }) => ({
     fontSize: theme.fontSize_mouse,
     marginLeft: theme.space_inline_xs
-  }),
-  {
-    includeStyleReset: true
-  }
+  })
 );

@@ -1,6 +1,7 @@
 /* @flow */
 import React from 'react';
 import {
+  componentStyleReset,
   createStyledComponent,
   pxToEm
 } from '../../../../../../library/styles';
@@ -19,6 +20,7 @@ of all [MenuItems](/components/menu-item) in the Menu.
 ${renderPropsDescription}`,
   scope: {
     Avatar,
+    componentStyleReset,
     createStyledComponent,
     DemoLayout,
     Menu,
@@ -31,6 +33,8 @@ ${renderPropsDescription}`,
       const Div = createStyledComponent(
         'div',
         ({ disabled, isHighlighted, theme }) => ({
+          ...componentStyleReset(theme),
+
           backgroundColor: isHighlighted && theme.color_theme_20,
           display: 'flex',
           padding: theme.space_inset_sm + ' ' + theme.space_inset_md,
@@ -48,10 +52,7 @@ ${renderPropsDescription}`,
           '&:active': {
             backgroundColor: !disabled && theme.color_theme_40
           }
-        }),
-        {
-          includeStyleReset: true
-        }
+        })
       );
 
       const Work = createStyledComponent('span', ({ theme }) => ({

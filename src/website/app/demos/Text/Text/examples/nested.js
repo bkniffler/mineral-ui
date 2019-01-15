@@ -4,7 +4,7 @@ import withProps from 'recompose/withProps';
 import { palette } from 'mineral-ui-tokens';
 import _Text from '../../../../../../library/Text';
 import { mineralTheme as theme } from '../../../../../../library/themes';
-import { createStyledComponent } from '../../../../../../library/styles';
+import { componentStyleReset, createStyledComponent } from '../../../../../../library/styles';
 import _DemoLayout from '../../../common/DemoLayout';
 
 const StyledDemoLayout = (props): React$Element<*> => (
@@ -13,10 +13,7 @@ const StyledDemoLayout = (props): React$Element<*> => (
 
 const DemoLayout = createStyledComponent(
   StyledDemoLayout,
-  {},
-  {
-    includeStyleReset: true
-  }
+  ({ theme }) => componentStyleReset(theme),
 );
 
 const Text = withProps({ noMargins: true })(

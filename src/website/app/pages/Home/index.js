@@ -9,6 +9,7 @@ import rgba from 'polished/lib/color/rgba';
 import withProps from 'recompose/withProps';
 import { palette } from 'mineral-ui-tokens';
 import {
+  componentStyleReset,
   createStyledComponent,
   getNormalizedValue,
   pxToEm
@@ -354,6 +355,8 @@ const styles = {
     }
   }),
   getStartedContent: ({ theme }) => ({
+    ...componentStyleReset(theme),
+
     margin: '0 auto',
     maxWidth: 'min-content',
     textAlign: 'center',
@@ -453,6 +456,8 @@ const styles = {
     }
   }),
   home: ({ theme }) => ({
+    ...componentStyleReset(theme),
+
     '& ::selection': {
       backgroundColor: rgba(theme.color_theme, 0.2)
     }
@@ -573,9 +578,7 @@ const styles = {
   })
 };
 
-const Root = createStyledComponent('div', styles.home, {
-  includeStyleReset: true
-});
+const Root = createStyledComponent('div', styles.home);
 // Markdown must come before all of the other Markdown-based components
 const Markdown = withProps({ anchors: false })(
   createStyledComponent(_Markdown, styles.markdown)
@@ -599,10 +602,7 @@ const GetStartedBackgrounds = createStyledComponent(
 );
 const GetStartedContent = createStyledComponent(
   'div',
-  styles.getStartedContent,
-  {
-    includeStyleReset: true
-  }
+  styles.getStartedContent
 );
 const GetStartedSection = createStyledComponent(
   Section,

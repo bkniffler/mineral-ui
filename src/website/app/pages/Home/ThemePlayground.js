@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react';
 import rgba from 'polished/lib/color/rgba';
-import { createStyledComponent, pxToEm } from '../../../../library/styles';
+import { componentStyleReset, createStyledComponent, pxToEm } from '../../../../library/styles';
 import IconCheck from 'mineral-ui-icons/IconCheck';
 import { ThemeProvider } from '../../../../library/themes';
 
@@ -22,6 +22,8 @@ type OptionProps = {
 
 const styles = {
   root: ({ theme, themes, index }) => ({
+    ...componentStyleReset(theme),
+
     marginTop: theme.space_stack_xl,
     position: 'relative', // for z-index
     zIndex: 2,
@@ -52,6 +54,8 @@ const styles = {
     }
   }),
   optionRoot: ({ isActive, theme, themes, thisIndex }) => ({
+    ...componentStyleReset(theme),
+
     alignItems: 'center',
     backgroundColor: isActive
       ? themes[thisIndex].color_theme_10
@@ -167,12 +171,8 @@ const styles = {
   })
 };
 
-const Root = createStyledComponent('div', styles.root, {
-  includeStyleReset: true
-});
-const OptionRoot = createStyledComponent('button', styles.optionRoot, {
-  includeStyleReset: true
-});
+const Root = createStyledComponent('div', styles.root);
+const OptionRoot = createStyledComponent('button', styles.optionRoot);
 const OptionHex = createStyledComponent('span', styles.optionHex);
 const OptionIcon = createStyledComponent(IconCheck, styles.optionIcon);
 const OptionName = createStyledComponent('span', styles.optionName);

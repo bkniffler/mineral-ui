@@ -1,6 +1,6 @@
 /* @flow */
 
-import { createStyledComponent } from '../../../../../../library/styles';
+import { componentStyleReset, createStyledComponent } from '../../../../../../library/styles';
 import Button from '../../../../../../library/Button';
 import Popover from '../../../../../../library/Popover';
 import Popper from '../../../../../../library/Popover/RtlPopper';
@@ -14,6 +14,7 @@ export default {
 control of the content. ${renderPropsDescription}`,
   scope: {
     Button,
+    componentStyleReset,
     createStyledComponent,
     DemoContent,
     Popover,
@@ -26,14 +27,14 @@ control of the content. ${renderPropsDescription}`,
         // import { Popper } from 'react-popper';
 
         const Content = createStyledComponent('div', ({ theme }) => ({
+          ...componentStyleReset(theme),
+
           backgroundColor: theme.backgroundColor_dangerPrimary,
           color: theme.color_white,
           margin: theme.space_inset_sm,
           padding: theme.space_inset_lg,
           zIndex: theme.zIndex_100
-        }), {
-          includeStyleReset: true,
-        });
+        }));
 
         return (
           <Popper>

@@ -1,6 +1,6 @@
 /* @flow */
 import { rtlTextAlign } from '../utils';
-import { createStyledComponent } from '../styles';
+import { componentStyleReset, createStyledComponent } from '../styles';
 import { textTheme } from './themes';
 import { APPEARANCE, HEADING_ELEMENTS, MONOSPACE_ELEMENTS } from './constants';
 
@@ -99,6 +99,8 @@ const getTextStyles: GetTextStyles = (inherit, defaultProps) => {
         }
 
         let styles = {
+          ...componentStyleReset(baseTheme),
+
           color: color || theme.Text_color,
           fontSize: `${parseFloat(theme.Text_fontSize) *
             parseInt(theme.fontSize_base)}px`,
@@ -136,7 +138,6 @@ export const createTextRootNode: CreateRootNode<TextProps, TextDefaultProps> = (
       : element;
 
   return createStyledComponent(element, getTextStyles(inherit, defaultProps), {
-    rootEl: element,
-    includeStyleReset: !inherit
+    rootEl: element
   });
 };

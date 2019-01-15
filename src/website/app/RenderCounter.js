@@ -1,6 +1,6 @@
 /* @flow */
 import React, { PureComponent } from 'react';
-import { createStyledComponent } from '../../library/styles';
+import { componentStyleReset, createStyledComponent } from '../../library/styles';
 
 type Props = {};
 
@@ -39,6 +39,8 @@ export const countRender = (key: string) => {
 const Root = createStyledComponent(
   'div',
   ({ theme }) => ({
+    ...componentStyleReset(theme),
+
     backgroundColor: theme.color_theme_20,
     bottom: 0,
     display: 'inline-block',
@@ -61,10 +63,7 @@ const Root = createStyledComponent(
     button: {
       marginLeft: theme.space_inline_md
     }
-  }),
-  {
-    includeStyleReset: true
-  }
+  })
 );
 
 /**

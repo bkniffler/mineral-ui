@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react';
 import { withTheme } from '../../../../../library/themes';
-import { createStyledComponent, pxToEm } from '../../../../../library/styles';
+import { componentStyleReset, createStyledComponent, pxToEm } from '../../../../../library/styles';
 import Avatar from '../../../../../library/Avatar';
 import { menuItemTheme } from '../../../../../library/Menu/themes';
 
@@ -12,7 +12,9 @@ export default function customItem({ props }: Object) {
 
     const Root = createStyledComponent(
       'div',
-      {
+      ({ theme }) => ({
+        ...componentStyleReset(theme),
+
         backgroundColor: props.isHighlighted && theme.color_theme_20,
         display: 'flex',
         padding:
@@ -33,10 +35,7 @@ export default function customItem({ props }: Object) {
         '&:active': {
           backgroundColor: !props.disabled && theme.color_theme_40
         }
-      },
-      {
-        includeStyleReset: true
-      }
+      })
     );
 
     const Work = createStyledComponent('span', {

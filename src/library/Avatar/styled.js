@@ -1,5 +1,5 @@
 /* @flow */
-import { createStyledComponent } from '../styles';
+import { componentStyleReset, createStyledComponent } from '../styles';
 import { SHAPE } from './constants';
 import { avatarTheme } from './themes';
 
@@ -20,6 +20,8 @@ export const AvatarRoot = createStyledComponent(
     const size = theme[`Avatar_size_${propSize}`];
 
     return {
+      ...componentStyleReset(baseTheme),
+
       alignItems: 'center',
       backgroundColor: noBackground ? null : background || theme.color_theme_60,
       color,
@@ -58,7 +60,6 @@ export const AvatarRoot = createStyledComponent(
     };
   },
   {
-    filterProps: ['icon'],
-    includeStyleReset: true
+    filterProps: ['icon']
   }
 );

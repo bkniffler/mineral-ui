@@ -1,6 +1,6 @@
 /* @flow */
 import withProps from 'recompose/withProps';
-import { createStyledComponent } from '../styles';
+import { componentStyleReset, createStyledComponent } from '../styles';
 import { createThemedComponent } from '../themes';
 import Flex, { FlexItem } from '../Flex';
 import TextInput from '../TextInput';
@@ -13,7 +13,10 @@ export const PaginationRoot = withProps({ element: 'nav' })(
     Flex,
     ({ theme: baseTheme }) => {
       const theme = paginationTheme(baseTheme);
+
       return {
+        ...componentStyleReset(baseTheme),
+
         flexWrap: 'wrap-reverse',
         marginBottom: `-${theme.Pagination_gutterWidth}`,
 
@@ -21,9 +24,6 @@ export const PaginationRoot = withProps({ element: 'nav' })(
           marginBottom: theme.Pagination_gutterWidth
         }
       };
-    },
-    {
-      includeStyleReset: true
     }
   )
 );

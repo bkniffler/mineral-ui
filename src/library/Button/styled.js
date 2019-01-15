@@ -1,7 +1,7 @@
 /* @flow */
 
 import { ellipsis } from 'polished';
-import { createStyledComponent, getNormalizedValue } from '../styles';
+import { componentStyleReset, createStyledComponent, getNormalizedValue } from '../styles';
 import { SIZE } from './constants';
 import { buttonTheme } from './themes';
 
@@ -109,6 +109,8 @@ export const Button = createStyledComponent(
 
     const color = chooseColor({ disabled, primary, minimal }, theme);
     return {
+      ...componentStyleReset(baseTheme),
+
       backgroundColor: (() => {
         if (disabled && !minimal) {
           return theme.backgroundColor_disabled;
@@ -233,6 +235,5 @@ export const Button = createStyledComponent(
   },
   {
     filterProps: ['primary', 'text', 'variant'],
-    includeStyleReset: true
   }
 );

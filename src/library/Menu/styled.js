@@ -1,5 +1,5 @@
 /* @flow */
-import { createStyledComponent, getNormalizedValue, pxToEm } from '../styles';
+import { componentStyleReset, createStyledComponent, getNormalizedValue, pxToEm } from '../styles';
 import { menuDividerTheme, menuGroupTheme, menuItemTheme } from './themes';
 
 import type { CreateRootNode } from '../styles/types';
@@ -7,10 +7,7 @@ import type { MenuItemDefaultProps, MenuItemProps } from './types';
 
 export const MenuRoot = createStyledComponent(
   'div',
-  {},
-  {
-    includeStyleReset: true
-  }
+  ({ theme }) => componentStyleReset(theme)
 );
 
 export const MenuDividerRoot = createStyledComponent('div', (props) => {

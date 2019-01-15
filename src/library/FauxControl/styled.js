@@ -1,6 +1,6 @@
 /* @flow */
 import { ellipsis } from 'polished';
-import { createStyledComponent, getNormalizedValue } from '../styles';
+import { componentStyleReset, createStyledComponent, getNormalizedValue } from '../styles';
 
 import { fauxControlTheme } from './themes';
 
@@ -22,6 +22,8 @@ export const FauxControlRoot = createStyledComponent(
     }
 
     return {
+      ...componentStyleReset(baseTheme),
+
       position: 'relative',
       zIndex: 1,
 
@@ -45,9 +47,6 @@ export const FauxControlRoot = createStyledComponent(
         }
       }
     };
-  },
-  {
-    includeStyleReset: true
   }
 );
 

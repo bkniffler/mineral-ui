@@ -1,6 +1,6 @@
 /* @flow */
 import { hideVisually } from 'polished';
-import { createStyledComponent, getNormalizedValue } from '../styles';
+import { componentStyleReset, createStyledComponent, getNormalizedValue } from '../styles';
 import {
   formFieldTheme,
   formFieldDividerTheme,
@@ -9,10 +9,7 @@ import {
 
 export const FormFieldRoot = createStyledComponent(
   'div',
-  {},
-  {
-    includeStyleReset: true
-  }
+  ({ theme }) => componentStyleReset(theme),
 );
 
 export const FormFieldCaption = createStyledComponent(
@@ -73,6 +70,8 @@ export const FormFieldsetRoot = createStyledComponent(
     const theme = formFieldsetTheme(baseTheme);
 
     return {
+      ...componentStyleReset(baseTheme),
+
       border: '1px solid transparent',
       borderTopColor: theme.FormFieldset_borderColor,
       padding: 0,
@@ -89,7 +88,6 @@ export const FormFieldsetRoot = createStyledComponent(
     };
   },
   {
-    includeStyleReset: true,
     rootEl: 'fieldset'
   }
 );

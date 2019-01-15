@@ -1,5 +1,5 @@
 /* @flow */
-import { createStyledComponent, pxToEm } from '../styles';
+import { componentStyleReset, createStyledComponent, pxToEm } from '../styles';
 import { dropdownContentTheme } from './themes';
 
 export const DropdownContentWrapper = createStyledComponent(
@@ -8,6 +8,8 @@ export const DropdownContentWrapper = createStyledComponent(
     const theme = dropdownContentTheme(baseTheme);
 
     return {
+      ...componentStyleReset(baseTheme),
+
       backgroundColor: theme.DropdownContent_backgroundColor,
       border: `1px solid ${theme.DropdownContent_borderColor}`,
       borderRadius: theme.DropdownContent_borderRadius,
@@ -36,7 +38,6 @@ export const DropdownContentWrapper = createStyledComponent(
     };
   },
   {
-    includeStyleReset: true,
     filterProps: ['hasArrow', 'wide']
   }
 );

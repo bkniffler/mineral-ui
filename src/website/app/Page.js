@@ -8,6 +8,7 @@ import darken from 'polished/lib/color/darken';
 import rgba from 'polished/lib/color/rgba';
 import withProps from 'recompose/withProps';
 import {
+  componentStyleReset,
   createStyledComponent,
   getNormalizedValue,
   pxToEm
@@ -329,6 +330,8 @@ const styles = {
         };
   },
   root: ({ theme, glitched }) => ({
+    ...componentStyleReset(theme),
+
     backgroundColor: glitched ? 'white' : null,
     filter: glitched ? 'invert(100%) contrast(120%)' : null,
     fontFamily: theme.fontFamily_system,
@@ -354,9 +357,7 @@ const styles = {
   }
 };
 
-const Root = createStyledComponent('div', styles.root, {
-  includeStyleReset: true
-});
+const Root = createStyledComponent('div', styles.root);
 const Canvas = createStyledComponent(_Canvas, styles.canvas);
 const Content = createStyledComponent('main', styles.content);
 const Dialog = createStyledComponent('div', styles.dialog);

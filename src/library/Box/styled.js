@@ -1,5 +1,5 @@
 /* @flow */
-import { createStyledComponent, getResponsiveStyles } from '../styles';
+import { componentStyleReset, createStyledComponent, getResponsiveStyles } from '../styles';
 import { SPACING_TYPES } from './constants';
 
 import type { CreateRootNode } from '../styles/types';
@@ -92,21 +92,23 @@ export const createBoxRootNode: CreateRootNode<BoxProps, BoxDefaultProps> = (
         return map[property](value);
       };
 
-      return getResponsiveStyles({
-        breakpoints,
-        mapValueToProperty,
-        styles: {
-          display: inline,
-          height,
-          ...getSpacingStyles('margin', restProps, rtl),
-          ...getSpacingStyles('padding', restProps, rtl),
-          width
-        },
-        theme
-      });
+      return {
+        ...componentStyleReset(theme),
+        ...getResponsiveStyles({
+          breakpoints,
+          mapValueToProperty,
+          styles: {
+            display: inline,
+            height,
+            ...getSpacingStyles('margin', restProps, rtl),
+            ...getSpacingStyles('padding', restProps, rtl),
+            width
+          },
+          theme
+        })
+      };
     },
     {
-      includeStyleReset: true,
       rootEl: element
     }
   );
