@@ -2,7 +2,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import OverflowContainer from '../OverflowContainer';
-import { mountInThemeProvider } from '../../../../utils/enzymeUtils';
+import { getSerializedHTML, mountInThemeProvider } from '../../../../utils/enzymeUtils';
 
 /*
  * [1] This getter does not exist on the HTMLElement.prototype in JSDOM, so we
@@ -54,6 +54,6 @@ describe('OverflowContainer', () => {
       }
     });
 
-    expect(overflowContainer.html()).toMatchSnapshot();
+    expect(getSerializedHTML(overflowContainer)).toMatchSnapshot();
   });
 });

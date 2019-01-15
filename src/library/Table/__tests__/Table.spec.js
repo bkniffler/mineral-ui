@@ -2,6 +2,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import {
+  getSerializedHTML,
   mountInThemeProvider,
   mountInWrapper
 } from '../../../../utils/enzymeUtils';
@@ -397,7 +398,7 @@ describe('Table', () => {
         wrapper.update();
         table = wrapper.find(Table);
         const sortedData = table.find(TableBase).props().data;
-        const headerCellHtml = stripReactTextTags(headerCell.html());
+        const headerCellHtml = stripReactTextTags(getSerializedHTML(headerCell));
 
         expect(sortedData).toMatchSnapshot();
         expect(headerCellHtml).toMatchSnapshot();
@@ -413,7 +414,7 @@ describe('Table', () => {
         wrapper.update();
         table = wrapper.find(Table);
         const sortedData = table.find(TableBase).props().data;
-        const headerCellHtml = stripReactTextTags(headerCell.html());
+        const headerCellHtml = stripReactTextTags(getSerializedHTML(headerCell));
 
         expect(sortedData).toMatchSnapshot();
         expect(headerCellHtml).toMatchSnapshot();
@@ -431,9 +432,9 @@ describe('Table', () => {
         wrapper.update();
         table = wrapper.find(Table);
         const sortedData = table.find(TableBase).props().data;
-        const headerCellHtml = stripReactTextTags(headerCell.html());
+        const headerCellHtml = stripReactTextTags(getSerializedHTML(headerCell));
         const secondHeaderCellHtml = stripReactTextTags(
-          secondHeaderCell.html()
+          getSerializedHTML(secondHeaderCell)
         );
 
         expect(sortedData).toMatchSnapshot();
