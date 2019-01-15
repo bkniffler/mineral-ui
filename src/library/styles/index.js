@@ -1,4 +1,5 @@
 /* @flow */
+export { default as componentStyleReset } from './componentStyleReset';
 export { default as createStyledComponent } from './createStyledComponent';
 export { default as getNormalizedValue } from './getNormalizedValue';
 export { default as getResponsiveStyles } from './getResponsiveStyles';

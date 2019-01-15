@@ -10,7 +10,7 @@ export type StyleFn = (
 ) => StyleObj | StyleArray;
 export type StyleValue = null | boolean | number | string | StyleObj;
 
-export type ComponentStyleReset = ({ theme: ThemeObj }) => StyleObj;
+export type ComponentStyleReset = (theme: ThemeObj) => StyleObj;
 
 export type CreateStyledComponent = (
   element:
@@ -18,9 +18,7 @@ export type CreateStyledComponent = (
     | React$ComponentType<*>
     | string,
   styles: Styles,
-  options?: {
-    includeStyleReset?: boolean
-  }
+  options?: {}
 ) => React$ComponentType<*>;
 
 export type CreateRootNode<P, D = null> = (
