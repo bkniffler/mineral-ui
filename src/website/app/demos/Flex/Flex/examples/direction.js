@@ -1,13 +1,12 @@
 /* @flow */
+import withProps from 'recompose/withProps';
 import { createStyledComponent } from '../../../../../../library/styles';
 import _DemoLayout from '../../common/DemoLayout';
 import FlexItem from '../../common/DemoFlexItem';
 import _Flex from '../../common/DemoFlex';
 
-const DemoLayout = createStyledComponent(
-  _DemoLayout,
-  {},
-  { withProps: { lastRowStartsAt: 3 } }
+const DemoLayout = withProps({ lastRowStartsAt: 3 })(
+  createStyledComponent(_DemoLayout, {})
 );
 
 const Flex = createStyledComponent(_Flex, ({ direction }) => {

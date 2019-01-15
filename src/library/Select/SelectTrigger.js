@@ -1,4 +1,5 @@
 /* @flow */
+import withProps from 'recompose/withProps';
 import React, { Component } from 'react';
 import IconDanger from '../Icon/IconDanger';
 import IconSuccess from '../Icon/IconSuccess';
@@ -44,19 +45,13 @@ export default class SelectTrigger extends Component<SelectTriggerProps> {
     } = this.props;
 
     const ArrowIcon = isOpen ? IconArrowDropdownUp : IconArrowDropdownDown;
-    const Arrow = createStyledComponent(
-      ArrowIcon,
-      {
+    const Arrow = withProps({
+      size:
+        size === SIZE.small || size === SIZE.medium ? SIZE.medium : pxToEm(24)
+    })(
+      createStyledComponent(ArrowIcon, {
         margin: pxToEm(iconMarginMap[size])
-      },
-      {
-        withProps: {
-          size:
-            size === SIZE.small || size === SIZE.medium
-              ? SIZE.medium
-              : pxToEm(24)
-        }
-      }
+      })
     );
 
     const controlProps = {

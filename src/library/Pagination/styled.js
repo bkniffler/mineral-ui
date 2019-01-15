@@ -1,4 +1,5 @@
 /* @flow */
+import withProps from 'recompose/withProps';
 import { createStyledComponent } from '../styles';
 import { createThemedComponent } from '../themes';
 import Flex, { FlexItem } from '../Flex';
@@ -7,25 +8,24 @@ import Button from '../Button';
 
 import { paginationTheme } from './themes';
 
-export const PaginationRoot = createStyledComponent(
-  Flex,
-  ({ theme: baseTheme }) => {
-    const theme = paginationTheme(baseTheme);
-    return {
-      flexWrap: 'wrap-reverse',
-      marginBottom: `-${theme.Pagination_gutterWidth}`,
+export const PaginationRoot = withProps({ element: 'nav' })(
+  createStyledComponent(
+    Flex,
+    ({ theme: baseTheme }) => {
+      const theme = paginationTheme(baseTheme);
+      return {
+        flexWrap: 'wrap-reverse',
+        marginBottom: `-${theme.Pagination_gutterWidth}`,
 
-      '& > *': {
-        marginBottom: theme.Pagination_gutterWidth
-      }
-    };
-  },
-  {
-    includeStyleReset: true,
-    withProps: {
-      element: 'nav'
+        '& > *': {
+          marginBottom: theme.Pagination_gutterWidth
+        }
+      };
+    },
+    {
+      includeStyleReset: true
     }
-  }
+  )
 );
 
 export const PagesRoot = createStyledComponent(

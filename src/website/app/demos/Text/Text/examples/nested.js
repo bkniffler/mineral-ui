@@ -1,5 +1,6 @@
 /* @flow */
 import React from 'react';
+import withProps from 'recompose/withProps';
 import { palette } from 'mineral-ui-tokens';
 import _Text from '../../../../../../library/Text';
 import { mineralTheme as theme } from '../../../../../../library/themes';
@@ -18,13 +19,11 @@ const DemoLayout = createStyledComponent(
   }
 );
 
-const Text = createStyledComponent(
-  _Text,
-  ({ theme }) => ({
+const Text = withProps({ noMargins: true })(
+  createStyledComponent(_Text, ({ theme }) => ({
     backgroundColor: palette.indigo_20,
     padding: theme.space_inset_sm
-  }),
-  { withProps: { noMargins: true } }
+  }))
 );
 
 export default {

@@ -1,4 +1,5 @@
 /* @flow */
+import withProps from 'recompose/withProps';
 import { hideVisually } from 'polished';
 import { createStyledComponent, getNormalizedValue, pxToEm } from '../styles';
 import { createThemedComponent, mapComponentThemes } from '../themes';
@@ -166,54 +167,55 @@ export const createTableHeaderCellRootNode: CreateRootNode<
       )
   );
 
-  return createStyledComponent(
-    ThemedTableCell,
-    ({ highContrast, maxWidth, minWidth, theme: baseTheme, width }) => {
-      const theme = tableHeaderCellTheme(baseTheme);
-      const fontSize = theme.TableHeaderCell_fontSize;
-      const rtl = theme.direction === 'rtl';
-      const borderProperty = rtl ? 'borderRight' : 'borderLeft';
-      const borderVertical = highContrast
-        ? theme.TableHeaderCell_borderVertical_highContrast
-        : theme.TableHeaderCell_borderVertical;
-      const positionProperty = rtl ? 'right' : 'left';
-      const getWidth = (value, fontSize) =>
-        REGEX_IS_EM_VALUE.test(value)
-          ? getNormalizedValue(value, fontSize)
-          : value;
+  return withProps({ element })(
+    createStyledComponent(
+      ThemedTableCell,
+      ({ highContrast, maxWidth, minWidth, theme: baseTheme, width }) => {
+        const theme = tableHeaderCellTheme(baseTheme);
+        const fontSize = theme.TableHeaderCell_fontSize;
+        const rtl = theme.direction === 'rtl';
+        const borderProperty = rtl ? 'borderRight' : 'borderLeft';
+        const borderVertical = highContrast
+          ? theme.TableHeaderCell_borderVertical_highContrast
+          : theme.TableHeaderCell_borderVertical;
+        const positionProperty = rtl ? 'right' : 'left';
+        const getWidth = (value, fontSize) =>
+          REGEX_IS_EM_VALUE.test(value)
+            ? getNormalizedValue(value, fontSize)
+            : value;
 
-      return {
-        fontWeight: theme.TableHeaderCell_fontWeight,
-        maxWidth: getWidth(maxWidth, fontSize),
-        minWidth: getWidth(minWidth, fontSize),
-        position: 'relative',
-        width: getWidth(width, fontSize),
-        zIndex: 1,
+        return {
+          fontWeight: theme.TableHeaderCell_fontWeight,
+          maxWidth: getWidth(maxWidth, fontSize),
+          minWidth: getWidth(minWidth, fontSize),
+          position: 'relative',
+          width: getWidth(width, fontSize),
+          zIndex: 1,
 
-        // Using this "border" to appease Firefox, which extends TableHeaderCell's
-        // real border down the entire column after clicking a TableSortableHeaderCell.
-        '&:not(:first-child)': {
-          [borderProperty]: 0,
+          // Using this "border" to appease Firefox, which extends TableHeaderCell's
+          // real border down the entire column after clicking a TableSortableHeaderCell.
+          '&:not(:first-child)': {
+            [borderProperty]: 0,
 
-          '&::before': {
-            [borderProperty]: borderVertical,
-            bottom: 0,
-            content: '""',
-            [positionProperty]: 0,
-            position: 'absolute',
-            top: 0,
-            width: 0,
-            zIndex: -1
+            '&::before': {
+              [borderProperty]: borderVertical,
+              bottom: 0,
+              content: '""',
+              [positionProperty]: 0,
+              position: 'absolute',
+              top: 0,
+              width: 0,
+              zIndex: -1
+            }
           }
-        }
-      };
-    },
-    {
-      filterProps: ['width'],
-      forwardProps: ['element', 'noPadding', 'textAlign'],
-      rootEl: element,
-      withProps: { element }
-    }
+        };
+      },
+      {
+        filterProps: ['width'],
+        forwardProps: ['element', 'noPadding', 'textAlign'],
+        rootEl: element
+      }
+    )
   );
 };
 
@@ -284,9 +286,8 @@ export const TableRowRoot = createStyledComponent(
   }
 );
 
-export const PaddedCheckbox = createStyledComponent(
-  Checkbox,
-  ({ density, isHeader, theme: baseTheme }) => {
+export const PaddedCheckbox = withProps({ hideLabel: true })(
+  createStyledComponent(Checkbox, ({ density, isHeader, theme: baseTheme }) => {
     const theme = isHeader
       ? tableHeaderCellTheme(baseTheme)
       : tableCellTheme(baseTheme);
@@ -299,10 +300,7 @@ export const PaddedCheckbox = createStyledComponent(
     return {
       padding: `${paddingVertical} ${theme[`${themePrefix}_paddingHorizontal`]}`
     };
-  },
-  {
-    withProps: { hideLabel: true }
-  }
+  })
 );
 
 const tableSortableHeaderCellFocusStyles = (theme) => ({
@@ -311,9 +309,8 @@ const tableSortableHeaderCellFocusStyles = (theme) => ({
   outlineOffset: `-${theme.TableSortableHeaderCell_border_focus.split(' ')[0]}`
 });
 
-export const TableSortableHeaderCellRoot = createStyledComponent(
-  TableHeaderCell,
-  ({ theme: baseTheme }) => {
+export const TableSortableHeaderCellRoot = withProps({ noPadding: true })(
+  createStyledComponent(TableHeaderCell, ({ theme: baseTheme }) => {
     const theme = tableSortableHeaderCellTheme(baseTheme);
 
     return {
@@ -325,15 +322,11 @@ export const TableSortableHeaderCellRoot = createStyledComponent(
 
       '&:focus-within': tableSortableHeaderCellFocusStyles(theme)
     };
-  },
-  {
-    withProps: { noPadding: true }
-  }
+  })
 );
 
-export const TableSortableHeaderCellButton = createStyledComponent(
-  TableHeaderCell,
-  ({ theme: baseTheme }) => {
+export const TableSortableHeaderCellButton = withProps({ element: 'button' })(
+  createStyledComponent(TableHeaderCell, ({ theme: baseTheme }) => {
     const theme = tableSortableHeaderCellTheme(baseTheme);
 
     return {
@@ -367,10 +360,7 @@ export const TableSortableHeaderCellButton = createStyledComponent(
         right: 0
       }
     };
-  },
-  {
-    withProps: { element: 'button' }
-  }
+  })
 );
 
 export const TableSortableHeaderCellContent = createStyledComponent('span', {

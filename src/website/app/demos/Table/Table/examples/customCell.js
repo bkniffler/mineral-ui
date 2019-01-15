@@ -1,5 +1,6 @@
 /* @flow */
 import React from 'react';
+import withProps from 'recompose/withProps';
 import { palette } from 'mineral-ui-tokens';
 import { createStyledComponent } from '../../../../../../library/styles';
 import Flex from '../../../../../../library/Flex';
@@ -19,7 +20,8 @@ ${renderPropsDescription}`,
     Flex,
     palette,
     React,
-    Table
+    Table,
+    withProps
   },
   source: `
     () => {
@@ -31,19 +33,16 @@ ${renderPropsDescription}`,
          }
        }));
 
-       const Emoji = createStyledComponent(
+       const Emoji = withProps({
+          'aria-hidden': true,
+          role: 'img'
+        })(createStyledComponent(
          'span',
          ({ theme }) => ({
            display: 'inline-block',
            marginRight: theme.space_inline_sm
-         }),
-         {
-           withProps: {
-             'aria-hidden': true,
-             role: 'img'
-           }
-         }
-       );
+         })
+       ));
 
        const Content = createStyledComponent('span', ({ theme }) => ({
          fontSize: theme.fontSize_ui,

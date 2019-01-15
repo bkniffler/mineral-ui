@@ -1,5 +1,6 @@
 /* @flow */
 import React from 'react';
+import withProps from 'recompose/withProps';
 import { createStyledComponent, pxToEm } from '../styles';
 import { createThemedComponent } from '../themes';
 import { ie10Plus } from '../utils/cssSelectors';
@@ -45,75 +46,76 @@ const TabThemedButton = createThemedComponent(
   }
 );
 
-export const TabAnchor = createStyledComponent(
-  TabThemedButton,
-  ({ disabled, maxWidth, position = 'top', selected, theme: baseTheme }) => {
-    const theme = tabTheme(baseTheme);
-    const rtl = theme.direction === 'rtl';
+export const TabAnchor = withProps({
+  element: 'a',
+  fullWidth: true,
+  role: 'tab',
+  size: 'medium'
+})(
+  createStyledComponent(
+    TabThemedButton,
+    ({ disabled, maxWidth, position = 'top', selected, theme: baseTheme }) => {
+      const theme = tabTheme(baseTheme);
+      const rtl = theme.direction === 'rtl';
 
-    const justifyContent = {
-      end: 'flex-start',
-      start: 'flex-end',
-      top: undefined
-    };
-    const boxShadow = (borderWidth) => ({
-      top: `0 ${-borderWidth}px`,
-      start: rtl ? `${borderWidth}px 0` : `${-borderWidth}px 0`,
-      bottom: `0 ${borderWidth}px`,
-      end: rtl ? `${-borderWidth}px 0` : `${borderWidth}px 0`
-    });
+      const justifyContent = {
+        end: 'flex-start',
+        start: 'flex-end',
+        top: undefined
+      };
+      const boxShadow = (borderWidth) => ({
+        top: `0 ${-borderWidth}px`,
+        start: rtl ? `${borderWidth}px 0` : `${-borderWidth}px 0`,
+        bottom: `0 ${borderWidth}px`,
+        end: rtl ? `${-borderWidth}px 0` : `${borderWidth}px 0`
+      });
 
-    return {
-      maxWidth,
+      return {
+        maxWidth,
 
-      '&:hover': {
-        color: !disabled && theme.Tab_color_selectedHover
-      },
+        '&:hover': {
+          color: !disabled && theme.Tab_color_selectedHover
+        },
 
-      // Truncate
-      '&:active > span > span > span > span > span:focus': {
-        outline: 'none'
-      },
+        // Truncate
+        '&:active > span > span > span > span > span:focus': {
+          outline: 'none'
+        },
 
-      ...(selected && {
-        backgroundColor: theme.Tab_backgroundColor_selected,
-        color: theme.Tab_color_selected,
-        // prettier-ignore
-        boxShadow:
+        ...(selected && {
+          backgroundColor: theme.Tab_backgroundColor_selected,
+          color: theme.Tab_color_selected,
+          // prettier-ignore
+          boxShadow:
         `inset ${boxShadow(theme.TabIndicator_thickness)[position]} ${theme.Tab_borderColor_focus}`,
 
-        '&:focus, &:active': {
-          color: theme.Tab_color_selected,
-          outline: `${theme.Tab_borderWidth_focus}px solid ${
-            theme.Tab_borderColor_focus
-          }`,
-          outlineOffset: `-${theme.Tab_borderWidth_focus}px`
-        }
-      }),
+          '&:focus, &:active': {
+            color: theme.Tab_color_selected,
+            outline: `${theme.Tab_borderWidth_focus}px solid ${
+              theme.Tab_borderColor_focus
+            }`,
+            outlineOffset: `-${theme.Tab_borderWidth_focus}px`
+          }
+        }),
 
-      // Button's Inner
-      '& > span': {
-        justifyContent: justifyContent[position],
-
-        // Content
+        // Button's Inner
         '& > span': {
-          // Tooltip & TooltipTrigger & Truncate
-          '& > span, & > span > span, & > span > span > span': {
-            display: 'block'
+          justifyContent: justifyContent[position],
+
+          // Content
+          '& > span': {
+            // Tooltip & TooltipTrigger & Truncate
+            '& > span, & > span > span, & > span > span > span': {
+              display: 'block'
+            }
           }
         }
-      }
-    };
-  },
-  {
-    filterProps: ['title'],
-    withProps: {
-      element: 'a',
-      fullWidth: true,
-      role: 'tab',
-      size: 'medium'
+      };
+    },
+    {
+      filterProps: ['title']
     }
-  }
+  )
 );
 
 const TabListThemedButton = createThemedComponent(
@@ -173,46 +175,45 @@ const TabListArrowButton = createStyledComponent(
   }
 );
 
-export const TabListInner = createStyledComponent(
-  TabListThemedOverflowContainerWithShadows,
-  ({ position, theme: baseTheme, vertical }) => {
-    const theme = {
-      ...tabListTheme(baseTheme),
-      ...tabPanelTheme(baseTheme)
-    };
-    const rtl = theme.direction === 'rtl';
-    const edge = {
-      bottom: 'top',
-      end: rtl ? 'right' : 'left',
-      start: rtl ? 'left' : 'right',
-      top: 'bottom'
-    };
-    const edgeProperty = edge[position];
+export const TabListInner = withProps({
+  hideScrollbars: true,
+  // We handle our own "scroll with the keyboard" interaction in Tabs, so
+  // null tabIndex is to prevent an extraneous tab stop
+  tabIndex: null
+})(
+  createStyledComponent(
+    TabListThemedOverflowContainerWithShadows,
+    ({ position, theme: baseTheme, vertical }) => {
+      const theme = {
+        ...tabListTheme(baseTheme),
+        ...tabPanelTheme(baseTheme)
+      };
+      const rtl = theme.direction === 'rtl';
+      const edge = {
+        bottom: 'top',
+        end: rtl ? 'right' : 'left',
+        start: rtl ? 'left' : 'right',
+        top: 'bottom'
+      };
+      const edgeProperty = edge[position];
 
-    return {
-      display: 'flex',
-      // See: https://css-tricks.com/flexbox-truncated-text/#comment-1611744
-      ...(vertical ? { minHeight: '0%' } : { minWidth: '0%' }),
+      return {
+        display: 'flex',
+        // See: https://css-tricks.com/flexbox-truncated-text/#comment-1611744
+        ...(vertical ? { minHeight: '0%' } : { minWidth: '0%' }),
 
-      // This component should not apply this style unless used within Tabs
-      ...(theme.TabList_border
-        ? {
-            // OverflowContainerWithShadows > Shadows
-            '&::before': {
-              [edgeProperty]: `${theme.TabList_border.split('px')[0]}px`
+        // This component should not apply this style unless used within Tabs
+        ...(theme.TabList_border
+          ? {
+              // OverflowContainerWithShadows > Shadows
+              '&::before': {
+                [edgeProperty]: `${theme.TabList_border.split('px')[0]}px`
+              }
             }
-          }
-        : undefined)
-    };
-  },
-  {
-    withProps: {
-      hideScrollbars: true,
-      // We handle our own "scroll with the keyboard" interaction in Tabs, so
-      // null tabIndex is to prevent an extraneous tab stop
-      tabIndex: null
+          : undefined)
+      };
     }
-  }
+  )
 );
 
 export const TabListList = createStyledComponent(
@@ -303,9 +304,12 @@ export const TabListIncrementButton = ({
   />
 );
 
-export const TabPanelOverflowContainer = createStyledComponent(
-  OverflowContainer,
-  {
+export const TabPanelOverflowContainer = withProps({
+  scrollY: true,
+  // We always want the panel content to be focusable, for ease of keyboard users
+  tabIndex: 0
+})(
+  createStyledComponent(OverflowContainer, {
     flex: '1 1 auto',
 
     '& > :first-child': {
@@ -315,19 +319,13 @@ export const TabPanelOverflowContainer = createStyledComponent(
     '& > :last-child': {
       marginBottom: 0
     }
-  },
-  {
-    withProps: {
-      scrollY: true,
-      // We always want the panel content to be focusable, for ease of keyboard users
-      tabIndex: 0
-    }
-  }
+  })
 );
 
-export const TabPanelRoot = createStyledComponent(
-  'div',
-  ({ position, theme: baseTheme }) => {
+export const TabPanelRoot = withProps({
+  role: 'tabpanel'
+})(
+  createStyledComponent('div', ({ position, theme: baseTheme }) => {
     const theme = tabPanelTheme(baseTheme);
     const rtl = theme.direction === 'rtl';
 
@@ -350,10 +348,5 @@ export const TabPanelRoot = createStyledComponent(
       minHeight: '0%', // See: https://css-tricks.com/flexbox-truncated-text/#comment-1611744
       [paddingProperty]: theme.TabPanel_gap
     };
-  },
-  {
-    withProps: {
-      role: 'tabpanel'
-    }
-  }
+  })
 );

@@ -1,5 +1,6 @@
 /* @flow */
 import React from 'react';
+import withProps from 'recompose/withProps';
 import { createStyledComponent, getNormalizedValue } from '../styles';
 import { createThemedComponent, mapComponentThemes } from '../themes';
 import Button from '../Button';
@@ -115,45 +116,51 @@ const DialogBodyThemedOverflowContainerWithShadows = createThemedComponent(
     )
 );
 
-export const DialogBodyOverflowContainerWithShadows = createStyledComponent(
-  DialogBodyThemedOverflowContainerWithShadows,
-  ({ theme: baseTheme }) => {
-    const theme = dialogRowTheme(baseTheme);
-    const fontSize = theme.DialogRow_fontSize;
-    const paddingHorizontal = `${getNormalizedValue(
-      theme.DialogRow_paddingHorizontal,
-      fontSize
-    )}`;
+export const DialogBodyOverflowContainerWithShadows = withProps({
+  scrollY: true
+})(
+  createStyledComponent(
+    DialogBodyThemedOverflowContainerWithShadows,
+    ({ theme: baseTheme }) => {
+      const theme = dialogRowTheme(baseTheme);
+      const fontSize = theme.DialogRow_fontSize;
+      const paddingHorizontal = `${getNormalizedValue(
+        theme.DialogRow_paddingHorizontal,
+        fontSize
+      )}`;
 
-    return {
-      display: 'flex',
-      flex: '1 1 auto',
-      width: '100%',
+      return {
+        display: 'flex',
+        flex: '1 1 auto',
+        width: '100%',
 
-      // OverflowContainerWithShadows > Scroller
-      '& > div': {
-        paddingLeft: paddingHorizontal,
-        paddingRight: paddingHorizontal,
+        // OverflowContainerWithShadows > Scroller
+        '& > div': {
+          paddingLeft: paddingHorizontal,
+          paddingRight: paddingHorizontal,
 
-        '& > :first-child': {
-          marginTop: 0
-        },
-        '& > :last-child': {
-          marginBottom: 0
+          '& > :first-child': {
+            marginTop: 0
+          },
+          '& > :last-child': {
+            marginBottom: 0
+          }
         }
-      }
-    };
-  },
-  { withProps: { scrollY: true } }
+      };
+    }
+  )
 );
 
 const DialogThemedButton = createThemedComponent(Button, ({ theme }) => ({
   ButtonIcon_color: theme.color
 }));
 
-export const DialogCloseButton = createStyledComponent(
-  DialogThemedButton,
-  ({ theme: baseTheme }) => {
+export const DialogCloseButton = withProps({
+  iconStart: <IconClose />,
+  minimal: true,
+  size: 'small'
+})(
+  createStyledComponent(DialogThemedButton, ({ theme: baseTheme }) => {
     const theme = dialogTheme(baseTheme);
     const marginProperty =
       theme.direction === 'rtl' ? 'marginRight' : 'marginLeft';
@@ -161,14 +168,7 @@ export const DialogCloseButton = createStyledComponent(
     return {
       [marginProperty]: theme.DialogCloseButton_margin
     };
-  },
-  {
-    withProps: {
-      iconStart: <IconClose />,
-      minimal: true,
-      size: 'small'
-    }
-  }
+  })
 );
 
 export const DialogContent = createStyledComponent(
@@ -212,26 +212,18 @@ export const DialogContent = createStyledComponent(
   }
 );
 
-export const DialogFooterRoot = createStyledComponent(
-  DialogRow,
-  {
+export const DialogFooterRoot = withProps({ element: 'footer' })(
+  createStyledComponent(DialogRow, {
     flex: '0 0 auto'
-  },
-  {
-    withProps: { element: 'footer' }
-  }
+  })
 );
 
-export const DialogHeaderRoot = createStyledComponent(
-  DialogRow,
-  {
+export const DialogHeaderRoot = withProps({ element: 'header' })(
+  createStyledComponent(DialogRow, {
     display: 'flex',
     flex: '0 0 auto',
     justifyContent: 'space-between'
-  },
-  {
-    withProps: { element: 'header' }
-  }
+  })
 );
 
 export const DialogIEWrapper = createStyledComponent('div', {

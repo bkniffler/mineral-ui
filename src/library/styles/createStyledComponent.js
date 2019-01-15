@@ -1,7 +1,6 @@
 /* @flow */
 
 import styled from '@emotion/styled';
-import withPropsFn from 'recompose/withProps';
 import componentStyleReset from './componentStyleReset';
 
 import type { CreateStyledComponent, StyleFn } from './types';
@@ -11,7 +10,7 @@ const createStyledComponent: CreateStyledComponent = (
   styles,
   options = {}
 ) => {
-  const { includeStyleReset, withProps, ...restOptions } = options;
+  const { includeStyleReset, ...restOptions } = options;
 
   const outStyles: StyleFn = (props, context) => {
     let componentStyles =
@@ -32,9 +31,7 @@ const createStyledComponent: CreateStyledComponent = (
     return componentStyles;
   };
 
-  const styledComponent = styled(element, restOptions)(outStyles);
-
-  return withProps ? withPropsFn(withProps)(styledComponent) : styledComponent;
+  return styled(element, restOptions)(outStyles);
 };
 
 export default createStyledComponent;

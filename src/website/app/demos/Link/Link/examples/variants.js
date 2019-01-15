@@ -1,16 +1,18 @@
 /* @flow */
 import React from 'react';
+import withProps from 'recompose/withProps';
 import { createStyledComponent } from '../../../../../../library/styles';
 import _Link from '../../../../../../library/Link';
 import _DemoLayout from '../../../common/DemoLayout';
 
-const DemoLayout = createStyledComponent(
-  _DemoLayout,
-  {},
-  {
-    includeStyleReset: true,
-    withProps: { marginRight: '1em' }
-  }
+const DemoLayout = withProps({ marginRight: '1em' })(
+  createStyledComponent(
+    _DemoLayout,
+    {},
+    {
+      includeStyleReset: true
+    }
+  )
 );
 
 const Link = (props: {}) => <_Link target="_blank" {...props} />;

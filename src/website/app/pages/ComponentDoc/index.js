@@ -1,5 +1,6 @@
 /* @flow */
 import React, { Fragment } from 'react';
+import withProps from 'recompose/withProps';
 import {
   createStyledComponent,
   getNormalizedValue,
@@ -22,9 +23,8 @@ type ComponentDocProps = {
   componentDoc: ComponentDocType
 };
 
-const StyledDocHeading = createStyledComponent(
-  Heading,
-  ({ theme }) => ({
+const StyledDocHeading = withProps({ level: 2 })(
+  createStyledComponent(Heading, ({ theme }) => ({
     marginBottom: 0,
     paddingTop: getNormalizedValue(pxToEm(62), theme.SiteHeading_fontSize_2),
 
@@ -35,10 +35,7 @@ const StyledDocHeading = createStyledComponent(
         theme.SiteHeading_fontSize_2_wide
       )
     }
-  }),
-  {
-    withProps: { level: 2 }
-  }
+  }))
 );
 
 const DocHeading = ({

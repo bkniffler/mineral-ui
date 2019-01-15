@@ -1,5 +1,6 @@
 /* @flow */
 import React from 'react';
+import withProps from 'recompose/withProps';
 import {
   createStyledComponent,
   pxToEm
@@ -23,7 +24,8 @@ your data is sortable.
     data,
     pxToEm,
     React,
-    Table
+    Table,
+    withProps
   },
   source: `
     () => {
@@ -49,19 +51,16 @@ your data is sortable.
         textAlign: 'left'
       }));
 
-      const Emoji = createStyledComponent(
+      const Emoji = withProps({
+          'aria-hidden': true,
+          role: 'img'
+        })(createStyledComponent(
         'span',
         ({ theme }) => ({
           display: 'inline-block',
           marginRight: theme.space_inline_sm
-        }),
-        {
-          withProps: {
-            'aria-hidden': true,
-            role: 'img'
-          }
-        }
-      );
+        })
+      ));
 
       class CustomHeaderCell extends React.PureComponent {
         render() {

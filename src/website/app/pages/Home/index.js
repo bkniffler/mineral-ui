@@ -6,6 +6,7 @@ import { canUseDOM } from 'exenv';
 import darken from 'polished/lib/color/darken';
 import desaturate from 'polished/lib/color/desaturate';
 import rgba from 'polished/lib/color/rgba';
+import withProps from 'recompose/withProps';
 import { palette } from 'mineral-ui-tokens';
 import {
   createStyledComponent,
@@ -576,11 +577,9 @@ const Root = createStyledComponent('div', styles.home, {
   includeStyleReset: true
 });
 // Markdown must come before all of the other Markdown-based components
-const Markdown = createStyledComponent(_Markdown, styles.markdown, {
-  withProps: {
-    anchors: false
-  }
-});
+const Markdown = withProps({ anchors: false })(
+  createStyledComponent(_Markdown, styles.markdown)
+);
 const SiteButton = createThemedComponent(_SiteButton, buttonTheme);
 const BlogLink = createStyledComponent(Link, styles.blogLink);
 const Button = createThemedComponent(_Button, buttonTheme);
@@ -588,11 +587,9 @@ const Buttons = createStyledComponent('div', styles.buttons);
 const ThemedCTALink = createThemedComponent(Link, CTALinkTheme);
 const CTALink = createStyledComponent(ThemedCTALink, styles.CTALink);
 const Feature = createStyledComponent('div', styles.feature);
-const FeatureImg = createStyledComponent('img', styles.featureImg, {
-  withProps: {
-    alt: ''
-  }
-});
+const FeatureImg = withProps({ alt: '' })(
+  createStyledComponent('img', styles.featureImg)
+);
 const FloatingMinerals = createStyledComponent('div', styles.floatingMinerals);
 const FeatureSection = createStyledComponent(Section, styles.featureSection);
 const GetStarted = createStyledComponent(Markdown, styles.getStarted);
@@ -616,20 +613,16 @@ const GuidelinesSection = createStyledComponent(
   Section,
   styles.guidelinesSection
 );
-const Hero = createStyledComponent(Section, styles.hero, {
-  withProps: {
-    element: 'header'
-  }
-});
+const Hero = withProps({ element: 'header' })(
+  createStyledComponent(Section, styles.hero)
+);
 const HeroCanvas = createStyledComponent(Canvas, styles.heroCanvas);
 const Intro = createStyledComponent(Markdown, styles.intro);
-const LinkButton = createStyledComponent(SiteButton, styles.button, {
-  withProps: {
-    as: Link,
-    size: 'jumbo',
-    type: null
-  }
-});
+const LinkButton = withProps({
+  as: Link,
+  size: 'jumbo',
+  type: null
+})(createStyledComponent(SiteButton, styles.button));
 const PlaygroundCanvas = createStyledComponent(Canvas, styles.playgroundCanvas);
 const PlaygroundSection = createStyledComponent(
   Section,
@@ -746,25 +739,17 @@ export default class Home extends Component<Props, State> {
                   themes={playgroundThemes}>
                   <Media query="(min-width: 23em)">
                     {(navExpanded) => {
-                      const PlaygroundButton = createStyledComponent(
-                        Button,
-                        {
+                      const PlaygroundButton = withProps({
+                        as: Link,
+                        iconStart: navExpanded ? <IconFavorite /> : undefined,
+                        primary: true,
+                        size: 'jumbo',
+                        type: null
+                      })(
+                        createStyledComponent(Button, {
                           ...styles.button,
                           fontFamily: 'inherit'
-                        },
-                        {
-                          withProps: {
-                            as: Link,
-                            iconStart: navExpanded ? (
-                              <IconFavorite />
-                            ) : (
-                              undefined
-                            ),
-                            primary: true,
-                            size: 'jumbo',
-                            type: null
-                          }
-                        }
+                        })
                       );
 
                       return (

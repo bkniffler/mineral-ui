@@ -19,8 +19,7 @@ export type CreateStyledComponent = (
     | string,
   styles: Styles,
   options?: {
-    includeStyleReset?: boolean,
-    withProps?: Object
+    includeStyleReset?: boolean
   }
 ) => React$ComponentType<*>;
 

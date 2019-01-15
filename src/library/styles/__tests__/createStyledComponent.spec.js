@@ -9,23 +9,6 @@ const mountButton = (props = {}, styles = {}, options = {}) => {
 };
 
 describe('createStyledComponent', () => {
-  describe('with withProps option', () => {
-    const wrapper = mountButton(
-      {},
-      {},
-      {
-        withProps: {
-          type: 'button'
-        }
-      }
-    );
-    const button = wrapper.childAt(0);
-
-    it('passes props to component', () => {
-      expect(button.props().type).toBe('button');
-    });
-  });
-
   describe('styles', () => {
     const styleObject = { color: 'red' };
     const styleArray = [{ color: 'red' }, { backgroundColor: 'blue' }];
