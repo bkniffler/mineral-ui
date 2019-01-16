@@ -9,23 +9,20 @@ import Button from '../Button';
 import { paginationTheme } from './themes';
 
 export const PaginationRoot = withProps({ element: 'nav' })(
-  createStyledComponent(
-    Flex,
-    ({ theme: baseTheme }) => {
-      const theme = paginationTheme(baseTheme);
+  createStyledComponent(Flex, ({ theme: baseTheme }) => {
+    const theme = paginationTheme(baseTheme);
 
-      return {
-        ...componentStyleReset(baseTheme),
+    return {
+      ...componentStyleReset(baseTheme),
 
-        flexWrap: 'wrap-reverse',
-        marginBottom: `-${theme.Pagination_gutterWidth}`,
+      flexWrap: 'wrap-reverse',
+      marginBottom: `-${theme.Pagination_gutterWidth}`,
 
-        '& > *': {
-          marginBottom: theme.Pagination_gutterWidth
-        }
-      };
-    }
-  )
+      '& > *': {
+        marginBottom: theme.Pagination_gutterWidth
+      }
+    };
+  })
 );
 
 export const PagesRoot = createStyledComponent(

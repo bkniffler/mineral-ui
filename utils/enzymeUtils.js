@@ -7,7 +7,7 @@ import ThemeProvider from '../src/library/themes/ThemeProvider';
 import type { ReactWrapper } from 'enzyme';
 
 // This regex is likely specific to emotion ('css-[lowercaseandnumberhash]-DisplayName')
-const REGEX_CLASSNAME_HASH = /css-[a-z0-9]+/g
+const REGEX_CLASSNAME_HASH = /css-[a-z0-9]+/g;
 
 export const getSerializedHTML = (mountedComponent: ReactWrapper) =>
   // mountedComponent.html();

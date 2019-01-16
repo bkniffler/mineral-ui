@@ -1,7 +1,11 @@
 /* @flow */
 import React from 'react';
 import rgba from 'polished/lib/color/rgba';
-import { componentStyleReset, createStyledComponent, pxToEm } from '../../../../library/styles';
+import {
+  componentStyleReset,
+  createStyledComponent,
+  pxToEm
+} from '../../../../library/styles';
 import IconCheck from 'mineral-ui-icons/IconCheck';
 import { ThemeProvider } from '../../../../library/themes';
 

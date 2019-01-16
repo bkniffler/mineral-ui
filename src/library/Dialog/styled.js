@@ -1,7 +1,11 @@
 /* @flow */
 import React from 'react';
 import withProps from 'recompose/withProps';
-import { componentStyleReset, createStyledComponent, getNormalizedValue } from '../styles';
+import {
+  componentStyleReset,
+  createStyledComponent,
+  getNormalizedValue
+} from '../styles';
 import { createThemedComponent, mapComponentThemes } from '../themes';
 import Button from '../Button';
 import Text from '../Text';

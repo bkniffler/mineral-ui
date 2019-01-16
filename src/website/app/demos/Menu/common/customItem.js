@@ -1,7 +1,11 @@
 /* @flow */
 import React from 'react';
 import { withTheme } from '../../../../../library/themes';
-import { componentStyleReset, createStyledComponent, pxToEm } from '../../../../../library/styles';
+import {
+  componentStyleReset,
+  createStyledComponent,
+  pxToEm
+} from '../../../../../library/styles';
 import Avatar from '../../../../../library/Avatar';
 import { menuItemTheme } from '../../../../../library/Menu/themes';
 
@@ -10,33 +14,28 @@ export default function customItem({ props }: Object) {
     const theme = menuItemTheme(baseTheme);
     const { item } = props;
 
-    const Root = createStyledComponent(
-      'div',
-      ({ theme }) => ({
-        ...componentStyleReset(theme),
+    const Root = createStyledComponent('div', ({ theme }) => ({
+      ...componentStyleReset(theme),
 
-        backgroundColor: props.isHighlighted && theme.color_theme_20,
-        display: 'flex',
-        padding:
-          theme.MenuItem_paddingVertical +
-          ' ' +
-          theme.MenuItem_paddingHorizontal,
-        textDecoration: 'none',
+      backgroundColor: props.isHighlighted && theme.color_theme_20,
+      display: 'flex',
+      padding:
+        theme.MenuItem_paddingVertical + ' ' + theme.MenuItem_paddingHorizontal,
+      textDecoration: 'none',
 
-        '&:focus': {
-          backgroundColor: !props.disabled && theme.color_theme_20,
-          outline: 0
-        },
+      '&:focus': {
+        backgroundColor: !props.disabled && theme.color_theme_20,
+        outline: 0
+      },
 
-        '&:hover': {
-          backgroundColor: !props.disabled && theme.color_theme_20
-        },
+      '&:hover': {
+        backgroundColor: !props.disabled && theme.color_theme_20
+      },
 
-        '&:active': {
-          backgroundColor: !props.disabled && theme.color_theme_40
-        }
-      })
-    );
+      '&:active': {
+        backgroundColor: !props.disabled && theme.color_theme_40
+      }
+    }));
 
     const Work = createStyledComponent('span', {
       color: theme.color_mouse,

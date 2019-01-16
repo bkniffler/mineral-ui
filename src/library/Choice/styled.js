@@ -1,6 +1,10 @@
 /* @flow */
 import { hideVisually } from 'polished';
-import { componentStyleReset, createStyledComponent, getNormalizedValue } from '../styles';
+import {
+  componentStyleReset,
+  createStyledComponent,
+  getNormalizedValue
+} from '../styles';
 import { choiceTheme, choiceGroupTheme } from './themes';
 
 export const ChoiceRoot = createStyledComponent(
@@ -160,7 +164,7 @@ export const ChoiceGroupRoot = createStyledComponent(
 
     return {
       ...componentStyleReset(baseTheme),
-      
+
       display: 'flex',
       flexDirection: inline ? 'row' : 'column',
 

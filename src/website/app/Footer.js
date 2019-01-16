@@ -25,46 +25,43 @@ const ThemedSection = createThemedComponent(Section, {
 });
 
 const Root = withProps({ element: 'footer' })(
-  createStyledComponent(
-    ThemedSection,
-    ({ theme }) => ({
-      ...componentStyleReset(theme),
+  createStyledComponent(ThemedSection, ({ theme }) => ({
+    ...componentStyleReset(theme),
 
-      backgroundColor: theme.color_black,
-      color: theme.color_gray_40,
-      fontWeight: theme.fontWeight_medium,
+    backgroundColor: theme.color_black,
+    color: theme.color_gray_40,
+    fontWeight: theme.fontWeight_medium,
 
-      '& ::selection': {
-        backgroundColor: 'rgba(255,255,255,0.2)'
-      },
+    '& ::selection': {
+      backgroundColor: 'rgba(255,255,255,0.2)'
+    },
 
-      // Inner
+    // Inner
+    '& > div': {
+      paddingBottom: 1, // To prevent margin collapse
+      paddingTop: 1, // To prevent margin collapse
+
+      // Markdown
       '& > div': {
-        paddingBottom: 1, // To prevent margin collapse
-        paddingTop: 1, // To prevent margin collapse
+        '& > p[class]': {
+          fontSize: theme.fontSize_mouse,
+          lineHeight: theme.lineHeight,
+          margin: `${getNormalizedValue(
+            theme.baseline_1,
+            theme.fontSize_mouse
+          )} 0`
+        },
 
-        // Markdown
-        '& > div': {
-          '& > p[class]': {
-            fontSize: theme.fontSize_mouse,
-            lineHeight: theme.lineHeight,
-            margin: `${getNormalizedValue(
-              theme.baseline_1,
-              theme.fontSize_mouse
-            )} 0`
-          },
+        [theme.bp_home_navExpanded]: {
+          display: 'flex',
 
-          [theme.bp_home_navExpanded]: {
-            display: 'flex',
-
-            '& > p:last-child': {
-              marginLeft: 'auto'
-            }
+          '& > p:last-child': {
+            marginLeft: 'auto'
           }
         }
       }
-    })
-  )
+    }
+  }))
 );
 
 export default function Footer(props: Props) {

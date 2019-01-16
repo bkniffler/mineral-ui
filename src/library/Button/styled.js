@@ -1,7 +1,11 @@
 /* @flow */
 
 import { ellipsis } from 'polished';
-import { componentStyleReset, createStyledComponent, getNormalizedValue } from '../styles';
+import {
+  componentStyleReset,
+  createStyledComponent,
+  getNormalizedValue
+} from '../styles';
 import { SIZE } from './constants';
 import { buttonTheme } from './themes';
 
@@ -234,6 +238,6 @@ export const Button = createStyledComponent(
     };
   },
   {
-    filterProps: ['primary', 'text', 'variant'],
+    filterProps: ['primary', 'text', 'variant']
   }
 );

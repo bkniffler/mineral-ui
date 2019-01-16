@@ -1,7 +1,12 @@
 /* @flow */
 import withProps from 'recompose/withProps';
 import { hideVisually } from 'polished';
-import { componentStyleReset, createStyledComponent, getNormalizedValue, pxToEm } from '../styles';
+import {
+  componentStyleReset,
+  createStyledComponent,
+  getNormalizedValue,
+  pxToEm
+} from '../styles';
 import { createThemedComponent, mapComponentThemes } from '../themes';
 import { rtlTextAlign } from '../utils';
 import Checkbox from '../Checkbox';

@@ -398,7 +398,9 @@ describe('Table', () => {
         wrapper.update();
         table = wrapper.find(Table);
         const sortedData = table.find(TableBase).props().data;
-        const headerCellHtml = stripReactTextTags(getSerializedHTML(headerCell));
+        const headerCellHtml = stripReactTextTags(
+          getSerializedHTML(headerCell)
+        );
 
         expect(sortedData).toMatchSnapshot();
         expect(headerCellHtml).toMatchSnapshot();
@@ -414,7 +416,9 @@ describe('Table', () => {
         wrapper.update();
         table = wrapper.find(Table);
         const sortedData = table.find(TableBase).props().data;
-        const headerCellHtml = stripReactTextTags(getSerializedHTML(headerCell));
+        const headerCellHtml = stripReactTextTags(
+          getSerializedHTML(headerCell)
+        );
 
         expect(sortedData).toMatchSnapshot();
         expect(headerCellHtml).toMatchSnapshot();
@@ -432,7 +436,9 @@ describe('Table', () => {
         wrapper.update();
         table = wrapper.find(Table);
         const sortedData = table.find(TableBase).props().data;
-        const headerCellHtml = stripReactTextTags(getSerializedHTML(headerCell));
+        const headerCellHtml = stripReactTextTags(
+          getSerializedHTML(headerCell)
+        );
         const secondHeaderCellHtml = stripReactTextTags(
           getSerializedHTML(secondHeaderCell)
         );

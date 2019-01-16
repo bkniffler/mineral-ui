@@ -4,16 +4,18 @@ import withProps from 'recompose/withProps';
 import { palette } from 'mineral-ui-tokens';
 import _Text from '../../../../../../library/Text';
 import { mineralTheme as theme } from '../../../../../../library/themes';
-import { componentStyleReset, createStyledComponent } from '../../../../../../library/styles';
+import {
+  componentStyleReset,
+  createStyledComponent
+} from '../../../../../../library/styles';
 import _DemoLayout from '../../../common/DemoLayout';
 
 const StyledDemoLayout = (props): React$Element<*> => (
   <_DemoLayout includeLastChild marginBottom="1em" {...props} />
 );
 
-const DemoLayout = createStyledComponent(
-  StyledDemoLayout,
-  ({ theme }) => componentStyleReset(theme),
+const DemoLayout = createStyledComponent(StyledDemoLayout, ({ theme }) =>
+  componentStyleReset(theme)
 );
 
 const Text = withProps({ noMargins: true })(

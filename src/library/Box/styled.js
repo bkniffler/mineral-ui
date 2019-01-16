@@ -1,5 +1,9 @@
 /* @flow */
-import { componentStyleReset, createStyledComponent, getResponsiveStyles } from '../styles';
+import {
+  componentStyleReset,
+  createStyledComponent,
+  getResponsiveStyles
+} from '../styles';
 import { SPACING_TYPES } from './constants';
 
 import type { CreateRootNode } from '../styles/types';

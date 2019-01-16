@@ -1,7 +1,12 @@
 /* @flow */
 import React from 'react';
 import { ellipsis } from 'polished';
-import { componentStyleReset, createStyledComponent, getNormalizedValue, pxToEm } from '../styles';
+import {
+  componentStyleReset,
+  createStyledComponent,
+  getNormalizedValue,
+  pxToEm
+} from '../styles';
 import { createThemedComponent } from '../themes';
 import Button from '../Button';
 
@@ -15,28 +20,25 @@ import {
   cardTheme
 } from './themes';
 
-export const CardRoot = createStyledComponent(
-  'div',
-  (props) => {
-    const theme = cardTheme(props.theme);
+export const CardRoot = createStyledComponent('div', (props) => {
+  const theme = cardTheme(props.theme);
 
-    return {
-      ...componentStyleReset(props.theme),
+  return {
+    ...componentStyleReset(props.theme),
 
-      backgroundColor: theme.Card_backgroundColor,
-      border: `1px solid ${theme.Card_borderColor}`,
-      borderRadius: theme.Card_borderRadius,
-      boxShadow: theme.Card_boxShadow,
-      cursor: props.onClick && 'pointer',
-      paddingBottom: '0.01em', // Necessary to prevent margin collapse of last-child
-      paddingTop: '0.01em', // Necessary to prevent margin collapse of first-child
+    backgroundColor: theme.Card_backgroundColor,
+    border: `1px solid ${theme.Card_borderColor}`,
+    borderRadius: theme.Card_borderRadius,
+    boxShadow: theme.Card_boxShadow,
+    cursor: props.onClick && 'pointer',
+    paddingBottom: '0.01em', // Necessary to prevent margin collapse of last-child
+    paddingTop: '0.01em', // Necessary to prevent margin collapse of first-child
 
-      '&:focus': {
-        boxShadow: theme.Card_boxShadow_focus
-      }
-    };
-  }
-);
+    '&:focus': {
+      boxShadow: theme.Card_boxShadow_focus
+    }
+  };
+});
 
 export const CardRow = createStyledComponent(
   'div',

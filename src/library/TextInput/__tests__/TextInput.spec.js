@@ -4,7 +4,10 @@ import { shallow } from 'enzyme';
 import TextInput from '../TextInput';
 import examples from '../../../website/app/demos/TextInput/TextInput/examples';
 import testDemoExamples from '../../../../utils/testDemoExamples';
-import { getSerializedHTML, mountInThemeProvider } from '../../../../utils/enzymeUtils';
+import {
+  getSerializedHTML,
+  mountInThemeProvider
+} from '../../../../utils/enzymeUtils';
 
 function shallowTextInput(props = {}) {
   const textInputProps = {

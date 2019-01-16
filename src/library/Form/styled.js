@@ -1,15 +1,18 @@
 /* @flow */
 import { hideVisually } from 'polished';
-import { componentStyleReset, createStyledComponent, getNormalizedValue } from '../styles';
+import {
+  componentStyleReset,
+  createStyledComponent,
+  getNormalizedValue
+} from '../styles';
 import {
   formFieldTheme,
   formFieldDividerTheme,
   formFieldsetTheme
 } from './themes';
 
-export const FormFieldRoot = createStyledComponent(
-  'div',
-  ({ theme }) => componentStyleReset(theme),
+export const FormFieldRoot = createStyledComponent('div', ({ theme }) =>
+  componentStyleReset(theme)
 );
 
 export const FormFieldCaption = createStyledComponent(

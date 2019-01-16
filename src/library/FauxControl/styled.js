@@ -1,6 +1,10 @@
 /* @flow */
 import { ellipsis } from 'polished';
-import { componentStyleReset, createStyledComponent, getNormalizedValue } from '../styles';
+import {
+  componentStyleReset,
+  createStyledComponent,
+  getNormalizedValue
+} from '../styles';
 
 import { fauxControlTheme } from './themes';
 

@@ -1,6 +1,9 @@
 /* @flow */
 
-import { componentStyleReset, createStyledComponent } from '../../../../../../library/styles';
+import {
+  componentStyleReset,
+  createStyledComponent
+} from '../../../../../../library/styles';
 import Button from '../../../../../../library/Button';
 import Popover from '../../../../../../library/Popover';
 import Popper from '../../../../../../library/Popover/RtlPopper';
