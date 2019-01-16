@@ -230,9 +230,7 @@ export const CardFooterToggleButton = styled(Button)(
   })
 );
 
-export const CardImageRoot = styled('img', {
-  rootEl: 'img'
-})((props) => {
+export const CardImageRoot = styled('img')((props) => {
   const theme = cardTheme(props.theme);
 
   return {

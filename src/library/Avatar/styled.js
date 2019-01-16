@@ -4,7 +4,7 @@ import { componentStyleReset } from '../styles';
 import { SHAPE } from './constants';
 import { avatarTheme } from './themes';
 
-export const AvatarRoot = styled('span', { filterProps: ['icon'] })(
+export const AvatarRoot = styled('span')(
   ({
     background,
     color: propColor,

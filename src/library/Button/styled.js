@@ -1,5 +1,6 @@
 /* @flow */
 import styled from '@emotion/styled';
+import isPropValid from '@emotion/is-prop-valid';
 import { ellipsis } from 'polished';
 import { componentStyleReset, getNormalizedValue } from '../styles';
 import { SIZE } from './constants';
@@ -68,7 +69,7 @@ export const Inner = styled('span')({
 });
 
 export const Button = styled('button', {
-  filterProps: ['primary', 'text', 'variant']
+  shouldForwardProp: (prop) => isPropValid(prop)
 })(
   ({
     circular,

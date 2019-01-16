@@ -1,5 +1,6 @@
 /* @flow */
 import styled from '@emotion/styled';
+import isPropValid from '@emotion/is-prop-valid';
 import React from 'react';
 import withProps from 'recompose/withProps';
 import { componentStyleReset, getNormalizedValue } from '../styles';
@@ -20,21 +21,21 @@ import DialogRow from './DialogRow';
 import type { CreateRootNode } from '../styles/types';
 import type { DialogRowDefaultProps, DialogRowProps } from './types';
 
-export const DialogRoot = styled('div', { filterProps: ['title'] })(
-  ({ modeless, theme }) => ({
-    ...componentStyleReset(theme),
+export const DialogRoot = styled('div', {
+  shouldForwardProp: (prop) => prop !== 'title' && isPropValid(prop)
+})(({ modeless, theme }) => ({
+  ...componentStyleReset(theme),
 
-    alignItems: 'center',
-    bottom: 0,
-    display: 'flex',
-    justifyContent: 'center',
-    left: 0,
-    position: 'fixed',
-    pointerEvents: modeless ? 'none' : undefined,
-    right: 0,
-    top: 0
-  })
-);
+  alignItems: 'center',
+  bottom: 0,
+  display: 'flex',
+  justifyContent: 'center',
+  left: 0,
+  position: 'fixed',
+  pointerEvents: modeless ? 'none' : undefined,
+  right: 0,
+  top: 0
+}));
 
 export const DialogActionsRoot = styled('div')(({ theme: baseTheme }) => {
   const theme = dialogActionsTheme(baseTheme);
@@ -235,7 +236,7 @@ export const createDialogRowRootNode: CreateRootNode<
 > = (props, defaultProps) => {
   const { element = defaultProps.element } = props;
 
-  return styled(element, { rootEl: element })(({ theme: baseTheme }) => {
+  return styled(element)(({ theme: baseTheme }) => {
     const theme = dialogRowTheme(baseTheme);
     const fontSize = theme.DialogRow_fontSize;
 

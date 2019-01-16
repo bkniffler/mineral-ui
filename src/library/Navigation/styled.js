@@ -1,48 +1,52 @@
 /* @flow */
 import styled from '@emotion/styled';
+import isPropValid from '@emotion/is-prop-valid';
 import { componentStyleReset } from '../styles';
 import { createThemedComponent } from '../themes';
 import Button from '../Button';
 import { ALIGN, INTERNAL_TYPE } from './constants';
 import { navigationTheme, navItemTheme } from './themes';
 
-export const NavigationRoot = styled('nav', { filterProps: ['prefix'] })(
-  ({ align, prefix, theme: baseTheme, type }) => {
-    const theme = navigationTheme(baseTheme);
+export const NavigationRoot = styled('nav', {
+  shouldForwardProp: (prop) =>
+    ['prefix', 'type'].indexOf(prop) === -1 && isPropValid(prop)
+})(({ align, prefix, theme: baseTheme, type }) => {
+  const theme = navigationTheme(baseTheme);
 
-    const aligns = {
-      [ALIGN.start]: 'flex-start',
-      [ALIGN.center]: 'center',
-      [ALIGN.end]: 'flex-end',
-      [ALIGN.justify]: undefined
-    };
+  const aligns = {
+    [ALIGN.start]: 'flex-start',
+    [ALIGN.center]: 'center',
+    [ALIGN.end]: 'flex-end',
+    [ALIGN.justify]: undefined
+  };
 
-    return {
-      ...componentStyleReset(baseTheme),
+  return {
+    ...componentStyleReset(baseTheme),
 
-      backgroundColor: theme[`${prefix}Nav_backgroundColor${type}`],
-      borderBottom: theme[`${prefix}Nav_border`],
-      display: 'flex',
-      justifyContent: aligns[align],
-      listStyle: 'none',
-      margin: 0,
-      // prettier-ignore
-      padding: `${theme[`${prefix}Nav_paddingVertical`]} ${theme[`${prefix}Nav_paddingHorizontal`]}`,
+    backgroundColor: theme[`${prefix}Nav_backgroundColor${type}`],
+    borderBottom: theme[`${prefix}Nav_border`],
+    display: 'flex',
+    justifyContent: aligns[align],
+    listStyle: 'none',
+    margin: 0,
+    // prettier-ignore
+    padding: `${theme[`${prefix}Nav_paddingVertical`]} ${theme[`${prefix}Nav_paddingHorizontal`]}`,
 
-      ...(type === INTERNAL_TYPE.tabs
-        ? {
-            paddingBottom: 0
-          }
-        : undefined),
+    ...(type === INTERNAL_TYPE.tabs
+      ? {
+          paddingBottom: 0
+        }
+      : undefined),
 
-      '& > :not(:first-child)': {
-        marginLeft: theme[`${prefix}Nav_gutter`]
-      }
-    };
-  }
-);
+    '& > :not(:first-child)': {
+      marginLeft: theme[`${prefix}Nav_gutter`]
+    }
+  };
+});
 
-const NavItemButton = styled(Button, { filterProps: ['prefix', 'type'] })(
+const NavItemButton = styled(Button, {
+  shouldForwardProp: (prop) => ['prefix', 'type'].indexOf(prop) === -1
+})(
   ({ align, disabled, maxWidth, prefix, selected, theme: baseTheme, type }) => {
     const theme = navItemTheme(baseTheme);
 

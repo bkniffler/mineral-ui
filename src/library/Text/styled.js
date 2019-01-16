@@ -138,7 +138,5 @@ export const createTextRootNode: CreateRootNode<TextProps, TextDefaultProps> = (
       ? 'span'
       : element;
 
-  return styled(element, { rootEl: element })(
-    getTextStyles(inherit, defaultProps)
-  );
+  return styled(element)(getTextStyles(inherit, defaultProps));
 };

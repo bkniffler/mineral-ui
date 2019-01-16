@@ -24,6 +24,4 @@ const ThemedOverflowContainer = createThemedComponent(
     )
 );
 
-export default styled(ThemedOverflowContainer, {
-  forwardProps: ['containerRef']
-})(getScrollerStyles);
+export default styled(ThemedOverflowContainer)(getScrollerStyles);

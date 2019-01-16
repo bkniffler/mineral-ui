@@ -46,7 +46,7 @@ export const TableOverflowContainer = createThemedComponent(
     )
 );
 
-export const TableRoot = styled('table', { rootEl: 'table' })(({ theme }) => ({
+export const TableRoot = styled('table')(({ theme }) => ({
   ...componentStyleReset(theme),
 
   borderCollapse: 'collapse',
@@ -54,7 +54,7 @@ export const TableRoot = styled('table', { rootEl: 'table' })(({ theme }) => ({
   width: '100%'
 }));
 
-export const TableBody = styled('tbody', { rootEl: 'tbody' })({});
+export const TableBody = styled('tbody')();
 
 export const createTableCellRootNode: CreateRootNode<
   TableCellProps,
@@ -68,7 +68,7 @@ export const createTableCellRootNode: CreateRootNode<
       ? 'th'
       : defaultElement;
 
-  return styled(element, { rootEl: element })(
+  return styled(element)(
     ({ density, highContrast, noPadding, textAlign, theme: baseTheme }) => {
       const theme = tableCellTheme(baseTheme);
       const fontSize = theme.TableCell_fontSize;
@@ -103,7 +103,7 @@ export const createTableCellRootNode: CreateRootNode<
   );
 };
 
-export const TableHeaderRoot = styled('thead', { rootEl: 'thead' })(
+export const TableHeaderRoot = styled('thead')(
   ({ hide, highContrast, theme: baseTheme }) => {
     const theme = tableHeaderTheme(baseTheme);
 
@@ -151,9 +151,8 @@ export const createTableHeaderCellRootNode: CreateRootNode<
 
   return withProps({ element })(
     styled(ThemedTableCell, {
-      filterProps: ['width'],
-      forwardProps: ['element', 'noPadding', 'textAlign'],
-      rootEl: element
+      shouldForwardProp: (prop) =>
+        ['noPadding', 'textAlign'].indexOf(prop) !== -1 || prop !== 'width'
     })(({ highContrast, maxWidth, minWidth, theme: baseTheme, width }) => {
       const theme = tableHeaderCellTheme(baseTheme);
       const fontSize = theme.TableHeaderCell_fontSize;
@@ -197,7 +196,7 @@ export const createTableHeaderCellRootNode: CreateRootNode<
   );
 };
 
-export const TableRowRoot = styled('tr', { rootEl: 'tr' })(
+export const TableRowRoot = styled('tr')(
   ({ highContrast, isSelected, theme: baseTheme, striped }) => {
     const theme = tableRowTheme(baseTheme);
 
@@ -371,7 +370,7 @@ export const TableSortableHeaderCellIconHolder = styled('span')(
   }
 );
 
-export const TableTitleRoot = styled('caption', { rootEl: 'caption' })(
+export const TableTitleRoot = styled('caption')(
   ({ hide, theme: baseTheme }) => {
     const theme = tableTitleTheme(baseTheme);
 

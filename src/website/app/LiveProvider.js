@@ -64,9 +64,9 @@ const styles = {
   })
 };
 
-const MyLivePreview = styled(LivePreview)(styles.livePreview, {
+const MyLivePreview = styled(LivePreview, {
   shouldForwardProp: (prop) => isValidProp('div', prop)
-});
+})(styles.livePreview);
 const MyLiveEditor = styled(LiveEditor)(styles.liveEditor);
 const MyLiveError = styled(LiveError)(styles.liveError);
 

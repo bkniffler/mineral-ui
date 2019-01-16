@@ -21,7 +21,7 @@ control of the trigger. ${renderPropsDescription}`,
     () => {
       // Your render function must return a Popper Reference component.
       // import { Reference } from 'react-popper';
-      const CustomTrigger = styled('button')({});      
+      const CustomTrigger = styled('button')();      
 
       return (
         <Popover content={<DemoContent />}>

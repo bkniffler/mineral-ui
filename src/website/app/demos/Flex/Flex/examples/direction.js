@@ -5,7 +5,7 @@ import _DemoLayout from '../../common/DemoLayout';
 import FlexItem from '../../common/DemoFlexItem';
 import _Flex from '../../common/DemoFlex';
 
-const DemoLayout = withProps({ lastRowStartsAt: 3 })(styled(_DemoLayout)({}));
+const DemoLayout = withProps({ lastRowStartsAt: 3 })(styled(_DemoLayout)());
 
 const Flex = styled(_Flex)(({ direction }) => {
   return direction.indexOf('column') != -1

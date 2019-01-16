@@ -53,35 +53,34 @@ export const TextInputRoot = styled(ThemedFauxControl)(
   }
 );
 
-export const Input = styled('input', {
-  rootEl: 'input',
-  forwardProps: ['size']
-})(({ controlSize, size: nonHtmlSize, theme: baseTheme }) => {
-  const theme = textInputTheme(baseTheme);
+export const Input = styled('input')(
+  ({ controlSize, size: nonHtmlSize, theme: baseTheme }) => {
+    const theme = textInputTheme(baseTheme);
 
-  const size = controlSize || nonHtmlSize;
-  const fontSize =
-    size === SIZE.small
-      ? theme.TextInput_fontSize_small
-      : theme.TextInput_fontSize;
+    const size = controlSize || nonHtmlSize;
+    const fontSize =
+      size === SIZE.small
+        ? theme.TextInput_fontSize_small
+        : theme.TextInput_fontSize;
 
-  return {
-    backgroundColor: 'transparent',
-    border: 0,
-    boxShadow: 'none',
-    flex: '1 1 auto',
-    fontFamily: 'inherit',
-    height: getNormalizedValue(theme[`TextInput_height_${size}`], fontSize),
-    minWidth: 0,
-    width: '100%',
+    return {
+      backgroundColor: 'transparent',
+      border: 0,
+      boxShadow: 'none',
+      flex: '1 1 auto',
+      fontFamily: 'inherit',
+      height: getNormalizedValue(theme[`TextInput_height_${size}`], fontSize),
+      minWidth: 0,
+      width: '100%',
 
-    // Normalize Safari search inputs
-    '&[type="search"]': {
-      WebkitAppearance: 'none',
+      // Normalize Safari search inputs
+      '&[type="search"]': {
+        WebkitAppearance: 'none',
 
-      '&::-webkit-search-decoration': {
-        WebkitAppearance: 'none'
+        '&::-webkit-search-decoration': {
+          WebkitAppearance: 'none'
+        }
       }
-    }
-  };
-});
+    };
+  }
+);

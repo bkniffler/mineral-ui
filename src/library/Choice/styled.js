@@ -44,46 +44,41 @@ export const ChoiceRoot = styled('label')(
   }
 );
 
-export const Input = styled('input', { rootEl: 'input' })(
-  ({ theme: baseTheme }) => {
-    const theme = choiceTheme(baseTheme);
+export const Input = styled('input')(({ theme: baseTheme }) => {
+  const theme = choiceTheme(baseTheme);
 
-    return {
-      ...hideVisually(),
+  return {
+    ...hideVisually(),
 
-      '&:focus': {
+    '&:focus': {
+      '& + span': {
+        boxShadow: theme.ChoiceControl_boxShadow_focus
+      }
+    },
+
+    '&:checked,&[type="checkbox"]:indeterminate': {
+      '& + span': {
+        backgroundColor: theme.ChoiceControl_backgroundColor_checked,
+        borderColor: theme.ChoiceControl_borderColor_checked
+      },
+
+      '&:hover': {
         '& + span': {
-          boxShadow: theme.ChoiceControl_boxShadow_focus
+          backgroundColor: theme.ChoiceControl_backgroundColor_checkedHover,
+          borderColor: theme.ChoiceControl_borderColor_checkedHover
         }
       },
 
-      '&:checked,&[type="checkbox"]:indeterminate': {
+      '&:disabled': {
         '& + span': {
-          backgroundColor: theme.ChoiceControl_backgroundColor_checked,
-          borderColor: theme.ChoiceControl_borderColor_checked
-        },
-
-        '&:hover': {
-          '& + span': {
-            backgroundColor: theme.ChoiceControl_backgroundColor_checkedHover,
-            borderColor: theme.ChoiceControl_borderColor_checkedHover
-          }
-        },
-
-        '&:disabled': {
-          '& + span': {
-            backgroundColor: theme.ChoiceControl_borderColor,
-            borderColor: theme.ChoiceControl_borderColor,
-            color: theme.ChoiceControl_backgroundColor
-          }
+          backgroundColor: theme.ChoiceControl_borderColor,
+          borderColor: theme.ChoiceControl_borderColor,
+          color: theme.ChoiceControl_backgroundColor
         }
       }
-    };
-  },
-  {
-    rootEl: 'input'
-  }
-);
+    }
+  };
+});
 
 export const Text = styled('span')(
   ({ disabled, hideLabel, justify, labelPosition, size, theme: baseTheme }) => {

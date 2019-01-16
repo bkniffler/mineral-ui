@@ -366,7 +366,7 @@ const Header = withProps({ element: 'header' })(styled(Section)(styles.header));
 const MenuButton = withProps({ circular: true })(
   styled(Button)(styles.menuButton)
 );
-const Nav = styled(_Nav, { filterProps: ['glitched'] })(styles.nav);
+const Nav = styled(_Nav)(styles.nav);
 const Wrap = styled('div')(styles.wrap);
 const WrapInner = styled('div')(styles.wrapInner);
 

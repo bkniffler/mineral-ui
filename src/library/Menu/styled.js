@@ -65,7 +65,7 @@ export const createMenuItemRootNode: CreateRootNode<
 > = (props, defaultProps) => {
   const { element = defaultProps.element } = props;
 
-  return styled(element, { rootEl: element })(
+  return styled(element)(
     // These styles are based off of Button, with significant changes
     ({ disabled, isHighlighted, theme: baseTheme, variant }) => {
       let theme = menuItemTheme(baseTheme);

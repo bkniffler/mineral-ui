@@ -2,7 +2,7 @@
 import styled from '@emotion/styled';
 import { iconTheme } from './themes';
 
-export const IconRoot = styled('svg', { rootEl: 'svg' })(
+export const IconRoot = styled('svg')(
   ({ color, rtl, size, theme: baseTheme }) => {
     let theme = iconTheme(baseTheme);
 

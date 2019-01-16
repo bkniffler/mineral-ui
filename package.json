@@ -81,6 +81,7 @@
     "@babel/preset-react": "7.0.0",
     "@emotion/babel-preset-css-prop": "10.0.6",
     "@emotion/core": "10.0.6",
+    "@emotion/is-prop-valid": "0.7.3",
     "@emotion/styled": "10.0.6",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.1",
@@ -157,6 +158,7 @@
   },
   "peerDependencies": {
     "@emotion/core": "^10.0.6",
+    "@emotion/is-prop-valid": "^0.7.3",
     "@emotion/styled": "^10.0.6",
     "emotion-theming": "^10.0.6",
     "react": "^16.3.0",

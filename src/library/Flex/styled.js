@@ -1,4 +1,5 @@
 /* @flow */
+import isPropValid from '@emotion/is-prop-valid';
 import styled from '@emotion/styled';
 import { getResponsiveStyles } from '../styles';
 import Box from '../Box';
@@ -36,7 +37,10 @@ const flexMapValueToProperty = (
   return map[property](value);
 };
 
-export const FlexRoot = styled(Box, { filterProps: ['inline'] })(
+export const FlexRoot = styled(Box, {
+  shouldForwardProp: (prop) =>
+    ['direction', 'inline', 'wrap'].indexOf(prop) === -1 && isPropValid(prop)
+})(
   ({
     breakpoints,
     alignItems,
@@ -81,19 +85,21 @@ export const createFlexItemRootNode: CreateRootNode<FlexItemProps> = (
 ) => {
   const component = props.flex ? ActualFlex : Box;
 
-  return styled(component, { filterProps: ['inline', 'minWidth', 'width'] })(
-    ({ alignSelf, breakpoints, grow, minWidth, shrink, theme, width }) =>
-      getResponsiveStyles({
-        breakpoints,
-        mapValueToProperty: flexItemMapValueToProperty,
-        styles: {
-          alignSelf,
-          flexBasis: width || 'auto',
-          flexGrow: grow,
-          flexShrink: shrink,
-          minWidth
-        },
-        theme
-      })
+  return styled(component, {
+    shouldForwardProp: (prop) =>
+      ['inline', 'minWidth', 'width'].indexOf(prop) === -1
+  })(({ alignSelf, breakpoints, grow, minWidth, shrink, theme, width }) =>
+    getResponsiveStyles({
+      breakpoints,
+      mapValueToProperty: flexItemMapValueToProperty,
+      styles: {
+        alignSelf,
+        flexBasis: width || 'auto',
+        flexGrow: grow,
+        flexShrink: shrink,
+        minWidth
+      },
+      theme
+    })
   );
 };

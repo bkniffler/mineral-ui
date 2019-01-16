@@ -5,7 +5,7 @@ import FlexItem from '../../common/DemoFlexItem';
 import _DemoLayout from '../../common/DemoLayout';
 import _Flex from '../../common/DemoFlex';
 
-const DemoLayout = withProps({ lastRowStartsAt: 10 })(styled(_DemoLayout)({}));
+const DemoLayout = withProps({ lastRowStartsAt: 10 })(styled(_DemoLayout)());
 
 const Flex = styled(_Flex)(({ direction }) => {
   return direction === 'column'

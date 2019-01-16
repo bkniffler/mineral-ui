@@ -49,7 +49,7 @@ export const TabAnchor = withProps({
   role: 'tab',
   size: 'medium'
 })(
-  styled(TabThemedButton, { filterProps: ['title'] })(
+  styled(TabThemedButton, { shouldForwardProp: (prop) => prop !== 'title' })(
     ({ disabled, maxWidth, position = 'top', selected, theme: baseTheme }) => {
       const theme = tabTheme(baseTheme);
       const rtl = theme.direction === 'rtl';

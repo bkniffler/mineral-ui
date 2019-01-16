@@ -59,7 +59,7 @@ export const FormFieldSecondaryText = styled('span')(
   }
 );
 
-export const FormFieldsetRoot = styled('fieldset', { rootEl: 'fieldset' })(
+export const FormFieldsetRoot = styled('fieldset')(
   ({ disabled, theme: baseTheme }) => {
     const theme = formFieldsetTheme(baseTheme);
 

@@ -5,7 +5,7 @@ import GridItem from '../../common/DemoGridItem';
 import _DemoLayout from '../../common/DemoLayout';
 import _Grid from '../../common/DemoGrid';
 
-const DemoLayout = withProps({ lastRowStartsAt: 5 })(styled(_DemoLayout)({}));
+const DemoLayout = withProps({ lastRowStartsAt: 5 })(styled(_DemoLayout)());
 
 const Grid = styled(_Grid)({
   height: '5rem'

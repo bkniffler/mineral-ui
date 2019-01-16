@@ -28,7 +28,7 @@ export const TextAreaRoot = styled(ThemedFauxControl)({
   width: '100%'
 });
 
-export const Input = styled('textarea', { rootEl: 'textarea' })(
+export const Input = styled('textarea')(
   ({ resizeable, size, theme: baseTheme }) => {
     const theme = textAreaTheme(baseTheme);
 

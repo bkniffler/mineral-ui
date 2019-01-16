@@ -1,4 +1,5 @@
 /* @flow */
+import isPropValid from '@emotion/is-prop-valid';
 import styled from '@emotion/styled';
 import { componentStyleReset } from '../styles';
 import { createThemedComponent } from '../themes';
@@ -7,7 +8,10 @@ import CardTitle from '../Card/CardTitle';
 import { popoverArrowTheme, popoverContentTheme } from './themes';
 import { ARROW_SIZE } from './constants';
 
-export const PopoverRoot = styled('span')({
+export const PopoverRoot = styled('span', {
+  shouldForwardProp: (prop) =>
+    ['content', 'onClose', 'onOpen'].indexOf(prop) === -1 && isPropValid(prop)
+})({
   color: null,
   display: 'inline-block'
 });
@@ -58,7 +62,7 @@ export const PopoverBlock = createThemedComponent(CardBlock, cardOverrides);
 
 export const PopoverTitle = createThemedComponent(CardTitle, cardOverrides);
 
-export const PopoverArrowRoot = styled('span', { rootEl: 'span' })(
+export const PopoverArrowRoot = styled('span')(
   ({ placement, size, theme: baseTheme }) => {
     const theme = popoverArrowTheme(baseTheme);
     let arrowShadow = ', 0 3px 1px rgba(0, 0, 0, 0.3)';

@@ -159,8 +159,8 @@ const styles = {
   }
 };
 
-const Link = withProps({ element: NavLink })(
-  styled(_Link, { filterProps: ['wide'] })(styles.link)
+const Link = withProps({ as: NavLink })(
+  styled(_Link, { shouldForwardProp: (prop) => prop !== 'wide' })(styles.link)
 );
 const List = styled('ol')(styles.list);
 const ListItem = styled('li')(styles.listItem);

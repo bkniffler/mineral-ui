@@ -114,7 +114,7 @@ const createRootNode: CreateRootNode<Props, DefaultProps> = (
 ) => {
   const { element = defaultProps.element } = props;
 
-  return styled(element, { rootEl: element })(styles.root);
+  return styled(element)(styles.root);
 };
 
 export default class Section extends Component<Props> {
