@@ -39,7 +39,7 @@ const flexMapValueToProperty = (
 
 export const FlexRoot = styled(Box, {
   shouldForwardProp: (prop) =>
-    ['direction', 'inline', 'wrap'].indexOf(prop) === -1 && isPropValid(prop)
+    ['direction', 'inline', 'wrap'].indexOf(prop) === -1
 })(
   ({
     breakpoints,

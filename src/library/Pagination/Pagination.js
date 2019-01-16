@@ -51,6 +51,8 @@ export class Pagination extends PureComponent<PaginationProps> {
     const {
       currentPage,
       messages: propMessages,
+      onPageChange: ignoreOnPageChange,
+      onPageSizeChange: ignoreOnPageSizeChange,
       pageSize,
       pageSizes,
       showPageJumper,
@@ -106,7 +108,6 @@ export class Pagination extends PureComponent<PaginationProps> {
         currentPage,
         key: 'Page Sizer',
         messages: { category: messages.category, ...messages.pageSizer },
-        onPageChange: this.handlePageChange,
         onPageSizeChange: this.handlePageSizeChange,
         pageSize,
         pageSizes,
