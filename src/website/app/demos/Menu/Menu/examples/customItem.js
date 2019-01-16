@@ -1,10 +1,7 @@
 /* @flow */
 import React from 'react';
-import {
-  componentStyleReset,
-  createStyledComponent,
-  pxToEm
-} from '../../../../../../library/styles';
+import styled from '@emotion/styled';
+import { componentStyleReset, pxToEm } from '../../../../../../library/styles';
 import { mineralTheme } from '../../../../../../library/themes';
 import Menu, { MenuItem } from '../../../../../../library/Menu';
 import Avatar from '../../../../../../library/Avatar';
@@ -21,7 +18,7 @@ ${renderPropsDescription}`,
   scope: {
     Avatar,
     componentStyleReset,
-    createStyledComponent,
+    styled,
     DemoLayout,
     Menu,
     MenuItem,
@@ -30,8 +27,7 @@ ${renderPropsDescription}`,
   },
   source: `
     () => {
-      const Div = createStyledComponent(
-        'div',
+      const Div = styled('div')(
         ({ disabled, isHighlighted, theme }) => ({
           ...componentStyleReset(theme),
 
@@ -55,14 +51,14 @@ ${renderPropsDescription}`,
         })
       );
 
-      const Work = createStyledComponent('span', ({ theme }) => ({
+      const Work = styled('span')(({ theme }) => ({
         color: theme.color_mouse,
         display: 'block',
         fontSize: theme.fontSize_mouse,
         marginTop: theme.space_stack_xs
       }));
 
-      const UserAvatar = createStyledComponent(Avatar, ({ theme }) => ({
+      const UserAvatar = styled(Avatar)(({ theme }) => ({
         display: 'block',
         flex: '0 0 auto',
         height: pxToEm(36),
@@ -71,7 +67,7 @@ ${renderPropsDescription}`,
         width: pxToEm(36)
       }));
 
-      const Content = createStyledComponent('span', ({ theme }) => ({
+      const Content = styled('span')(({ theme }) => ({
         flex: '1 1 auto',
         fontSize: theme.fontSize_ui,
         whiteSpace: 'normal',

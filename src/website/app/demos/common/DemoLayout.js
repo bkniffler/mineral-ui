@@ -1,6 +1,6 @@
 /* @flow */
 import React from 'react';
-import { createStyledComponent } from '../../../../library/styles';
+import styled from '@emotion/styled';
 
 type Props = {
   children: React$Node,
@@ -9,8 +9,7 @@ type Props = {
   marginBottom?: string
 };
 
-const Root = createStyledComponent(
-  'div',
+const Root = styled('div')(
   ({ includeLastChild, marginRight, marginBottom }) => {
     if (includeLastChild) {
       return {

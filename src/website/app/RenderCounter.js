@@ -1,9 +1,7 @@
 /* @flow */
 import React, { PureComponent } from 'react';
-import {
-  componentStyleReset,
-  createStyledComponent
-} from '../../library/styles';
+import styled from '@emotion/styled';
+import { componentStyleReset } from '../../library/styles';
 
 type Props = {};
 
@@ -39,7 +37,7 @@ export const countRender = (key: string) => {
     global.performance.mark(formatEntry(key));
 };
 
-const Root = createStyledComponent('div', ({ theme }) => ({
+const Root = styled('div')(({ theme }) => ({
   ...componentStyleReset(theme),
 
   backgroundColor: theme.color_theme_20,

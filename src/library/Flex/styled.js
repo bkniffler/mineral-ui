@@ -1,5 +1,6 @@
 /* @flow */
-import { createStyledComponent, getResponsiveStyles } from '../styles';
+import styled from '@emotion/styled';
+import { getResponsiveStyles } from '../styles';
 import Box from '../Box';
 import ActualFlex from './Flex';
 
@@ -35,8 +36,7 @@ const flexMapValueToProperty = (
   return map[property](value);
 };
 
-export const FlexRoot = createStyledComponent(
-  Box,
+export const FlexRoot = styled(Box, { filterProps: ['inline'] })(
   ({
     breakpoints,
     alignItems,
@@ -57,10 +57,7 @@ export const FlexRoot = createStyledComponent(
         justifyContent
       },
       theme
-    }),
-  {
-    filterProps: ['inline']
-  }
+    })
 );
 
 const flexItemMapValueToProperty = (
@@ -84,8 +81,7 @@ export const createFlexItemRootNode: CreateRootNode<FlexItemProps> = (
 ) => {
   const component = props.flex ? ActualFlex : Box;
 
-  return createStyledComponent(
-    component,
+  return styled(component, { filterProps: ['inline', 'minWidth', 'width'] })(
     ({ alignSelf, breakpoints, grow, minWidth, shrink, theme, width }) =>
       getResponsiveStyles({
         breakpoints,
@@ -98,9 +94,6 @@ export const createFlexItemRootNode: CreateRootNode<FlexItemProps> = (
           minWidth
         },
         theme
-      }),
-    {
-      filterProps: ['inline', 'minWidth', 'width']
-    }
+      })
   );
 };

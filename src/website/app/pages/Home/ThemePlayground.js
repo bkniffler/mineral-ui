@@ -1,11 +1,8 @@
 /* @flow */
 import React from 'react';
+import styled from '@emotion/styled';
 import rgba from 'polished/lib/color/rgba';
-import {
-  componentStyleReset,
-  createStyledComponent,
-  pxToEm
-} from '../../../../library/styles';
+import { componentStyleReset, pxToEm } from '../../../../library/styles';
 import IconCheck from 'mineral-ui-icons/IconCheck';
 import { ThemeProvider } from '../../../../library/themes';
 
@@ -175,12 +172,12 @@ const styles = {
   })
 };
 
-const Root = createStyledComponent('div', styles.root);
-const OptionRoot = createStyledComponent('button', styles.optionRoot);
-const OptionHex = createStyledComponent('span', styles.optionHex);
-const OptionIcon = createStyledComponent(IconCheck, styles.optionIcon);
-const OptionName = createStyledComponent('span', styles.optionName);
-const Sandbox = createStyledComponent('div', styles.sandbox);
+const Root = styled('div')(styles.root);
+const OptionRoot = styled('button')(styles.optionRoot);
+const OptionHex = styled('span')(styles.optionHex);
+const OptionIcon = styled(IconCheck)(styles.optionIcon);
+const OptionName = styled('span')(styles.optionName);
+const Sandbox = styled('div')(styles.sandbox);
 
 const Option = ({
   children,

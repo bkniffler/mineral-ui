@@ -1,11 +1,7 @@
 /* @flow */
-
+import styled from '@emotion/styled';
 import { ellipsis } from 'polished';
-import {
-  componentStyleReset,
-  createStyledComponent,
-  getNormalizedValue
-} from '../styles';
+import { componentStyleReset, getNormalizedValue } from '../styles';
 import { SIZE } from './constants';
 import { buttonTheme } from './themes';
 
@@ -23,49 +19,46 @@ const chooseColor = ({ disabled, primary, minimal }: ButtonProps, theme) => {
   }
 };
 
-export const Content = createStyledComponent(
-  'span',
-  ({ size, theme: baseTheme }) => {
-    const theme = buttonTheme(baseTheme);
-    const rtl = theme.direction === 'rtl';
-    const firstChildPaddingProperty = rtl ? 'paddingRight' : 'paddingLeft';
-    const lastChildPaddingProperty = rtl ? 'paddingLeft' : 'paddingRight';
+export const Content = styled('span')(({ size, theme: baseTheme }) => {
+  const theme = buttonTheme(baseTheme);
+  const rtl = theme.direction === 'rtl';
+  const firstChildPaddingProperty = rtl ? 'paddingRight' : 'paddingLeft';
+  const lastChildPaddingProperty = rtl ? 'paddingLeft' : 'paddingRight';
 
-    let paddings;
+  let paddings;
 
-    const fontSize =
-      size === SIZE.small
-        ? theme.ButtonContent_fontSize_small
-        : theme.ButtonContent_fontSize;
+  const fontSize =
+    size === SIZE.small
+      ? theme.ButtonContent_fontSize_small
+      : theme.ButtonContent_fontSize;
 
-    if (size === undefined || size === SIZE.large || size === SIZE.jumbo) {
-      const padding = getNormalizedValue(
-        theme.Button_paddingHorizontal,
-        fontSize
-      );
-      paddings = {
-        '&:first-child': {
-          [firstChildPaddingProperty]: padding
-        },
+  if (size === undefined || size === SIZE.large || size === SIZE.jumbo) {
+    const padding = getNormalizedValue(
+      theme.Button_paddingHorizontal,
+      fontSize
+    );
+    paddings = {
+      '&:first-child': {
+        [firstChildPaddingProperty]: padding
+      },
 
-        '&:last-child': {
-          [lastChildPaddingProperty]: padding
-        }
-      };
-    }
-
-    return {
-      ...ellipsis('100%'),
-
-      display: 'block',
-      fontSize,
-      lineHeight: getNormalizedValue(theme[`Button_height_${size}`], fontSize),
-      ...paddings
+      '&:last-child': {
+        [lastChildPaddingProperty]: padding
+      }
     };
   }
-);
 
-export const Inner = createStyledComponent('span', {
+  return {
+    ...ellipsis('100%'),
+
+    display: 'block',
+    fontSize,
+    lineHeight: getNormalizedValue(theme[`Button_height_${size}`], fontSize),
+    ...paddings
+  };
+});
+
+export const Inner = styled('span')({
   alignItems: 'center',
   display: 'inline-flex',
   justifyContent: 'center',
@@ -74,8 +67,9 @@ export const Inner = createStyledComponent('span', {
   width: '100%'
 });
 
-export const Button = createStyledComponent(
-  'button',
+export const Button = styled('button', {
+  filterProps: ['primary', 'text', 'variant']
+})(
   ({
     circular,
     disabled,
@@ -236,8 +230,5 @@ export const Button = createStyledComponent(
         }
       }
     };
-  },
-  {
-    filterProps: ['primary', 'text', 'variant']
   }
 );

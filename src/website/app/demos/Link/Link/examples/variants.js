@@ -1,15 +1,13 @@
 /* @flow */
 import React from 'react';
+import styled from '@emotion/styled';
 import withProps from 'recompose/withProps';
-import {
-  componentStyleReset,
-  createStyledComponent
-} from '../../../../../../library/styles';
+import { componentStyleReset } from '../../../../../../library/styles';
 import _Link from '../../../../../../library/Link';
 import _DemoLayout from '../../../common/DemoLayout';
 
 const DemoLayout = withProps({ marginRight: '1em' })(
-  createStyledComponent(_DemoLayout, ({ theme }) => componentStyleReset(theme))
+  styled(_DemoLayout)(({ theme }) => componentStyleReset(theme))
 );
 
 const Link = (props: {}) => <_Link target="_blank" {...props} />;

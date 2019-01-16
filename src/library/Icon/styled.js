@@ -1,9 +1,8 @@
 /* @flow */
-import { createStyledComponent } from '../styles';
+import styled from '@emotion/styled';
 import { iconTheme } from './themes';
 
-export const IconRoot = createStyledComponent(
-  'svg',
+export const IconRoot = styled('svg', { rootEl: 'svg' })(
   ({ color, rtl, size, theme: baseTheme }) => {
     let theme = iconTheme(baseTheme);
 
@@ -15,8 +14,5 @@ export const IconRoot = createStyledComponent(
       transform: theme.direction === 'rtl' && rtl && 'scaleX(-1)',
       width: theme[`Icon_size_${size}`] || size
     };
-  },
-  {
-    rootEl: 'svg'
   }
 );

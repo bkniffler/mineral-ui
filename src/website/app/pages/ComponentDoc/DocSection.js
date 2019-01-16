@@ -1,9 +1,6 @@
 /* @flow */
-import {
-  createStyledComponent,
-  getNormalizedValue,
-  pxToEm
-} from '../../../../library/styles';
+import styled from '@emotion/styled';
+import { getNormalizedValue, pxToEm } from '../../../../library/styles';
 import { createThemedComponent } from '../../../../library/themes';
 import Section from '../../Section';
 
@@ -14,7 +11,7 @@ const ThemedSection = createThemedComponent(Section, ({ theme }) => ({
   SectionPaddingVerticalWide: theme.baseline_5
 }));
 
-export default createStyledComponent(ThemedSection, ({ theme }) => ({
+export default styled(ThemedSection)(({ theme }) => ({
   // Inner
   '& > div': {
     margin: 0,

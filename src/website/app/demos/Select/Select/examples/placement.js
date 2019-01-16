@@ -1,9 +1,9 @@
 /* @flow */
-import { createStyledComponent } from '../../../../../../library/styles';
+import styled from '@emotion/styled';
 import Select from '../../../../../../library/Select';
 import { basicData as data } from '../../common/selectData';
 
-const DemoLayout = createStyledComponent('div', {
+const DemoLayout = styled('div')({
   height: '175px',
   display: 'flex',
   alignItems: 'flex-start',

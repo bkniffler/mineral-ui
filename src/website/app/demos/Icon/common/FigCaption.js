@@ -1,7 +1,7 @@
 /* @flow */
-import { createStyledComponent } from '../../../../../library/styles';
+import styled from '@emotion/styled';
 
-export default createStyledComponent('figcaption', ({ theme }) => ({
+export default styled('figcaption')(({ theme }) => ({
   fontSize: theme.fontSize_mouse,
   marginLeft: theme.space_inline_xs
 }));

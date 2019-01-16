@@ -1,14 +1,12 @@
 /* @flow */
-import {
-  createStyledComponent,
-  pxToEm
-} from '../../../../../../library/styles';
+import styled from '@emotion/styled';
+import { pxToEm } from '../../../../../../library/styles';
 import Button from '../../../../../../library/Button';
 import Dropdown from '../../../../../../library/Dropdown';
 import { ThemeProvider } from '../../../../../../library/themes';
 import data from '../../../Menu/common/menuData';
 
-const DemoLayout = createStyledComponent('div', {
+const DemoLayout = styled('div')({
   paddingBottom: pxToEm(130)
 });
 

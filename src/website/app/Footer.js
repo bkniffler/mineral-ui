@@ -1,11 +1,8 @@
 /* @flow */
 import React from 'react';
+import styled from '@emotion/styled';
 import withProps from 'recompose/withProps';
-import {
-  componentStyleReset,
-  createStyledComponent,
-  getNormalizedValue
-} from '../../library/styles';
+import { componentStyleReset, getNormalizedValue } from '../../library/styles';
 import { createThemedComponent, mineralTheme } from '../../library/themes';
 import Markdown from './Markdown';
 import Section from './Section';
@@ -25,7 +22,7 @@ const ThemedSection = createThemedComponent(Section, {
 });
 
 const Root = withProps({ element: 'footer' })(
-  createStyledComponent(ThemedSection, ({ theme }) => ({
+  styled(ThemedSection)(({ theme }) => ({
     ...componentStyleReset(theme),
 
     backgroundColor: theme.color_black,

@@ -1,10 +1,10 @@
 /* @flow */
 import Button from '../../../../../../library/Button';
-import { createStyledComponent } from '../../../../../../library/styles';
+import styled from '@emotion/styled';
 import DemoContent from '../../common/DemoContent';
 import Popover from '../../../../../../library/Popover';
 
-const DemoLayout = createStyledComponent('div', {
+const DemoLayout = styled('div')({
   height: '350px',
   display: 'flex',
   alignItems: 'center',

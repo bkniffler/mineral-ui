@@ -1,5 +1,5 @@
 /* @flow */
-import { createStyledComponent } from '../../../../../../library/styles';
+import styled from '@emotion/styled';
 import { createThemedComponent } from '../../../../../../library/themes';
 import Button from '../../../../../../library/Button';
 import ButtonGroup from '../../../../../../library/ButtonGroup';
@@ -7,7 +7,7 @@ import Dropdown from '../../../../../../library/Dropdown';
 import IconArrowDropDown from 'mineral-ui-icons/IconArrowDropDown';
 import data from '../../../Menu/common/menuData';
 
-const StyledButton = createStyledComponent(Button, {
+const StyledButton = styled(Button)({
   color: 'lime !important'
 });
 

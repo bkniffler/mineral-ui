@@ -1,5 +1,5 @@
 /* @flow */
-import { createStyledComponent } from '../styles';
+import styled from '@emotion/styled';
 import { createThemedComponent, mapComponentThemes } from '../themes';
 import { overflowContainerWithShadowsTheme } from './themes';
 import { getScrollerStyles } from './styled';
@@ -24,10 +24,6 @@ const ThemedOverflowContainer = createThemedComponent(
     )
 );
 
-export default createStyledComponent(
-  ThemedOverflowContainer,
-  getScrollerStyles,
-  {
-    forwardProps: ['containerRef']
-  }
-);
+export default styled(ThemedOverflowContainer, {
+  forwardProps: ['containerRef']
+})(getScrollerStyles);

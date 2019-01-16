@@ -1,20 +1,16 @@
 /* @flow */
-import {
-  componentStyleReset,
-  createStyledComponent,
-  getNormalizedValue,
-  pxToEm
-} from '../styles';
+import styled from '@emotion/styled';
+import { componentStyleReset, getNormalizedValue, pxToEm } from '../styles';
 import { menuDividerTheme, menuGroupTheme, menuItemTheme } from './themes';
 
 import type { CreateRootNode } from '../styles/types';
 import type { MenuItemDefaultProps, MenuItemProps } from './types';
 
-export const MenuRoot = createStyledComponent('div', ({ theme }) =>
+export const MenuRoot = styled('div')(({ theme }) =>
   componentStyleReset(theme)
 );
 
-export const MenuDividerRoot = createStyledComponent('div', (props) => {
+export const MenuDividerRoot = styled('div')((props) => {
   const theme = menuDividerTheme(props.theme);
 
   return {
@@ -24,7 +20,7 @@ export const MenuDividerRoot = createStyledComponent('div', (props) => {
   };
 });
 
-export const MenuGroupTitle = createStyledComponent('h3', (props) => {
+export const MenuGroupTitle = styled('h3')((props) => {
   const theme = {
     ...menuGroupTheme(props.theme),
     ...menuItemTheme(props.theme)
@@ -69,8 +65,7 @@ export const createMenuItemRootNode: CreateRootNode<
 > = (props, defaultProps) => {
   const { element = defaultProps.element } = props;
 
-  return createStyledComponent(
-    element,
+  return styled(element, { rootEl: element })(
     // These styles are based off of Button, with significant changes
     ({ disabled, isHighlighted, theme: baseTheme, variant }) => {
       let theme = menuItemTheme(baseTheme);
@@ -144,14 +139,11 @@ export const createMenuItemRootNode: CreateRootNode<
           }
         }
       };
-    },
-    {
-      rootEl: element
     }
   );
 };
 
-export const MenuItemContent = createStyledComponent('span', {
+export const MenuItemContent = styled('span')({
   display: 'flex',
   flex: '1 1 auto',
   flexWrap: 'wrap',
@@ -161,12 +153,12 @@ export const MenuItemContent = createStyledComponent('span', {
   wordBreak: 'break-all'
 });
 
-export const MenuItemInner = createStyledComponent('span', {
+export const MenuItemInner = styled('span')({
   display: 'flex',
   justifyContent: 'space-between'
 });
 
-export const MenuItemSecondaryText = createStyledComponent('span', (props) => {
+export const MenuItemSecondaryText = styled('span')((props) => {
   let theme = menuItemTheme(props.theme);
 
   const fontSize = theme.MenuItemSecondaryText_fontSize;
@@ -181,7 +173,7 @@ export const MenuItemSecondaryText = createStyledComponent('span', (props) => {
   };
 });
 
-export const MenuItemText = createStyledComponent('span', (props) => {
+export const MenuItemText = styled('span')((props) => {
   let theme = menuItemTheme(props.theme);
 
   const fontSize = theme.MenuItemContent_fontSize;

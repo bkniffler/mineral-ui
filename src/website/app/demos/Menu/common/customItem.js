@@ -1,11 +1,8 @@
 /* @flow */
 import React from 'react';
+import styled from '@emotion/styled';
 import { withTheme } from '../../../../../library/themes';
-import {
-  componentStyleReset,
-  createStyledComponent,
-  pxToEm
-} from '../../../../../library/styles';
+import { componentStyleReset, pxToEm } from '../../../../../library/styles';
 import Avatar from '../../../../../library/Avatar';
 import { menuItemTheme } from '../../../../../library/Menu/themes';
 
@@ -14,7 +11,7 @@ export default function customItem({ props }: Object) {
     const theme = menuItemTheme(baseTheme);
     const { item } = props;
 
-    const Root = createStyledComponent('div', ({ theme }) => ({
+    const Root = styled('div')(({ theme }) => ({
       ...componentStyleReset(theme),
 
       backgroundColor: props.isHighlighted && theme.color_theme_20,
@@ -37,14 +34,14 @@ export default function customItem({ props }: Object) {
       }
     }));
 
-    const Work = createStyledComponent('span', {
+    const Work = styled('span')({
       color: theme.color_mouse,
       display: 'block',
       fontSize: theme.fontSize_mouse,
       marginTop: theme.space_stack_xs
     });
 
-    const UserAvatar = createStyledComponent(Avatar, {
+    const UserAvatar = styled(Avatar)({
       display: 'block',
       flex: '0 0 auto',
       height: pxToEm(36),
@@ -53,7 +50,7 @@ export default function customItem({ props }: Object) {
       width: pxToEm(36)
     });
 
-    const Content = createStyledComponent('span', {
+    const Content = styled('span')({
       flex: '1 1 auto',
       fontSize: theme.MenuItemContent_fontSize,
       whiteSpace: 'normal',

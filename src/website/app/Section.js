@@ -1,7 +1,7 @@
 /* @flow */
 import React, { Component } from 'react';
 import memoizeOne from 'memoize-one';
-import { createStyledComponent } from '../../library/styles';
+import styled from '@emotion/styled';
 
 import type { CreateRootNode } from '../../library/styles/types';
 
@@ -43,7 +43,7 @@ const styles = {
         ? paddingWithClipWide
         : theme.SectionPaddingVerticalWide;
 
-    const styles = {
+    const styles: Object = {
       margin: '0 auto',
       maxWidth: '80em',
       paddingBottom,
@@ -106,7 +106,7 @@ const styles = {
   }
 };
 
-const Inner = createStyledComponent('div', styles.inner);
+const Inner = styled('div')(styles.inner);
 
 const createRootNode: CreateRootNode<Props, DefaultProps> = (
   props,
@@ -114,9 +114,7 @@ const createRootNode: CreateRootNode<Props, DefaultProps> = (
 ) => {
   const { element = defaultProps.element } = props;
 
-  return createStyledComponent(element, styles.root, {
-    rootEl: element
-  });
+  return styled(element, { rootEl: element })(styles.root);
 };
 
 export default class Section extends Component<Props> {

@@ -1,11 +1,8 @@
 /* @flow */
+import styled from '@emotion/styled';
 import React from 'react';
 import withProps from 'recompose/withProps';
-import {
-  componentStyleReset,
-  createStyledComponent,
-  getNormalizedValue
-} from '../styles';
+import { componentStyleReset, getNormalizedValue } from '../styles';
 import { createThemedComponent, mapComponentThemes } from '../themes';
 import Button from '../Button';
 import Text from '../Text';
@@ -23,8 +20,7 @@ import DialogRow from './DialogRow';
 import type { CreateRootNode } from '../styles/types';
 import type { DialogRowDefaultProps, DialogRowProps } from './types';
 
-export const DialogRoot = createStyledComponent(
-  'div',
+export const DialogRoot = styled('div', { filterProps: ['title'] })(
   ({ modeless, theme }) => ({
     ...componentStyleReset(theme),
 
@@ -37,73 +33,61 @@ export const DialogRoot = createStyledComponent(
     pointerEvents: modeless ? 'none' : undefined,
     right: 0,
     top: 0
-  }),
-  {
-    filterProps: ['title']
-  }
+  })
 );
 
-export const DialogActionsRoot = createStyledComponent(
-  'div',
-  ({ theme: baseTheme }) => {
-    const theme = dialogActionsTheme(baseTheme);
-    const marginProperty =
-      theme.direction === 'rtl' ? 'marginLeft' : 'marginRight';
+export const DialogActionsRoot = styled('div')(({ theme: baseTheme }) => {
+  const theme = dialogActionsTheme(baseTheme);
+  const marginProperty =
+    theme.direction === 'rtl' ? 'marginLeft' : 'marginRight';
 
-    return {
-      alignItems: 'center',
-      display: 'flex',
-      justifyContent: 'flex-end',
+  return {
+    alignItems: 'center',
+    display: 'flex',
+    justifyContent: 'flex-end',
 
-      '& > *:not(:last-child)': {
-        [marginProperty]: theme.DialogActionsItem_margin
-      }
-    };
-  }
-);
+    '& > *:not(:last-child)': {
+      [marginProperty]: theme.DialogActionsItem_margin
+    }
+  };
+});
 
-export const DialogAnimate = createStyledComponent(
-  'div',
-  ({ state, theme: baseTheme }) => {
-    const theme = dialogTheme(baseTheme);
-    return {
-      opacity: state === 'entered' ? 1 : 0,
-      position: 'relative',
-      transition: `opacity ${theme.Dialog_transitionDuration} ease`,
-      willChange: 'opacity',
-      zIndex: theme.Dialog_zIndex
-    };
-  }
-);
+export const DialogAnimate = styled('div')(({ state, theme: baseTheme }) => {
+  const theme = dialogTheme(baseTheme);
+  return {
+    opacity: state === 'entered' ? 1 : 0,
+    position: 'relative',
+    transition: `opacity ${theme.Dialog_transitionDuration} ease`,
+    willChange: 'opacity',
+    zIndex: theme.Dialog_zIndex
+  };
+});
 
-export const DialogBodyRoot = createStyledComponent(
-  DialogRow,
-  ({ theme: baseTheme }) => {
-    const theme = dialogRowTheme(baseTheme);
-    const fontSize = theme.DialogRow_fontSize;
-    const marginVertical = `${getNormalizedValue(
-      theme.DialogRow_marginVertical,
-      fontSize
-    )}`;
+export const DialogBodyRoot = styled(DialogRow)(({ theme: baseTheme }) => {
+  const theme = dialogRowTheme(baseTheme);
+  const fontSize = theme.DialogRow_fontSize;
+  const marginVertical = `${getNormalizedValue(
+    theme.DialogRow_marginVertical,
+    fontSize
+  )}`;
 
-    return {
-      display: 'flex',
-      flex: '1 1 auto',
-      fontSize,
-      margin: 0,
-      minHeight: '0%', // See: https://css-tricks.com/flexbox-truncated-text/#comment-1611744
-      padding: 0,
+  return {
+    display: 'flex',
+    flex: '1 1 auto',
+    fontSize,
+    margin: 0,
+    minHeight: '0%', // See: https://css-tricks.com/flexbox-truncated-text/#comment-1611744
+    padding: 0,
 
-      // Margins when no header or footer
-      '&:first-child': {
-        marginTop: marginVertical
-      },
-      '&:last-child': {
-        marginBottom: marginVertical
-      }
-    };
-  }
-);
+    // Margins when no header or footer
+    '&:first-child': {
+      marginTop: marginVertical
+    },
+    '&:last-child': {
+      marginBottom: marginVertical
+    }
+  };
+});
 
 const DialogBodyThemedOverflowContainerWithShadows = createThemedComponent(
   _OverflowContainerWithShadows,
@@ -124,8 +108,7 @@ const DialogBodyThemedOverflowContainerWithShadows = createThemedComponent(
 export const DialogBodyOverflowContainerWithShadows = withProps({
   scrollY: true
 })(
-  createStyledComponent(
-    DialogBodyThemedOverflowContainerWithShadows,
+  styled(DialogBodyThemedOverflowContainerWithShadows)(
     ({ theme: baseTheme }) => {
       const theme = dialogRowTheme(baseTheme);
       const fontSize = theme.DialogRow_fontSize;
@@ -165,7 +148,7 @@ export const DialogCloseButton = withProps({
   minimal: true,
   size: 'small'
 })(
-  createStyledComponent(DialogThemedButton, ({ theme: baseTheme }) => {
+  styled(DialogThemedButton)(({ theme: baseTheme }) => {
     const theme = dialogTheme(baseTheme);
     const marginProperty =
       theme.direction === 'rtl' ? 'marginRight' : 'marginLeft';
@@ -176,81 +159,75 @@ export const DialogCloseButton = withProps({
   })
 );
 
-export const DialogContent = createStyledComponent(
-  'div',
-  ({ size, theme: baseTheme }) => {
-    const theme = dialogTheme(baseTheme);
+export const DialogContent = styled('div')(({ size, theme: baseTheme }) => {
+  const theme = dialogTheme(baseTheme);
 
-    const getSizeStyles = (size: string) => {
-      const maxWidth = theme[`DialogContent_maxWidth_${size}`];
-      const maxHeight = theme[`DialogContent_maxHeight_${size}`];
-      const width = theme[`DialogContent_width_${size}`];
-      const offsetVertical = theme.DialogContent_offsetVertical;
+  const getSizeStyles = (size: string) => {
+    const maxWidth = theme[`DialogContent_maxWidth_${size}`];
+    const maxHeight = theme[`DialogContent_maxHeight_${size}`];
+    const width = theme[`DialogContent_width_${size}`];
+    const offsetVertical = theme.DialogContent_offsetVertical;
 
-      const maxHeightNumber = parseFloat(maxHeight);
-      const offsetVerticalNumber = parseFloat(offsetVertical);
-      const minHeight = `${maxHeightNumber + 2 * offsetVerticalNumber}em`;
-
-      return {
-        maxWidth,
-        width,
-
-        [`@media(min-height: ${minHeight})`]: {
-          maxHeight
-        }
-      };
-    };
+    const maxHeightNumber = parseFloat(maxHeight);
+    const offsetVerticalNumber = parseFloat(offsetVertical);
+    const minHeight = `${maxHeightNumber + 2 * offsetVerticalNumber}em`;
 
     return {
-      backgroundColor: theme.DialogContent_backgroundColor,
-      border: `1px solid ${theme.DialogContent_borderColor}`,
-      borderRadius: theme.DialogContent_borderRadius,
-      boxShadow: theme.DialogContent_boxShadow,
-      display: 'flex',
-      flexDirection: 'column',
-      maxHeight: theme.DialogContent_maxHeight,
-      minWidth: theme.DialogContent_minWidth,
-      pointerEvents: 'all',
-      position: 'relative',
-      ...getSizeStyles(size)
+      maxWidth,
+      width,
+
+      [`@media(min-height: ${minHeight})`]: {
+        maxHeight
+      }
     };
-  }
-);
+  };
+
+  return {
+    backgroundColor: theme.DialogContent_backgroundColor,
+    border: `1px solid ${theme.DialogContent_borderColor}`,
+    borderRadius: theme.DialogContent_borderRadius,
+    boxShadow: theme.DialogContent_boxShadow,
+    display: 'flex',
+    flexDirection: 'column',
+    maxHeight: theme.DialogContent_maxHeight,
+    minWidth: theme.DialogContent_minWidth,
+    pointerEvents: 'all',
+    position: 'relative',
+    ...getSizeStyles(size)
+  };
+});
 
 export const DialogFooterRoot = withProps({ element: 'footer' })(
-  createStyledComponent(DialogRow, {
+  styled(DialogRow)({
     flex: '0 0 auto'
   })
 );
 
 export const DialogHeaderRoot = withProps({ element: 'header' })(
-  createStyledComponent(DialogRow, {
+  styled(DialogRow)({
     display: 'flex',
     flex: '0 0 auto',
     justifyContent: 'space-between'
   })
 );
 
-export const DialogIEWrapper = createStyledComponent('div', {
+export const DialogIEWrapper = styled('div')({
   display: 'flex'
 });
 
-export const DialogOverlay = createStyledComponent(
-  'div',
-  ({ theme: baseTheme }) => {
-    const theme = dialogTheme(baseTheme);
+export const DialogOverlay = styled('div')(({ theme: baseTheme }) => {
+  const theme = dialogTheme(baseTheme);
 
-    return {
-      backgroundColor: theme.DialogOverlay_backgroundColor,
-      bottom: 0,
-      left: 0,
-      overflow: 'hidden',
-      position: 'absolute',
-      right: 0,
-      top: 0
-    };
-  }
-);
+  return {
+    backgroundColor: theme.DialogOverlay_backgroundColor,
+    bottom: 0,
+    left: 0,
+    overflow: 'hidden',
+    position: 'absolute',
+    right: 0,
+    top: 0
+  };
+});
 
 export const createDialogRowRootNode: CreateRootNode<
   DialogRowProps,
@@ -258,35 +235,28 @@ export const createDialogRowRootNode: CreateRootNode<
 > = (props, defaultProps) => {
   const { element = defaultProps.element } = props;
 
-  return createStyledComponent(
-    element,
-    ({ theme: baseTheme }) => {
-      const theme = dialogRowTheme(baseTheme);
-      const fontSize = theme.DialogRow_fontSize;
+  return styled(element, { rootEl: element })(({ theme: baseTheme }) => {
+    const theme = dialogRowTheme(baseTheme);
+    const fontSize = theme.DialogRow_fontSize;
 
-      return {
-        ...componentStyleReset(baseTheme),
+    return {
+      ...componentStyleReset(baseTheme),
 
-        fontSize,
-        margin: `${getNormalizedValue(
-          theme.DialogRow_marginVertical,
-          fontSize
-        )} 0`,
-        outline: 0,
-        padding: `0 ${getNormalizedValue(
-          theme.DialogRow_paddingHorizontal,
-          fontSize
-        )}`
-      };
-    },
-    {
-      rootEl: element
-    }
-  );
+      fontSize,
+      margin: `${getNormalizedValue(
+        theme.DialogRow_marginVertical,
+        fontSize
+      )} 0`,
+      outline: 0,
+      padding: `0 ${getNormalizedValue(
+        theme.DialogRow_paddingHorizontal,
+        fontSize
+      )}`
+    };
+  });
 };
 
-export const DialogTitleRoot = createStyledComponent(
-  'div',
+export const DialogTitleRoot = styled('div')(
   ({ theme: baseTheme, variant }) => {
     const theme = dialogTitleTheme(baseTheme);
     const marginProperty =
@@ -305,7 +275,7 @@ export const DialogTitleRoot = createStyledComponent(
   }
 );
 
-export const DialogTitleTitle = createStyledComponent(Text, {
+export const DialogTitleTitle = styled(Text)({
   color: 'inherit',
   flex: '1 1 auto'
 });

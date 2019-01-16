@@ -1,12 +1,12 @@
 /* @flow */
-import { componentStyleReset, createStyledComponent } from '../styles';
+import styled from '@emotion/styled';
+import { componentStyleReset } from '../styles';
 import { createThemedComponent } from '../themes';
 import Button from '../Button';
 import { ALIGN, INTERNAL_TYPE } from './constants';
 import { navigationTheme, navItemTheme } from './themes';
 
-export const NavigationRoot = createStyledComponent(
-  'nav',
+export const NavigationRoot = styled('nav', { filterProps: ['prefix'] })(
   ({ align, prefix, theme: baseTheme, type }) => {
     const theme = navigationTheme(baseTheme);
 
@@ -39,14 +39,10 @@ export const NavigationRoot = createStyledComponent(
         marginLeft: theme[`${prefix}Nav_gutter`]
       }
     };
-  },
-  {
-    filterProps: ['prefix']
   }
 );
 
-const NavItemButton = createStyledComponent(
-  Button,
+const NavItemButton = styled(Button, { filterProps: ['prefix', 'type'] })(
   ({ align, disabled, maxWidth, prefix, selected, theme: baseTheme, type }) => {
     const theme = navItemTheme(baseTheme);
 
@@ -117,9 +113,6 @@ const NavItemButton = createStyledComponent(
         }
       }
     };
-  },
-  {
-    filterProps: ['prefix', 'type']
   }
 );
 

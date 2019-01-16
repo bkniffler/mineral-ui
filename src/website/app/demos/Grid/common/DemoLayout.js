@@ -1,8 +1,8 @@
 /* @flow */
 import { clearFix } from 'polished';
-import { createStyledComponent } from '../../../../../library/styles';
+import styled from '@emotion/styled';
 
-export default createStyledComponent('div', ({ lastRowStartsAt }) => {
+export default styled('div')(({ lastRowStartsAt }) => {
   const condition = lastRowStartsAt
     ? `:nth-child(n + ${lastRowStartsAt})`
     : ':last-child';

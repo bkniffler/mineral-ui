@@ -1,9 +1,8 @@
 /* @flow */
-import { createStyledComponent } from '../styles';
+import styled from '@emotion/styled';
 import { linkTheme } from './themes';
 
-export const Link = createStyledComponent(
-  'a',
+export const Link = styled('a', { filterProps: ['variant'] })(
   ({ variant, theme: baseTheme }) => {
     let theme = linkTheme(baseTheme);
 
@@ -38,8 +37,5 @@ export const Link = createStyledComponent(
         color: theme.Link_color_active
       }
     };
-  },
-  {
-    filterProps: ['variant']
   }
 );

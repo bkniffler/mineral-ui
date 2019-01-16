@@ -1,7 +1,8 @@
 /* @flow */
 import React, { Component } from 'react';
+import styled from '@emotion/styled';
 import Media from 'react-media';
-import { createStyledComponent, pxToEm } from '../../../../library/styles';
+import { pxToEm } from '../../../../library/styles';
 import { createThemedComponent } from '../../../../library/themes';
 import Button from '../../../../library/Button';
 import IconArrowDropDown from 'mineral-ui-icons/IconArrowDropDown';
@@ -151,11 +152,11 @@ const Popover = createThemedComponent(_Popover, {
   PopoverContent_paddingVertical: null
 });
 
-const Root = createStyledComponent('div', styles.root);
-const Link = createStyledComponent(_Link, styles.link);
-const Logotype = createStyledComponent(Heading, styles.logotype);
-const MenuButton = createStyledComponent(ThemedMenuButton, styles.menuButton);
-const StyledNav = createStyledComponent('nav', styles.nav);
+const Root = styled('div')(styles.root);
+const Link = styled(_Link)(styles.link);
+const Logotype = styled(Heading)(styles.logotype);
+const MenuButton = styled(ThemedMenuButton)(styles.menuButton);
+const StyledNav = styled('nav')(styles.nav);
 
 const Nav = ({
   latestPost

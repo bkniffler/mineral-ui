@@ -1,10 +1,10 @@
 /* @flow */
 import { Component } from 'react';
-import { createStyledComponent } from '../../../../../../library/styles';
+import styled from '@emotion/styled';
 import Button from '../../../../../../library/Button';
 import Tooltip from '../../../../../../library/Tooltip';
 
-const DemoLayout = createStyledComponent('div', {
+const DemoLayout = styled('div')({
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'space-between'

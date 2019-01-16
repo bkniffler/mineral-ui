@@ -3,7 +3,7 @@ import React from 'react';
 import colorable from 'colorable';
 import { darken, getLuminance } from 'polished';
 import { isValidProp } from '../../library/utils';
-import { createStyledComponent } from '../../library/styles';
+import styled from '@emotion/styled';
 import { Table, TableCell, TableHeaderCell, TableRow } from './Table';
 
 type Props = {
@@ -13,42 +13,38 @@ type Props = {
   valueColor: (theme: Object, variable: string, baseTheme?: Object) => any
 };
 
-const Root = createStyledComponent('div', ({ theme }) => ({
+const Root = styled('div')(({ theme }) => ({
   margin: `${theme.space_stack_xl} 0 0`,
   overflowX: 'auto'
 }));
-const Name = createStyledComponent('span', ({ theme }) => ({
+const Name = styled('span')(({ theme }) => ({
   fontWeight: theme.fontWeight_semiBold
 }));
-const Value = createStyledComponent(
-  'span',
-  ({ color, theme }) => {
-    if (color) {
-      return {
-        border: `1px solid ${
-          getLuminance(color) > getLuminance('#ccc')
-            ? darken(0.3, color)
-            : darken(0.1, color)
-        }`,
-        backgroundColor: color,
-        borderRadius: theme.borderRadius_1,
-        color: a11yColor(color),
-        display: 'inline-block',
-        fontFamily: theme.fontFamily_monospace,
-        padding: `${parseFloat(theme.space_inset_sm) / 2}em ${
-          theme.space_inset_sm
-        }`
-      };
-    } else {
-      return {
-        fontFamily: theme.fontFamily_monospace
-      };
-    }
-  },
-  {
-    shouldForwardProp: (prop) => isValidProp('span', prop)
+const Value = styled('span', {
+  shouldForwardProp: (prop) => isValidProp('span', prop)
+})(({ color, theme }) => {
+  if (color) {
+    return {
+      border: `1px solid ${
+        getLuminance(color) > getLuminance('#ccc')
+          ? darken(0.3, color)
+          : darken(0.1, color)
+      }`,
+      backgroundColor: color,
+      borderRadius: theme.borderRadius_1,
+      color: a11yColor(color),
+      display: 'inline-block',
+      fontFamily: theme.fontFamily_monospace,
+      padding: `${parseFloat(theme.space_inset_sm) / 2}em ${
+        theme.space_inset_sm
+      }`
+    };
+  } else {
+    return {
+      fontFamily: theme.fontFamily_monospace
+    };
   }
-);
+});
 
 const a11yColor = (color) => {
   const a11y = colorable({

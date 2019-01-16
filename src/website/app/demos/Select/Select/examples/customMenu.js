@@ -1,6 +1,6 @@
 /* @flow */
 
-import { createStyledComponent } from '../../../../../../library/styles';
+import styled from '@emotion/styled';
 import FormField from '../../../../../../library/Form/FormField';
 import IconSearch from 'mineral-ui-icons/IconSearch';
 import Select from '../../../../../../library/Select';
@@ -22,7 +22,7 @@ While neither fully functional nor accessible, it hopefully serves to give the
 user an idea of something that could be achieved with this technique.
 </Callout>`,
   scope: {
-    createStyledComponent,
+    styled,
     data,
     FormField,
     IconSearch,
@@ -34,7 +34,7 @@ user an idea of something that could be achieved with this technique.
   source: `
     () => {
       const menu = ({ props }) => {
-        const Search = createStyledComponent('div', ({ theme }) => ({
+        const Search = styled('div')(({ theme }) => ({
           borderBottom: '1px solid ' + theme.color_gray_40,
           padding: theme.space_inset_md
         }));

@@ -1,5 +1,5 @@
 /* @flow */
-import { createStyledComponent } from '../styles';
+import styled from '@emotion/styled';
 import { createThemedComponent, mapComponentThemes } from '../themes';
 import Popover from '../Popover';
 import { tooltipTheme } from './themes';
@@ -20,15 +20,12 @@ export const TooltipRoot = createThemedComponent(
     )
 );
 
-export const TriggerText = createStyledComponent(
-  'span',
-  ({ theme: baseTheme }) => {
-    const theme = tooltipTheme(baseTheme);
+export const TriggerText = styled('span')(({ theme: baseTheme }) => {
+  const theme = tooltipTheme(baseTheme);
 
-    return {
-      borderBottomStyle: theme.TooltipTriggerText_borderStyle,
-      borderBottomColor: theme.TooltipTriggerText_borderColor,
-      borderBottomWidth: theme.TooltipTriggerText_borderWidth
-    };
-  }
-);
+  return {
+    borderBottomStyle: theme.TooltipTriggerText_borderStyle,
+    borderBottomColor: theme.TooltipTriggerText_borderColor,
+    borderBottomWidth: theme.TooltipTriggerText_borderWidth
+  };
+});

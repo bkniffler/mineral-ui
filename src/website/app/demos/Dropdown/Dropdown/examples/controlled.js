@@ -1,12 +1,12 @@
 /* @flow */
 import { Component } from 'react';
 import { findDOMNode } from 'react-dom';
-import { createStyledComponent } from '../../../../../../library/styles';
+import styled from '@emotion/styled';
 import Button from '../../../../../../library/Button';
 import Dropdown from '../../../../../../library/Dropdown';
 import data from '../../../Menu/common/menuData';
 
-const DemoLayout = createStyledComponent('div', {
+const DemoLayout = styled('div')({
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'space-between'

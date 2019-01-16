@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link as ReactRouterLink } from 'react-router-dom';
 import rgba from 'polished/lib/color/rgba';
-import { createStyledComponent } from '../../library/styles';
+import styled from '@emotion/styled';
 import { createThemedComponent } from '../../library/themes';
 import IconLaunch from 'mineral-ui-icons/IconLaunch';
 import Link from '../../library/Link';
@@ -29,7 +29,7 @@ const ThemedLink = createThemedComponent(Link, ({ theme }) => ({
   ...siteLinkTheme(theme)
 }));
 
-const Root = createStyledComponent(ThemedLink, ({ href, theme }) => {
+const Root = styled(ThemedLink)(({ href, theme }) => {
   let styles = {
     fontWeight: theme.fontWeight_semiBold,
     textDecoration: 'underline',

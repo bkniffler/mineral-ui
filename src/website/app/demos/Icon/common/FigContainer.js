@@ -1,10 +1,8 @@
 /* @flow */
-import {
-  componentStyleReset,
-  createStyledComponent
-} from '../../../../../library/styles';
+import styled from '@emotion/styled';
+import { componentStyleReset } from '../../../../../library/styles';
 
-export default createStyledComponent('div', ({ theme }) => ({
+export default styled('div')(({ theme }) => ({
   ...componentStyleReset(theme),
 
   display: 'flex',

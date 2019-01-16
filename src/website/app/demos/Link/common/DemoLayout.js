@@ -1,6 +1,6 @@
 /* @flow */
-import { createStyledComponent } from '../../../../../library/styles';
+import styled from '@emotion/styled';
 
-export default createStyledComponent('div', ({ theme }) => ({
+export default styled('div')(({ theme }) => ({
   fontFamily: theme.fontFamily
 }));

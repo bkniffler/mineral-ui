@@ -1,5 +1,5 @@
 /* @flow */
-import { createStyledComponent } from '../../../../../library/styles';
+import styled from '@emotion/styled';
 import _Flex from '../../../../../library/Flex';
 
 type Props = {
@@ -12,4 +12,4 @@ export const containerStyles = ({ theme }: Props) => ({
   outlineOffset: 4
 });
 
-export default createStyledComponent(_Flex, (props) => containerStyles(props));
+export default styled(_Flex)((props) => containerStyles(props));

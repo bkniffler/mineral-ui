@@ -1,10 +1,10 @@
 /* @flow */
-import { componentStyleReset, createStyledComponent } from '../styles';
+import styled from '@emotion/styled';
+import { componentStyleReset } from '../styles';
 import { SHAPE } from './constants';
 import { avatarTheme } from './themes';
 
-export const AvatarRoot = createStyledComponent(
-  'span',
+export const AvatarRoot = styled('span', { filterProps: ['icon'] })(
   ({
     background,
     color: propColor,
@@ -58,8 +58,5 @@ export const AvatarRoot = createStyledComponent(
         color
       }
     };
-  },
-  {
-    filterProps: ['icon']
   }
 );

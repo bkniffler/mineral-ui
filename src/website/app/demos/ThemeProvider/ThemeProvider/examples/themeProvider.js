@@ -1,9 +1,9 @@
 /* @flow */
-import { createStyledComponent } from '../../../../../../library/styles';
+import styled from '@emotion/styled';
 import { ThemeProvider } from '../../../../../../library/themes';
 import Sample from '../../common/Sample';
 
-const DemoLayout = createStyledComponent('div', ({ theme }) => ({
+const DemoLayout = styled('div')(({ theme }) => ({
   fontFamily: theme.fontFamily,
 
   '& > *': {

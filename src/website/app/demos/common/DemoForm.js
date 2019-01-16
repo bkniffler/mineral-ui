@@ -1,8 +1,8 @@
 /* @flow */
 import React from 'react';
-import { createStyledComponent } from '../../../../library/styles';
+import styled from '@emotion/styled';
 
-const Form = createStyledComponent('form', {
+const Form = styled('form')({
   '& > *:not(:last-child)': {
     marginBottom: '1rem'
   }

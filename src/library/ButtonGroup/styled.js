@@ -1,9 +1,9 @@
 /* @flow */
-import { componentStyleReset, createStyledComponent } from '../styles';
+import styled from '@emotion/styled';
+import { componentStyleReset } from '../styles';
 import { buttonGroupTheme } from './themes';
 
-export const ButtonGroupRoot = createStyledComponent(
-  'div',
+export const ButtonGroupRoot = styled('div')(
   ({ fullWidth, theme: baseTheme, variant }) => {
     let theme = buttonGroupTheme(baseTheme);
     if (variant) {

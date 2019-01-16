@@ -1,51 +1,49 @@
 /* @flow */
-import { componentStyleReset, createStyledComponent } from '../styles';
+import styled from '@emotion/styled';
+import { componentStyleReset } from '../styles';
 import { createThemedComponent } from '../themes';
 import CardBlock from '../Card/CardBlock';
 import CardTitle from '../Card/CardTitle';
 import { popoverArrowTheme, popoverContentTheme } from './themes';
 import { ARROW_SIZE } from './constants';
 
-export const PopoverRoot = createStyledComponent('span', {
+export const PopoverRoot = styled('span')({
   color: null,
   display: 'inline-block'
 });
 
-export const PopoverContentWrapper = createStyledComponent(
-  'div',
-  ({ theme: baseTheme }) => {
-    const theme = popoverContentTheme(baseTheme);
+export const PopoverContentWrapper = styled('div')(({ theme: baseTheme }) => {
+  const theme = popoverContentTheme(baseTheme);
 
-    return {
-      ...componentStyleReset(baseTheme),
+  return {
+    ...componentStyleReset(baseTheme),
 
-      backgroundColor: theme.PopoverContent_backgroundColor,
-      border: `1px solid ${theme.PopoverContent_borderColor}`,
-      borderRadius: theme.PopoverContent_borderRadius,
-      boxShadow: theme.PopoverContent_boxShadow,
-      color: theme.PopoverContent_color,
-      padding: `${theme.PopoverContent_paddingVertical} 0`,
-      maxWidth: theme.PopoverContent_maxWidth,
-      zIndex: theme.PopoverContent_zIndex,
+    backgroundColor: theme.PopoverContent_backgroundColor,
+    border: `1px solid ${theme.PopoverContent_borderColor}`,
+    borderRadius: theme.PopoverContent_borderRadius,
+    boxShadow: theme.PopoverContent_boxShadow,
+    color: theme.PopoverContent_color,
+    padding: `${theme.PopoverContent_paddingVertical} 0`,
+    maxWidth: theme.PopoverContent_maxWidth,
+    zIndex: theme.PopoverContent_zIndex,
 
-      '&[data-placement^="top"]': {
-        marginBottom: ARROW_SIZE
-      },
-      '&[data-placement^="bottom"]': {
-        marginTop: ARROW_SIZE
-      },
-      '&[data-placement^="left"]': {
-        marginRight: ARROW_SIZE
-      },
-      '&[data-placement^="right"]': {
-        marginLeft: ARROW_SIZE
-      },
-      '&[data-x-out-of-boundaries]': {
-        visibility: 'hidden'
-      }
-    };
-  }
-);
+    '&[data-placement^="top"]': {
+      marginBottom: ARROW_SIZE
+    },
+    '&[data-placement^="bottom"]': {
+      marginTop: ARROW_SIZE
+    },
+    '&[data-placement^="left"]': {
+      marginRight: ARROW_SIZE
+    },
+    '&[data-placement^="right"]': {
+      marginLeft: ARROW_SIZE
+    },
+    '&[data-x-out-of-boundaries]': {
+      visibility: 'hidden'
+    }
+  };
+});
 
 const cardOverrides = ({ theme: baseTheme }) => {
   const theme = popoverContentTheme(baseTheme);
@@ -60,8 +58,7 @@ export const PopoverBlock = createThemedComponent(CardBlock, cardOverrides);
 
 export const PopoverTitle = createThemedComponent(CardTitle, cardOverrides);
 
-export const PopoverArrowRoot = createStyledComponent(
-  'span',
+export const PopoverArrowRoot = styled('span', { rootEl: 'span' })(
   ({ placement, size, theme: baseTheme }) => {
     const theme = popoverArrowTheme(baseTheme);
     let arrowShadow = ', 0 3px 1px rgba(0, 0, 0, 0.3)';
@@ -124,16 +121,10 @@ export const PopoverArrowRoot = createStyledComponent(
       transform: `rotate(${rotation}deg) scaleX(2)`,
       ...directionalStyles
     };
-  },
-  {
-    rootEl: 'span'
   }
 );
 
-export const PopoverTriggerWrapper = createStyledComponent(
-  'span',
-  ({ cursor }) => ({
-    cursor,
-    display: 'inline-block'
-  })
-);
+export const PopoverTriggerWrapper = styled('span')(({ cursor }) => ({
+  cursor,
+  display: 'inline-block'
+}));

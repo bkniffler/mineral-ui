@@ -2,7 +2,7 @@
 import React from 'react';
 import withProps from 'recompose/withProps';
 import { palette } from 'mineral-ui-tokens';
-import { createStyledComponent } from '../../../../../../library/styles';
+import styled from '@emotion/styled';
 import Flex from '../../../../../../library/Flex';
 import Table from '../../../../../../library/Table';
 import data from '../../common/data';
@@ -15,7 +15,7 @@ export default {
 custom rendering control of all cells in that column.
 ${renderPropsDescription}`,
   scope: {
-    createStyledComponent,
+    styled,
     data,
     Flex,
     palette,
@@ -25,7 +25,7 @@ ${renderPropsDescription}`,
   },
   source: `
     () => {
-       const Root = createStyledComponent('td', ({ theme }) => ({
+       const Root = styled('td')(({ theme }) => ({
          padding: theme.space_stack_sm + ' ' + theme.space_inline_md,
 
          'tr:hover > &': {
@@ -36,15 +36,14 @@ ${renderPropsDescription}`,
        const Emoji = withProps({
           'aria-hidden': true,
           role: 'img'
-        })(createStyledComponent(
-         'span',
+        })(styled('span')(
          ({ theme }) => ({
            display: 'inline-block',
            marginRight: theme.space_inline_sm
          })
        ));
 
-       const Content = createStyledComponent('span', ({ theme }) => ({
+       const Content = styled('span')(({ theme }) => ({
          fontSize: theme.fontSize_ui,
          textAlign: 'left'
        }));

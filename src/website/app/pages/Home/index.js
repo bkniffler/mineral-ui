@@ -1,5 +1,6 @@
 /* @flow */
 import React, { Component } from 'react';
+import styled from '@emotion/styled';
 import Media from 'react-media';
 import Helmet from 'react-helmet';
 import { canUseDOM } from 'exenv';
@@ -10,7 +11,6 @@ import withProps from 'recompose/withProps';
 import { palette } from 'mineral-ui-tokens';
 import {
   componentStyleReset,
-  createStyledComponent,
   getNormalizedValue,
   pxToEm
 } from '../../../../library/styles';
@@ -578,56 +578,37 @@ const styles = {
   })
 };
 
-const Root = createStyledComponent('div', styles.home);
+const Root = styled('div')(styles.home);
 // Markdown must come before all of the other Markdown-based components
 const Markdown = withProps({ anchors: false })(
-  createStyledComponent(_Markdown, styles.markdown)
+  styled(_Markdown)(styles.markdown)
 );
 const SiteButton = createThemedComponent(_SiteButton, buttonTheme);
-const BlogLink = createStyledComponent(Link, styles.blogLink);
+const BlogLink = styled(Link)(styles.blogLink);
 const Button = createThemedComponent(_Button, buttonTheme);
-const Buttons = createStyledComponent('div', styles.buttons);
+const Buttons = styled('div')(styles.buttons);
 const ThemedCTALink = createThemedComponent(Link, CTALinkTheme);
-const CTALink = createStyledComponent(ThemedCTALink, styles.CTALink);
-const Feature = createStyledComponent('div', styles.feature);
-const FeatureImg = withProps({ alt: '' })(
-  createStyledComponent('img', styles.featureImg)
-);
-const FloatingMinerals = createStyledComponent('div', styles.floatingMinerals);
-const FeatureSection = createStyledComponent(Section, styles.featureSection);
-const GetStarted = createStyledComponent(Markdown, styles.getStarted);
-const GetStartedBackgrounds = createStyledComponent(
-  'div',
-  styles.getStartedBackgrounds
-);
-const GetStartedContent = createStyledComponent(
-  'div',
-  styles.getStartedContent
-);
-const GetStartedSection = createStyledComponent(
-  Section,
-  styles.getStartedSection
-);
-const Guidelines = createStyledComponent(Markdown, styles.guidelines);
-const GuidelinesSection = createStyledComponent(
-  Section,
-  styles.guidelinesSection
-);
-const Hero = withProps({ element: 'header' })(
-  createStyledComponent(Section, styles.hero)
-);
-const HeroCanvas = createStyledComponent(Canvas, styles.heroCanvas);
-const Intro = createStyledComponent(Markdown, styles.intro);
+const CTALink = styled(ThemedCTALink)(styles.CTALink);
+const Feature = styled('div')(styles.feature);
+const FeatureImg = withProps({ alt: '' })(styled('img')(styles.featureImg));
+const FloatingMinerals = styled('div')(styles.floatingMinerals);
+const FeatureSection = styled(Section)(styles.featureSection);
+const GetStarted = styled(Markdown)(styles.getStarted);
+const GetStartedBackgrounds = styled('div')(styles.getStartedBackgrounds);
+const GetStartedContent = styled('div')(styles.getStartedContent);
+const GetStartedSection = styled(Section)(styles.getStartedSection);
+const Guidelines = styled(Markdown)(styles.guidelines);
+const GuidelinesSection = styled(Section)(styles.guidelinesSection);
+const Hero = withProps({ element: 'header' })(styled(Section)(styles.hero));
+const HeroCanvas = styled(Canvas)(styles.heroCanvas);
+const Intro = styled(Markdown)(styles.intro);
 const LinkButton = withProps({
   as: Link,
   size: 'jumbo',
   type: null
-})(createStyledComponent(SiteButton, styles.button));
-const PlaygroundCanvas = createStyledComponent(Canvas, styles.playgroundCanvas);
-const PlaygroundSection = createStyledComponent(
-  Section,
-  styles.playgroundSection
-);
+})(styled(SiteButton)(styles.button));
+const PlaygroundCanvas = styled(Canvas)(styles.playgroundCanvas);
+const PlaygroundSection = styled(Section)(styles.playgroundSection);
 
 const GetStartedBackground = () => (
   <GetStartedBackgrounds>
@@ -746,7 +727,7 @@ export default class Home extends Component<Props, State> {
                         size: 'jumbo',
                         type: null
                       })(
-                        createStyledComponent(Button, {
+                        styled(Button)({
                           ...styles.button,
                           fontFamily: 'inherit'
                         })

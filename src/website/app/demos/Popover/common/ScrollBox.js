@@ -1,7 +1,7 @@
 /* @flow */
 import React, { Children, cloneElement, Component } from 'react';
 import { findDOMNode } from 'react-dom';
-import { createStyledComponent } from '../../../../../library/styles';
+import styled from '@emotion/styled';
 import Button from '../../../../../library/Button';
 
 type Props = {
@@ -11,29 +11,26 @@ type Props = {
   height?: number
 };
 
-const Root = createStyledComponent('div', {
+const Root = styled('div')({
   position: 'relative'
 });
 
-const ScrollArea = createStyledComponent('div', ({ height }: Object) => ({
+const ScrollArea = styled('div')(({ height }: Object) => ({
   backgroundColor: 'aliceblue',
   height: `${height}px`,
   overflow: 'auto',
   position: 'relative'
 }));
 
-const ScrollContent = createStyledComponent(
-  'div',
-  ({ scrollAreaHeight }: Object) => ({
-    height: `${parseInt(scrollAreaHeight) + 500}px`,
-    width: '300vw',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center'
-  })
-);
+const ScrollContent = styled('div')(({ scrollAreaHeight }: Object) => ({
+  height: `${parseInt(scrollAreaHeight) + 500}px`,
+  width: '300vw',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center'
+}));
 
-const Recenter = createStyledComponent(Button, {
+const Recenter = styled(Button)({
   left: 0,
   position: 'absolute',
   top: 0

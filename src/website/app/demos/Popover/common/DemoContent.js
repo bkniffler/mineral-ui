@@ -1,8 +1,8 @@
 /* @flow */
 import React from 'react';
-import { createStyledComponent } from '../../../../../library/styles';
+import styled from '@emotion/styled';
 
-const Root = createStyledComponent('div', {
+const Root = styled('div')({
   width: '13.75em'
 });
 

@@ -1,9 +1,6 @@
 /* @flow */
-import {
-  componentStyleReset,
-  createStyledComponent,
-  getResponsiveStyles
-} from '../styles';
+import styled from '@emotion/styled';
+import { componentStyleReset, getResponsiveStyles } from '../styles';
 import { SPACING_TYPES } from './constants';
 
 import type { CreateRootNode } from '../styles/types';
@@ -70,8 +67,7 @@ export const createBoxRootNode: CreateRootNode<BoxProps, BoxDefaultProps> = (
 ) => {
   const { element = defaultProps.element } = props;
 
-  return createStyledComponent(
-    element,
+  return styled(element, { rootEl: element })(
     ({ breakpoints, height, inline, theme, width, ...restProps }) => {
       const rtl = theme.direction === 'rtl';
 
@@ -111,9 +107,6 @@ export const createBoxRootNode: CreateRootNode<BoxProps, BoxDefaultProps> = (
           theme
         })
       };
-    },
-    {
-      rootEl: element
     }
   );
 };

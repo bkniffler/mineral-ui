@@ -1,6 +1,6 @@
 /* @flow */
 
-import { createStyledComponent } from '../../../../../../library/styles';
+import styled from '@emotion/styled';
 import { Reference } from 'react-popper';
 import Select from '../../../../../../library/Select';
 import { basicData as data } from '../../common/selectData';
@@ -13,7 +13,7 @@ export default {
 control of the trigger. ${renderPropsDescription}
 `,
   scope: {
-    createStyledComponent,
+    styled,
     data,
     Reference,
     Select
@@ -22,13 +22,9 @@ control of the trigger. ${renderPropsDescription}
     () => {
       // Your render function must return a Popper Reference component.
       // import { Reference } from 'react-popper';
-      const CustomTrigger = createStyledComponent(
-        'button',
-        {},
-        {
-          filterProps: ['isOpen', 'item', 'variant']
-        }
-      );
+      const CustomTrigger = styled('button', {
+        filterProps: ['isOpen', 'item', 'variant']
+      })({});
 
       const trigger = ({ props, state }) => {
         return (

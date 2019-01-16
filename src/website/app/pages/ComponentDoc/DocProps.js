@@ -1,6 +1,6 @@
 /* @flow */
 import React from 'react';
-import { createStyledComponent } from '../../../../library/styles';
+import styled from '@emotion/styled';
 import _Callout from '../../Callout';
 import Markdown from '../../Markdown';
 import PropTable from '../../PropTable';
@@ -13,10 +13,10 @@ type DocPropsProps = {
   componentDoc: ComponentDocType
 };
 
-const Callout = createStyledComponent(_Callout, ({ theme }) => ({
+const Callout = styled(_Callout)(({ theme }) => ({
   marginTop: theme.baseline_2
 }));
-const PropsComment = createStyledComponent('p', {
+const PropsComment = styled('p')({
   fontStyle: 'italic'
 });
 

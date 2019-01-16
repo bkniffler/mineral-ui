@@ -11,7 +11,7 @@ Theming is a core concept in Mineral UI.  It is powerful feature capable of prov
 This function creates a new styled component based on another component or DOM element.
 
 ```jsx
-import { createStyledComponent } from 'mineral-ui/styles';
+import styled from '@emotion/styled';
 import Button from 'mineral-ui/Button';
 
 const MyButton = createStyledComponent(Button, {

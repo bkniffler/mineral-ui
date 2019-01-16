@@ -1,6 +1,6 @@
 /* @flow */
 import withProps from 'recompose/withProps';
-import { createStyledComponent } from '../../../../../library/styles';
+import styled from '@emotion/styled';
 import Dialog from '../../../../../library/Dialog';
 
 export default withProps({
@@ -12,7 +12,7 @@ export default withProps({
   preventCloseButtonClose: true,
   usePortal: false
 })(
-  createStyledComponent(Dialog, {
+  styled(Dialog)({
     position: 'static'
   })
 );

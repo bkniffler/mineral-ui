@@ -1,6 +1,6 @@
 /* @flow */
+import styled from '@emotion/styled';
 import { rgba } from 'polished';
-import { createStyledComponent } from '../../../../../library/styles';
 import _Box from '../../../../../library/Box';
 
 type Props = {
@@ -41,4 +41,4 @@ export const boxStyles = ({ inline, padding, theme }: Props) => {
   return styles;
 };
 
-export default createStyledComponent(_Box, boxStyles);
+export default styled(_Box)(boxStyles);

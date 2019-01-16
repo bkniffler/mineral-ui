@@ -1,10 +1,10 @@
 /* @flow */
 import Button from '../../../../../../library/Button';
-import { createStyledComponent } from '../../../../../../library/styles';
+import styled from '@emotion/styled';
 import Tooltip from '../../../../../../library/Tooltip';
 import IconDelete from 'mineral-ui-icons/IconDelete';
 
-const DemoLayout = createStyledComponent('div', {
+const DemoLayout = styled('div')({
   height: '200px',
   display: 'flex',
   alignItems: 'center',

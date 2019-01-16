@@ -1,7 +1,7 @@
 /* @flow */
-import { createStyledComponent } from '../../../../../library/styles';
+import styled from '@emotion/styled';
 
-export default createStyledComponent('figure', ({ theme }) => ({
+export default styled('figure')(({ theme }) => ({
   margin: 0,
   display: 'flex',
   alignItems: 'center',

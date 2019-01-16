@@ -1,7 +1,8 @@
 /* @flow */
 import React from 'react';
+import styled from '@emotion/styled';
 import withProps from 'recompose/withProps';
-import { componentStyleReset, createStyledComponent, pxToEm } from '../styles';
+import { componentStyleReset, pxToEm } from '../styles';
 import { createThemedComponent } from '../themes';
 import { ie10Plus } from '../utils/cssSelectors';
 import Button from '../Button';
@@ -10,25 +11,22 @@ import OverflowContainer, {
 } from '../OverflowContainer';
 import { tabTheme, tabListTheme, tabPanelTheme } from './themes';
 
-export const TabsRoot = createStyledComponent(
-  'div',
-  ({ height, position, theme }) => {
-    const flexDirection = {
-      bottom: 'column-reverse',
-      end: 'row-reverse',
-      start: 'row',
-      top: 'column'
-    };
+export const TabsRoot = styled('div')(({ height, position, theme }) => {
+  const flexDirection = {
+    bottom: 'column-reverse',
+    end: 'row-reverse',
+    start: 'row',
+    top: 'column'
+  };
 
-    return {
-      ...componentStyleReset(theme),
+  return {
+    ...componentStyleReset(theme),
 
-      display: 'flex',
-      flexDirection: flexDirection[position],
-      height
-    };
-  }
-);
+    display: 'flex',
+    flexDirection: flexDirection[position],
+    height
+  };
+});
 
 const TabThemedButton = createThemedComponent(
   Button,
@@ -51,8 +49,7 @@ export const TabAnchor = withProps({
   role: 'tab',
   size: 'medium'
 })(
-  createStyledComponent(
-    TabThemedButton,
+  styled(TabThemedButton, { filterProps: ['title'] })(
     ({ disabled, maxWidth, position = 'top', selected, theme: baseTheme }) => {
       const theme = tabTheme(baseTheme);
       const rtl = theme.direction === 'rtl';
@@ -110,9 +107,6 @@ export const TabAnchor = withProps({
           }
         }
       };
-    },
-    {
-      filterProps: ['title']
     }
   )
 );
@@ -153,8 +147,7 @@ const TabListThemedOverflowContainerWithShadows = createThemedComponent(
   }
 );
 
-const TabListArrowButton = createStyledComponent(
-  TabListThemedButton,
+const TabListArrowButton = styled(TabListThemedButton)(
   ({ theme: baseTheme }) => {
     const theme = tabListTheme(baseTheme);
 
@@ -180,8 +173,7 @@ export const TabListInner = withProps({
   // null tabIndex is to prevent an extraneous tab stop
   tabIndex: null
 })(
-  createStyledComponent(
-    TabListThemedOverflowContainerWithShadows,
+  styled(TabListThemedOverflowContainerWithShadows)(
     ({ position, theme: baseTheme, vertical }) => {
       const theme = {
         ...tabListTheme(baseTheme),
@@ -215,8 +207,7 @@ export const TabListInner = withProps({
   )
 );
 
-export const TabListList = createStyledComponent(
-  'ul',
+export const TabListList = styled('ul')(
   ({ align, count, theme: baseTheme, vertical }) => {
     const theme = tabListTheme(baseTheme);
     const rtl = theme.direction === 'rtl';
@@ -268,23 +259,20 @@ export const TabListList = createStyledComponent(
   }
 );
 
-export const TabListRoot = createStyledComponent(
-  'div',
-  ({ height, vertical }) => ({
-    display: 'flex',
-    flex: '0 0 auto',
-    flexDirection: vertical ? 'column' : undefined,
-    position: 'relative',
+export const TabListRoot = styled('div')(({ height, vertical }) => ({
+  display: 'flex',
+  flex: '0 0 auto',
+  flexDirection: vertical ? 'column' : undefined,
+  position: 'relative',
 
-    ...(vertical && height
-      ? {
-          [ie10Plus]: {
-            height
-          }
+  ...(vertical && height
+    ? {
+        [ie10Plus]: {
+          height
         }
-      : undefined)
-  })
-);
+      }
+    : undefined)
+}));
 
 // eslint-disable-next-line react/display-name
 export const TabListIncrementButton = ({
@@ -308,7 +296,7 @@ export const TabPanelOverflowContainer = withProps({
   // We always want the panel content to be focusable, for ease of keyboard users
   tabIndex: 0
 })(
-  createStyledComponent(OverflowContainer, {
+  styled(OverflowContainer)({
     flex: '1 1 auto',
 
     '& > :first-child': {
@@ -324,7 +312,7 @@ export const TabPanelOverflowContainer = withProps({
 export const TabPanelRoot = withProps({
   role: 'tabpanel'
 })(
-  createStyledComponent('div', ({ position, theme: baseTheme }) => {
+  styled('div')(({ position, theme: baseTheme }) => {
     const theme = tabPanelTheme(baseTheme);
     const rtl = theme.direction === 'rtl';
 

@@ -1,15 +1,13 @@
 /* @flow */
 import withProps from 'recompose/withProps';
-import { createStyledComponent } from '../../../../../../library/styles';
+import styled from '@emotion/styled';
 import _DemoLayout from '../../common/DemoLayout';
 import FlexItem from '../../common/DemoFlexItem';
 import _Flex from '../../common/DemoFlex';
 
-const DemoLayout = withProps({ lastRowStartsAt: 3 })(
-  createStyledComponent(_DemoLayout, {})
-);
+const DemoLayout = withProps({ lastRowStartsAt: 3 })(styled(_DemoLayout)({}));
 
-const Flex = createStyledComponent(_Flex, ({ direction }) => {
+const Flex = styled(_Flex)(({ direction }) => {
   return direction.indexOf('column') != -1
     ? {
         float: 'left',

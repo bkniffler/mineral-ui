@@ -1,10 +1,10 @@
 /* @flow */
-import { createStyledComponent } from '../../../../../../library/styles';
+import styled from '@emotion/styled';
 import Button from '../../../../../../library/Button';
 import DemoContent from '../../common/DemoContent';
 import Popover from '../../../../../../library/Popover';
 
-const DemoLayout = createStyledComponent('div', {
+const DemoLayout = styled('div')({
   padding: '5em 0'
 });
 

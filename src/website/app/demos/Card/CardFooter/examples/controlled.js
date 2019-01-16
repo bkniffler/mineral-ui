@@ -1,13 +1,13 @@
 /* @flow */
 import { Component } from 'react';
 import { findDOMNode } from 'react-dom';
-import { createStyledComponent } from '../../../../../../library/styles';
+import styled from '@emotion/styled';
 import Button from '../../../../../../library/Button';
 import Card, { CardBlock, CardFooter } from '../../../../../../library/Card';
 import _DemoLayout from '../../common/DemoLayout';
 import loremIpsum from '../../common/loremIpsum';
 
-const DemoLayout = createStyledComponent(_DemoLayout, {
+const DemoLayout = styled(_DemoLayout)({
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'space-between',

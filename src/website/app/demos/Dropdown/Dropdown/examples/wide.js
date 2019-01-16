@@ -1,9 +1,9 @@
 /* @flow */
-import { createStyledComponent } from '../../../../../../library/styles';
+import styled from '@emotion/styled';
 import Button from '../../../../../../library/Button';
 import Dropdown from '../../../../../../library/Dropdown';
 
-const DemoLayout = createStyledComponent('div', {
+const DemoLayout = styled('div')({
   height: '210px'
 });
 

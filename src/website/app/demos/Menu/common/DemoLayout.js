@@ -1,7 +1,8 @@
 /* @flow */
-import { createStyledComponent, pxToEm } from '../../../../../library/styles';
+import styled from '@emotion/styled';
+import { pxToEm } from '../../../../../library/styles';
 
-export default createStyledComponent('div', ({ theme, width }) => ({
+export default styled('div')(({ theme, width }) => ({
   overflow: 'hidden',
 
   '& > div': {

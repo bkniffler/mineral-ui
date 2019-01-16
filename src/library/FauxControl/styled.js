@@ -1,18 +1,14 @@
 /* @flow */
+import styled from '@emotion/styled';
 import { ellipsis } from 'polished';
-import {
-  componentStyleReset,
-  createStyledComponent,
-  getNormalizedValue
-} from '../styles';
+import { componentStyleReset, getNormalizedValue } from '../styles';
 
 import { fauxControlTheme } from './themes';
 
 import type { CreateRootNode } from '../styles/types';
 import type { FauxControlProps } from './types';
 
-export const FauxControlRoot = createStyledComponent(
-  'div',
+export const FauxControlRoot = styled('div')(
   ({ disabled, theme: baseTheme, variant }) => {
     let theme = fauxControlTheme(baseTheme);
     if (variant) {
@@ -54,8 +50,7 @@ export const FauxControlRoot = createStyledComponent(
   }
 );
 
-export const Prefix = createStyledComponent(
-  'span',
+export const Prefix = styled('span')(
   ({ iconStart, size, theme: baseTheme }) => {
     const theme = fauxControlTheme(baseTheme);
     const rtl = theme.direction === 'rtl';
@@ -84,8 +79,7 @@ export const Prefix = createStyledComponent(
   }
 );
 
-export const Suffix = createStyledComponent(
-  'span',
+export const Suffix = styled('span')(
   ({ iconEnd, size, theme: baseTheme, variant }) => {
     const theme = fauxControlTheme(baseTheme);
     const rtl = theme.direction === 'rtl';
@@ -122,8 +116,7 @@ export const Suffix = createStyledComponent(
   }
 );
 
-export const Underlay = createStyledComponent(
-  'div',
+export const Underlay = styled('div')(
   ({ disabled, readOnly, theme: baseTheme, variant }) => {
     const theme = fauxControlTheme(baseTheme);
 
@@ -150,8 +143,7 @@ export const Underlay = createStyledComponent(
 );
 
 export const createControlNode: CreateRootNode<FauxControlProps> = (props) => {
-  return createStyledComponent(
-    props.control,
+  return styled(props.control)(
     ({
       controlPropsIn,
       controlSize,

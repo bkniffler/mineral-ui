@@ -1,11 +1,8 @@
 /* @flow */
 import React from 'react';
+import styled from '@emotion/styled';
 import withProps from 'recompose/withProps';
-import {
-  createStyledComponent,
-  getNormalizedValue,
-  pxToEm
-} from '../../library/styles';
+import { getNormalizedValue, pxToEm } from '../../library/styles';
 import Heading from './SiteHeading';
 
 type Props = {
@@ -16,7 +13,7 @@ const Title = withProps({
   anchors: true,
   level: 3
 })(
-  createStyledComponent(Heading, ({ theme }) => ({
+  styled(Heading)(({ theme }) => ({
     margin: `0 0 ${getNormalizedValue(
       pxToEm(21 - 12), // to mid-baseline
       theme.SiteHeading_fontSize_3

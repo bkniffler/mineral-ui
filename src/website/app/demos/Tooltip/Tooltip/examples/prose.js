@@ -1,8 +1,8 @@
 /* @flow */
-import { createStyledComponent } from '../../../../../../library/styles';
+import styled from '@emotion/styled';
 import Tooltip from '../../../../../../library/Tooltip';
 
-const DemoLayout = createStyledComponent('div', ({ theme }) => ({
+const DemoLayout = styled('div')(({ theme }) => ({
   fontFamily: theme.fontFamily
 }));
 

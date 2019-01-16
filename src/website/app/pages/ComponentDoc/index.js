@@ -1,11 +1,8 @@
 /* @flow */
 import React, { Fragment } from 'react';
+import styled from '@emotion/styled';
 import withProps from 'recompose/withProps';
-import {
-  createStyledComponent,
-  getNormalizedValue,
-  pxToEm
-} from '../../../../library/styles';
+import { getNormalizedValue, pxToEm } from '../../../../library/styles';
 import { mineralTheme } from '../../../../library/themes';
 import Heading from '../../SiteHeading';
 import Intro from '../../Intro';
@@ -24,7 +21,7 @@ type ComponentDocProps = {
 };
 
 const StyledDocHeading = withProps({ level: 2 })(
-  createStyledComponent(Heading, ({ theme }) => ({
+  styled(Heading)(({ theme }) => ({
     marginBottom: 0,
     paddingTop: getNormalizedValue(pxToEm(62), theme.SiteHeading_fontSize_2),
 

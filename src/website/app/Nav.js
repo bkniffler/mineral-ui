@@ -1,13 +1,10 @@
 /* @flow */
 import React from 'react';
+import styled from '@emotion/styled';
 import withProps from 'recompose/withProps';
 import { NavLink } from 'react-router-dom';
 import { darken, rgba } from 'polished';
-import {
-  createStyledComponent,
-  getNormalizedValue,
-  pxToEm
-} from '../../library/styles';
+import { getNormalizedValue, pxToEm } from '../../library/styles';
 import { mineralTheme, ThemeProvider } from '../../library/themes';
 import _Logo from './Logo';
 import Heading from './SiteHeading';
@@ -163,19 +160,17 @@ const styles = {
 };
 
 const Link = withProps({ element: NavLink })(
-  createStyledComponent(_Link, styles.link, {
-    filterProps: ['wide']
-  })
+  styled(_Link, { filterProps: ['wide'] })(styles.link)
 );
-const List = createStyledComponent('ol', styles.list);
-const ListItem = createStyledComponent('li', styles.listItem);
+const List = styled('ol')(styles.list);
+const ListItem = styled('li')(styles.listItem);
 const SectionHeading = withProps({
   as: 'h2',
   level: 4
-})(createStyledComponent(Heading, styles.heading));
-const SubList = createStyledComponent('ol', styles.subList);
+})(styled(Heading)(styles.heading));
+const SubList = styled('ol')(styles.subList);
 const LogoHeading = withProps({ level: 1 })(
-  createStyledComponent(Heading, styles.logoHeading)
+  styled(Heading)(styles.logoHeading)
 );
 
 const Logo = (wide) => (

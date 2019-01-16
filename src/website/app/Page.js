@@ -1,5 +1,6 @@
 /* @flow */
 import React, { Component } from 'react';
+import styled from '@emotion/styled';
 import Media from 'react-media';
 import Helmet from 'react-helmet';
 import noScroll from 'no-scroll';
@@ -9,7 +10,6 @@ import rgba from 'polished/lib/color/rgba';
 import withProps from 'recompose/withProps';
 import {
   componentStyleReset,
-  createStyledComponent,
   getNormalizedValue,
   pxToEm
 } from '../../library/styles';
@@ -357,22 +357,18 @@ const styles = {
   }
 };
 
-const Root = createStyledComponent('div', styles.root);
-const Canvas = createStyledComponent(_Canvas, styles.canvas);
-const Content = createStyledComponent('main', styles.content);
-const Dialog = createStyledComponent('div', styles.dialog);
-const Footer = createStyledComponent(_Footer, styles.footer);
-const Header = withProps({ element: 'header' })(
-  createStyledComponent(Section, styles.header)
-);
+const Root = styled('div')(styles.root);
+const Canvas = styled(_Canvas)(styles.canvas);
+const Content = styled('main')(styles.content);
+const Dialog = styled('div')(styles.dialog);
+const Footer = styled(_Footer)(styles.footer);
+const Header = withProps({ element: 'header' })(styled(Section)(styles.header));
 const MenuButton = withProps({ circular: true })(
-  createStyledComponent(Button, styles.menuButton)
+  styled(Button)(styles.menuButton)
 );
-const Nav = createStyledComponent(_Nav, styles.nav, {
-  filterProps: ['glitched']
-});
-const Wrap = createStyledComponent('div', styles.wrap);
-const WrapInner = createStyledComponent('div', styles.wrapInner);
+const Nav = styled(_Nav, { filterProps: ['glitched'] })(styles.nav);
+const Wrap = styled('div')(styles.wrap);
+const WrapInner = styled('div')(styles.wrapInner);
 
 export default class Page extends Component<Props, State> {
   state: State = {
@@ -471,7 +467,6 @@ export default class Page extends Component<Props, State> {
                     <ThemeProvider theme={heroTheme}>
                       <Header
                         angles={moreSpacious ? [5, 6] : [4, 4]}
-                        as="header"
                         point={1 / 1000}>
                         <Canvas />
                         {typeof headerContent === 'string' ? (

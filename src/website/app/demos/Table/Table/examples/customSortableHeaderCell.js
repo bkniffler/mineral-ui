@@ -1,5 +1,5 @@
 /* @flow */
-import { createStyledComponent } from '../../../../../../library/styles';
+import styled from '@emotion/styled';
 import { createThemedComponent } from '../../../../../../library/themes';
 import Table from '../../../../../../library/Table';
 import TableSortableHeaderCell from '../../../../../../library/Table/TableSortableHeaderCell';
@@ -13,7 +13,7 @@ export default {
 provide custom rendering control of all table header cells in that column.
 ${renderPropsDescription}`,
   scope: {
-    createStyledComponent,
+    styled,
     createThemedComponent,
     Table,
     data,
@@ -29,8 +29,7 @@ ${renderPropsDescription}`,
       })
     );
 
-    const StyledSortableTableHeaderCell = createStyledComponent(
-      ThemedSortableTableHeaderCell,
+    const StyledSortableTableHeaderCell = styled(ThemedSortableTableHeaderCell)(
       ({ direction, isSorted, theme }) => ({
         boxShadow: isSorted
           ? direction === 'descending'

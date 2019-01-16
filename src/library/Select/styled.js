@@ -1,6 +1,7 @@
 /* @flow */
+import styled from '@emotion/styled';
 import { ellipsis } from 'polished';
-import { createStyledComponent, getNormalizedValue, pxToEm } from '../styles';
+import { getNormalizedValue, pxToEm } from '../styles';
 import { createThemedComponent, mapComponentThemes } from '../themes';
 import FauxControl from '../FauxControl';
 import Dropdown from '../Dropdown/Dropdown';
@@ -21,7 +22,7 @@ const ThemedDropdown = createThemedComponent(Dropdown, ({ theme: baseTheme }) =>
   )
 );
 
-export const SelectRoot = createStyledComponent(ThemedDropdown, {
+export const SelectRoot = styled(ThemedDropdown)({
   width: '100%',
 
   '& > span': {
@@ -54,8 +55,7 @@ const ThemedFauxControl = createThemedComponent(
     )
 );
 
-export const SelectTriggerRoot = createStyledComponent(
-  ThemedFauxControl,
+export const SelectTriggerRoot = styled(ThemedFauxControl)(
   ({ disabled, readOnly, selectedItemVariant, theme: baseTheme, variant }) => {
     const theme = selectTriggerTheme(baseTheme);
     const rtl = theme.direction === 'rtl';
@@ -109,25 +109,22 @@ export const SelectTriggerRoot = createStyledComponent(
   }
 );
 
-export const Trigger = createStyledComponent(
-  'div',
-  ({ size, theme: baseTheme }) => {
-    const theme = selectTriggerTheme(baseTheme);
+export const Trigger = styled('div')(({ size, theme: baseTheme }) => {
+  const theme = selectTriggerTheme(baseTheme);
 
-    const fontSize =
-      size === SIZE.small ? theme.Select_fontSize_small : theme.Select_fontSize;
+  const fontSize =
+    size === SIZE.small ? theme.Select_fontSize_small : theme.Select_fontSize;
 
-    return {
-      alignItems: 'center',
-      display: 'flex',
-      flex: '1 1 auto',
-      height: getNormalizedValue(theme[`Select_height_${size}`], fontSize),
-      minWidth: 0
-    };
-  }
-);
+  return {
+    alignItems: 'center',
+    display: 'flex',
+    flex: '1 1 auto',
+    height: getNormalizedValue(theme[`Select_height_${size}`], fontSize),
+    minWidth: 0
+  };
+});
 
-export const TriggerContent = createStyledComponent('span', {
+export const TriggerContent = styled('span')({
   ...ellipsis(null),
   userSelect: 'none',
   width: '100%'

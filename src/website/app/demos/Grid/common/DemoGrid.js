@@ -1,6 +1,6 @@
 /* @flow */
-import { createStyledComponent } from '../../../../../library/styles';
+import styled from '@emotion/styled';
 import _Grid from '../../../../../library/Grid';
 import { containerStyles } from '../../Flex/common/DemoFlex';
 
-export default createStyledComponent(_Grid, (props) => containerStyles(props));
+export default styled(_Grid)((props) => containerStyles(props));

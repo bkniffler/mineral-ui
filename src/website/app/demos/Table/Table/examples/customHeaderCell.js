@@ -1,10 +1,8 @@
 /* @flow */
 import React from 'react';
+import styled from '@emotion/styled';
 import withProps from 'recompose/withProps';
-import {
-  createStyledComponent,
-  pxToEm
-} from '../../../../../../library/styles';
+import { pxToEm } from '../../../../../../library/styles';
 import Table from '../../../../../../library/Table';
 import data from '../../common/data';
 import renderPropsDescription from '../../../common/renderPropsDescription';
@@ -20,7 +18,7 @@ Refer to the [custom sortable header cell](#custom-sortable-header-cell) if
 your data is sortable.
 `,
   scope: {
-    createStyledComponent,
+    styled,
     data,
     pxToEm,
     React,
@@ -29,7 +27,7 @@ your data is sortable.
   },
   source: `
     () => {
-      const Root = createStyledComponent('th', ({ theme }) => ({
+      const Root = styled('th')(({ theme }) => ({
         padding: 0,
         verticalAlign: 'bottom',
 
@@ -38,14 +36,14 @@ your data is sortable.
         }
       }));
 
-      const Inner = createStyledComponent('span', ({theme}) => ({
+      const Inner = styled('span')(({theme}) => ({
         alignItems: 'flex-end',
         display: 'flex',
         padding: pxToEm(12) + ' ' + theme.space_inline_md,
         whiteSpace: 'nowrap'
       }));
 
-      const Content = createStyledComponent('span', ({ theme }) => ({
+      const Content = styled('span')(({ theme }) => ({
         fontSize: theme.fontSize_ui,
         fontWeight: theme.fontWeight_bold,
         textAlign: 'left'
@@ -54,9 +52,7 @@ your data is sortable.
       const Emoji = withProps({
           'aria-hidden': true,
           role: 'img'
-        })(createStyledComponent(
-        'span',
-        ({ theme }) => ({
+        })(styled('span')(({ theme }) => ({
           display: 'inline-block',
           marginRight: theme.space_inline_sm
         })

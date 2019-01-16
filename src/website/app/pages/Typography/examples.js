@@ -1,6 +1,6 @@
 /* @flow */
 import React from 'react';
-import { createStyledComponent } from '../../../../library/styles';
+import styled from '@emotion/styled';
 import Text from '../../../../library/Text';
 
 type TypeExample = {
@@ -18,7 +18,7 @@ const styles = {
   })
 };
 
-const List = createStyledComponent('ul', styles.list);
+const List = styled('ul')(styles.list);
 const examples: TypeExamples = [
   {
     description: `### Long-form Text

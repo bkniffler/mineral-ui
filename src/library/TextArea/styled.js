@@ -1,5 +1,6 @@
 /* @flow */
-import { createStyledComponent, getNormalizedValue, pxToEm } from '../styles';
+import styled from '@emotion/styled';
+import { getNormalizedValue, pxToEm } from '../styles';
 import { createThemedComponent, mapComponentThemes } from '../themes';
 import FauxControl from '../FauxControl';
 import { textAreaTheme } from './themes';
@@ -20,15 +21,14 @@ const ThemedFauxControl = createThemedComponent(
     )
 );
 
-export const TextAreaRoot = createStyledComponent(ThemedFauxControl, {
+export const TextAreaRoot = styled(ThemedFauxControl)({
   alignItems: 'center',
   cursor: 'text',
   display: 'flex',
   width: '100%'
 });
 
-export const Input = createStyledComponent(
-  'textarea',
+export const Input = styled('textarea', { rootEl: 'textarea' })(
   ({ resizeable, size, theme: baseTheme }) => {
     const theme = textAreaTheme(baseTheme);
 
@@ -62,8 +62,5 @@ export const Input = createStyledComponent(
       resize: resizeable ? 'vertical' : 'none',
       width: '100%'
     };
-  },
-  {
-    rootEl: 'textarea'
   }
 );

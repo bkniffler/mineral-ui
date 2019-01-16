@@ -1,9 +1,7 @@
 /* @flow */
 
-import {
-  componentStyleReset,
-  createStyledComponent
-} from '../../../../../../library/styles';
+import styled from '@emotion/styled';
+import { componentStyleReset } from '../../../../../../library/styles';
 import Button from '../../../../../../library/Button';
 import Popover from '../../../../../../library/Popover';
 import Popper from '../../../../../../library/Popover/RtlPopper';
@@ -18,7 +16,7 @@ control of the content. ${renderPropsDescription}`,
   scope: {
     Button,
     componentStyleReset,
-    createStyledComponent,
+    styled,
     DemoContent,
     Popover,
     Popper
@@ -29,7 +27,7 @@ control of the content. ${renderPropsDescription}`,
         // Your root element must be a Popper component.
         // import { Popper } from 'react-popper';
 
-        const Content = createStyledComponent('div', ({ theme }) => ({
+        const Content = styled('div')(({ theme }) => ({
           ...componentStyleReset(theme),
 
           backgroundColor: theme.backgroundColor_dangerPrimary,

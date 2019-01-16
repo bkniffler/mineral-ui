@@ -1,14 +1,10 @@
 /* @flow */
+import styled from '@emotion/styled';
 import { hideVisually } from 'polished';
-import {
-  componentStyleReset,
-  createStyledComponent,
-  getNormalizedValue
-} from '../styles';
+import { componentStyleReset, getNormalizedValue } from '../styles';
 import { choiceTheme, choiceGroupTheme } from './themes';
 
-export const ChoiceRoot = createStyledComponent(
-  'label',
+export const ChoiceRoot = styled('label')(
   ({ disabled, justify, hideLabel, labelPosition, size, theme: baseTheme }) => {
     const theme = choiceTheme(baseTheme);
     const labelPositionStart = labelPosition === 'start';
@@ -48,8 +44,7 @@ export const ChoiceRoot = createStyledComponent(
   }
 );
 
-export const Input = createStyledComponent(
-  'input',
+export const Input = styled('input', { rootEl: 'input' })(
   ({ theme: baseTheme }) => {
     const theme = choiceTheme(baseTheme);
 
@@ -90,8 +85,7 @@ export const Input = createStyledComponent(
   }
 );
 
-export const Text = createStyledComponent(
-  'span',
+export const Text = styled('span')(
   ({ disabled, hideLabel, justify, labelPosition, size, theme: baseTheme }) => {
     const theme = choiceTheme(baseTheme);
     const rtl = theme.direction === 'rtl';
@@ -121,8 +115,7 @@ export const Text = createStyledComponent(
   }
 );
 
-export const Control = createStyledComponent(
-  'span',
+export const Control = styled('span')(
   ({ disabled, size, theme: baseTheme }) => {
     const theme = choiceTheme(baseTheme);
     const backgroundColor = disabled
@@ -157,8 +150,7 @@ export const Control = createStyledComponent(
   }
 );
 
-export const ChoiceGroupRoot = createStyledComponent(
-  'div',
+export const ChoiceGroupRoot = styled('div')(
   ({ inline, size, theme: baseTheme }) => {
     const theme = choiceGroupTheme(baseTheme);
 

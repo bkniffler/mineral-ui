@@ -12,15 +12,6 @@ export type StyleValue = null | boolean | number | string | StyleObj;
 
 export type ComponentStyleReset = (theme: ThemeObj) => StyleObj;
 
-export type CreateStyledComponent = (
-  element:
-    | React$StatelessFunctionalComponent<*>
-    | React$ComponentType<*>
-    | string,
-  styles: Styles,
-  options?: {}
-) => React$ComponentType<*>;
-
 export type CreateRootNode<P, D = null> = (
   props: P,
   defaultProps: D

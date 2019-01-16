@@ -1,6 +1,7 @@
 /* @flow */
+import styled from '@emotion/styled';
 import { rtlTextAlign } from '../utils';
-import { componentStyleReset, createStyledComponent } from '../styles';
+import { componentStyleReset } from '../styles';
 import { textTheme } from './themes';
 import { APPEARANCE, HEADING_ELEMENTS, MONOSPACE_ELEMENTS } from './constants';
 
@@ -137,7 +138,7 @@ export const createTextRootNode: CreateRootNode<TextProps, TextDefaultProps> = (
       ? 'span'
       : element;
 
-  return createStyledComponent(element, getTextStyles(inherit, defaultProps), {
-    rootEl: element
-  });
+  return styled(element, { rootEl: element })(
+    getTextStyles(inherit, defaultProps)
+  );
 };

@@ -1,6 +1,7 @@
 /* @flow */
+import styled from '@emotion/styled';
 import withProps from 'recompose/withProps';
-import { componentStyleReset, createStyledComponent } from '../styles';
+import { componentStyleReset } from '../styles';
 import { createThemedComponent } from '../themes';
 import Flex, { FlexItem } from '../Flex';
 import TextInput from '../TextInput';
@@ -9,7 +10,7 @@ import Button from '../Button';
 import { paginationTheme } from './themes';
 
 export const PaginationRoot = withProps({ element: 'nav' })(
-  createStyledComponent(Flex, ({ theme: baseTheme }) => {
+  styled(Flex)(({ theme: baseTheme }) => {
     const theme = paginationTheme(baseTheme);
 
     return {
@@ -25,21 +26,18 @@ export const PaginationRoot = withProps({ element: 'nav' })(
   })
 );
 
-export const PagesRoot = createStyledComponent(
-  FlexItem,
-  ({ theme: baseTheme }) => {
-    const theme = paginationTheme(baseTheme);
-    const rtl = theme.direction === 'rtl';
-    const middleMargin = rtl ? 'marginLeft' : 'marginRight';
-    return {
-      '& > button, & > span': {
-        '&:not(:last-child)': {
-          [middleMargin]: theme.Pagination_gutterWidth
-        }
+export const PagesRoot = styled(FlexItem)(({ theme: baseTheme }) => {
+  const theme = paginationTheme(baseTheme);
+  const rtl = theme.direction === 'rtl';
+  const middleMargin = rtl ? 'marginLeft' : 'marginRight';
+  return {
+    '& > button, & > span': {
+      '&:not(:last-child)': {
+        [middleMargin]: theme.Pagination_gutterWidth
       }
-    };
-  }
-);
+    }
+  };
+});
 
 export const PagesEllipsisButton = createThemedComponent(
   Button,
@@ -48,7 +46,7 @@ export const PagesEllipsisButton = createThemedComponent(
   })
 );
 
-export const PageJumperNumberInput = createStyledComponent(TextInput, {
+export const PageJumperNumberInput = styled(TextInput)({
   '& > input': {
     MozAppearance: 'textfield',
 
@@ -59,6 +57,6 @@ export const PageJumperNumberInput = createStyledComponent(TextInput, {
   }
 });
 
-export const PageJumperRoot = createStyledComponent(FlexItem, ({ width }) => ({
+export const PageJumperRoot = styled(FlexItem)(({ width }) => ({
   width
 }));

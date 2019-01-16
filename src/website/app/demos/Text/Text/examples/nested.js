@@ -1,25 +1,23 @@
 /* @flow */
 import React from 'react';
+import styled from '@emotion/styled';
 import withProps from 'recompose/withProps';
 import { palette } from 'mineral-ui-tokens';
 import _Text from '../../../../../../library/Text';
 import { mineralTheme as theme } from '../../../../../../library/themes';
-import {
-  componentStyleReset,
-  createStyledComponent
-} from '../../../../../../library/styles';
+import { componentStyleReset } from '../../../../../../library/styles';
 import _DemoLayout from '../../../common/DemoLayout';
 
 const StyledDemoLayout = (props): React$Element<*> => (
   <_DemoLayout includeLastChild marginBottom="1em" {...props} />
 );
 
-const DemoLayout = createStyledComponent(StyledDemoLayout, ({ theme }) =>
+const DemoLayout = styled(StyledDemoLayout)(({ theme }) =>
   componentStyleReset(theme)
 );
 
 const Text = withProps({ noMargins: true })(
-  createStyledComponent(_Text, ({ theme }) => ({
+  styled(_Text)(({ theme }) => ({
     backgroundColor: palette.indigo_20,
     padding: theme.space_inset_sm
   }))
@@ -39,10 +37,10 @@ toggle inheritance in either case with the \`inherit\` prop.
     applied to the Text components below.
   </p>
 </Callout>`,
-  scope: { createStyledComponent, DemoLayout, palette, Text, theme },
+  scope: { styled, DemoLayout, palette, Text, theme },
   source: `
     () => {
-      const CustomDiv = createStyledComponent('div', {
+      const CustomDiv = styled('div')({
         backgroundColor: palette.sky_10,
         color: palette.sky_80,
         fontFamily: 'serif',
