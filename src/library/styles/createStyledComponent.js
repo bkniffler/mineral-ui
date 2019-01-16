@@ -2,17 +2,12 @@
 
 import styled from '@emotion/styled';
 
-import type { CreateStyledComponent, StyleFn } from './types';
+import type { CreateStyledComponent } from './types';
 
 const createStyledComponent: CreateStyledComponent = (
   element,
   styles,
   options = {}
-) => {
-  const outStyles: StyleFn = (props, context) =>
-    typeof styles === 'function' ? styles(props, context) : styles;
-
-  return styled(element, options)(outStyles);
-};
+) => styled(element, options)(styles);
 
 export default createStyledComponent;
