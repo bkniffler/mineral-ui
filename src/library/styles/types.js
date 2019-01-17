@@ -12,11 +12,6 @@ export type StyleValue = null | boolean | number | string | StyleObj;
 
 export type ComponentStyleReset = (theme: ThemeObj) => StyleObj;
 
-export type CreateRootNode<P, D = null> = (
-  props: P,
-  defaultProps: D
-) => React$ComponentType<*>;
-
 export type PxToEm = (value: number | string) => string;
 
 export type GetNormalizedValue = (
