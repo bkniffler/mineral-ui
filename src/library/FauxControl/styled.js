@@ -5,9 +5,6 @@ import { componentStyleReset, getNormalizedValue } from '../styles';
 
 import { fauxControlTheme } from './themes';
 
-import type { CreateRootNode } from '../styles/types';
-import type { FauxControlProps } from './types';
-
 export const FauxControlRoot = styled('div')(
   ({ disabled, theme: baseTheme, variant }) => {
     let theme = fauxControlTheme(baseTheme);
@@ -142,107 +139,105 @@ export const Underlay = styled('div')(
   }
 );
 
-export const createControlNode: CreateRootNode<FauxControlProps> = (props) => {
-  return styled(props.control)(
-    ({
-      controlPropsIn,
-      controlSize,
-      disabled,
-      hasPlaceholder,
-      iconEnd,
-      iconStart,
-      prefix,
-      readOnly,
-      size: nonHtmlSize,
-      suffix,
-      theme: baseTheme,
-      variant
-    }) => {
-      let theme = fauxControlTheme(baseTheme);
+export const Control = styled('input')(
+  ({
+    controlPropsIn,
+    controlSize,
+    disabled,
+    hasPlaceholder,
+    iconEnd,
+    iconStart,
+    prefix,
+    readOnly,
+    size: nonHtmlSize,
+    suffix,
+    theme: baseTheme,
+    variant
+  }) => {
+    let theme = fauxControlTheme(baseTheme);
 
-      const size = controlSize || nonHtmlSize;
+    const size = controlSize || nonHtmlSize;
 
-      if (variant) {
-        // prettier-ignore
-        theme = {
-        ...theme,
-        FauxControl_boxShadow_focus: `0 0 0 1px ${theme.boxShadow_focusInner}, 0 0 0 2px ${theme[`borderColor_${variant}_focus`]}`,
-      };
-      }
-
-      if (controlPropsIn.variant) {
-        // prettier-ignore
-        theme = {
-        ...theme,
-        FauxControl_color: theme[`color_${controlPropsIn.variant}`]
-      };
-      }
-
-      const rtl = theme.direction === 'rtl';
-      const fontSize =
-        size === 'small'
-          ? theme.FauxControl_fontSize_small
-          : theme.FauxControl_fontSize;
-      const sizeAppropriateHorizontalPadding =
-        size === 'small' || size === 'medium'
-          ? theme.FauxControl_paddingHorizontal_small ||
-            theme.FauxControl_paddingHorizontal
-          : theme.FauxControl_paddingHorizontal;
-      const paddingWithoutIcon = getNormalizedValue(
-        sizeAppropriateHorizontalPadding,
-        fontSize
-      );
-
-      let color = theme.FauxControl_color;
-      if (disabled) {
-        color = theme.color_disabled;
-      } else if (hasPlaceholder) {
-        color = theme.FauxControl_color_placeholder;
-      } else if (readOnly) {
-        color = theme.FauxControl_color_readOnly;
-      }
-
-      // [1] - Safari and many Android browsers need this to apply the correct
-      //       color to disabled controls
-
-      const placeholderStyles = {
-        color: theme.FauxControl_color_placeholder,
-        WebkitTextFillColor: theme.FauxControl_color_placeholder, // [1]
-        fontStyle: 'italic'
-      };
-
-      return {
-        color,
-        WebkitTextFillColor: color, // [1]
-        fontSize,
-        fontStyle: hasPlaceholder ? 'italic' : null,
-        outline: 0,
-        paddingLeft:
-          ((iconStart || prefix) && !rtl) ||
-          ((iconEnd || variant || suffix) && rtl)
-            ? 0
-            : paddingWithoutIcon,
-        paddingRight:
-          ((iconEnd || variant || suffix) && !rtl) ||
-          ((iconStart || prefix) && rtl)
-            ? 0
-            : paddingWithoutIcon,
-
-        '&::placeholder': placeholderStyles,
-        '&::-ms-input-placeholder': placeholderStyles, // Edge
-        '&:-ms-input-placeholder': placeholderStyles, // IE 11
-
-        '&::-ms-clear': {
-          display: 'none'
-        },
-
-        '&:focus': {
-          '& ~ div:last-child': {
-            borderColor: theme.FauxControl_borderColor_focus,
-            boxShadow: theme.FauxControl_boxShadow_focus
-          }
-        }
-      };
+    if (variant) {
+      // prettier-ignore
+      theme = {
+      ...theme,
+      FauxControl_boxShadow_focus: `0 0 0 1px ${theme.boxShadow_focusInner}, 0 0 0 2px ${theme[`borderColor_${variant}_focus`]}`,
+    };
     }
-  );
-};
+
+    if (controlPropsIn.variant) {
+      // prettier-ignore
+      theme = {
+      ...theme,
+      FauxControl_color: theme[`color_${controlPropsIn.variant}`]
+    };
+    }
+
+    const rtl = theme.direction === 'rtl';
+    const fontSize =
+      size === 'small'
+        ? theme.FauxControl_fontSize_small
+        : theme.FauxControl_fontSize;
+    const sizeAppropriateHorizontalPadding =
+      size === 'small' || size === 'medium'
+        ? theme.FauxControl_paddingHorizontal_small ||
+          theme.FauxControl_paddingHorizontal
+        : theme.FauxControl_paddingHorizontal;
+    const paddingWithoutIcon = getNormalizedValue(
+      sizeAppropriateHorizontalPadding,
+      fontSize
+    );
+
+    let color = theme.FauxControl_color;
+    if (disabled) {
+      color = theme.color_disabled;
+    } else if (hasPlaceholder) {
+      color = theme.FauxControl_color_placeholder;
+    } else if (readOnly) {
+      color = theme.FauxControl_color_readOnly;
+    }
+
+    // [1] - Safari and many Android browsers need this to apply the correct
+    //       color to disabled controls
+
+    const placeholderStyles = {
+      color: theme.FauxControl_color_placeholder,
+      WebkitTextFillColor: theme.FauxControl_color_placeholder, // [1]
+      fontStyle: 'italic'
+    };
+
+    return {
+      color,
+      WebkitTextFillColor: color, // [1]
+      fontSize,
+      fontStyle: hasPlaceholder ? 'italic' : null,
+      outline: 0,
+      paddingLeft:
+        ((iconStart || prefix) && !rtl) ||
+        ((iconEnd || variant || suffix) && rtl)
+          ? 0
+          : paddingWithoutIcon,
+      paddingRight:
+        ((iconEnd || variant || suffix) && !rtl) ||
+        ((iconStart || prefix) && rtl)
+          ? 0
+          : paddingWithoutIcon,
+
+      '&::placeholder': placeholderStyles,
+      '&::-ms-input-placeholder': placeholderStyles, // Edge
+      '&:-ms-input-placeholder': placeholderStyles, // IE 11
+
+      '&::-ms-clear': {
+        display: 'none'
+      },
+
+      '&:focus': {
+        '& ~ div:last-child': {
+          borderColor: theme.FauxControl_borderColor_focus,
+          boxShadow: theme.FauxControl_boxShadow_focus
+        }
+      }
+    };
+  }
+);
