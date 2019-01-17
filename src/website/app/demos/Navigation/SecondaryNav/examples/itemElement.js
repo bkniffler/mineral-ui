@@ -12,9 +12,9 @@ NavItem by specifying the \`itemElement\` prop, such as a
   scope: { NavItem, SecondaryNav, ReactRouterLink },
   source: `
     <SecondaryNav itemElement={ReactRouterLink}>
-      <NavItem href="/malachite">Malachite</NavItem>
-      <NavItem href="/fluorite">Fluorite</NavItem>
-      <NavItem href="/magnetite">Magnetite</NavItem>
+      <NavItem to="/malachite">Malachite</NavItem>
+      <NavItem to="/fluorite">Fluorite</NavItem>
+      <NavItem to="/magnetite">Magnetite</NavItem>
     </SecondaryNav>
   `
 };

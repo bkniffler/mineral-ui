@@ -52,7 +52,7 @@ ${renderPropsDescription}`,
          render() {
            return (
              <Root {...this.props}>
-               <Flex element="span">
+               <Flex as="span">
                  <Emoji>🌿</Emoji>
                  <Content>{this.props.children}</Content>
                </Flex>

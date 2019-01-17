@@ -192,18 +192,14 @@ type TableThemeKeys = {|
 |};
 
 export type TableCellProps = {
+  as?: string,
   children?: React$Node,
   columnKey?: string,
-  element?: string,
   noPadding?: boolean,
   primary?: boolean,
   rowIndex?: number,
   render?: RenderFn,
   textAlign?: ColumnAlign
-};
-
-export type TableCellDefaultProps = {
-  element: string
 };
 
 export type TableCellThemeFn = ComponentThemeFn<TableCellTheme>;
@@ -243,7 +239,6 @@ type TableHeaderThemeKeys = {|
 
 export type TableHeaderCellProps = {
   children?: React$Node,
-  element?: string,
   label?: string,
   minWidth?: number | string,
   maxWidth?: number | string,
@@ -253,7 +248,6 @@ export type TableHeaderCellProps = {
 };
 
 export type TableHeaderCellDefaultProps = {
-  element: string,
   textAlign: ColumnAlign
 };
 
@@ -331,8 +325,8 @@ type TableSortableHeaderCellThemeKeys = {|
 
 export type TableTitleProps = {
   appearance?: TitleElement,
+  as?: TitleElement,
   children: React$Node,
-  element?: TitleElement,
   hide?: boolean,
   id: string,
   theme: Object

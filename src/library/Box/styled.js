@@ -4,13 +4,7 @@ import styled from '@emotion/styled';
 import { componentStyleReset, getResponsiveStyles } from '../styles';
 import { SPACING_TYPES } from './constants';
 
-import type { CreateRootNode } from '../styles/types';
-import type {
-  BoxDefaultProps,
-  BoxProps,
-  SpacingStyles,
-  SpacingValue
-} from './types';
+import type { SpacingStyles, SpacingValue } from './types';
 
 const getMeasurement = (value: number | string) =>
   typeof value === 'number' && value < 1 && value !== 0
@@ -62,52 +56,45 @@ const getSpacingStyles = (
   }, {});
 };
 
-export const createBoxRootNode: CreateRootNode<BoxProps, BoxDefaultProps> = (
-  props,
-  defaultProps
-) => {
-  const { element = defaultProps.element } = props;
+export const BoxRoot = styled('div', {
+  shouldForwardProp: (prop) => prop !== 'width' && isPropValid(prop)
+})(({ breakpoints, height, inline, theme, width, ...restProps }) => {
+  const rtl = theme.direction === 'rtl';
 
-  return styled(element, {
-    shouldForwardProp: (prop) => prop !== 'width' && isPropValid(prop)
-  })(({ breakpoints, height, inline, theme, width, ...restProps }) => {
-    const rtl = theme.direction === 'rtl';
-
-    const mapValueToProperty = (
-      property: string,
-      value: SpacingValue
-    ): number | string => {
-      const map = {
-        display: (value) => (value ? 'inline-block' : 'block'),
-        height: getMeasurement,
-        width: getMeasurement,
-        ...['margin', 'padding'].reduce((acc, property) => {
-          Object.keys(getSpacingStyles(property, restProps, rtl)).forEach(
-            (style) => {
-              acc[style] = (value) => getSpaceValue(property, theme, value);
-            }
-          );
-          return acc;
-        }, {})
-      };
-
-      return map[property](value);
+  const mapValueToProperty = (
+    property: string,
+    value: SpacingValue
+  ): number | string => {
+    const map = {
+      display: (value) => (value ? 'inline-block' : 'block'),
+      height: getMeasurement,
+      width: getMeasurement,
+      ...['margin', 'padding'].reduce((acc, property) => {
+        Object.keys(getSpacingStyles(property, restProps, rtl)).forEach(
+          (style) => {
+            acc[style] = (value) => getSpaceValue(property, theme, value);
+          }
+        );
+        return acc;
+      }, {})
     };
 
-    return {
-      ...componentStyleReset(theme),
-      ...getResponsiveStyles({
-        breakpoints,
-        mapValueToProperty,
-        styles: {
-          display: inline,
-          height,
-          ...getSpacingStyles('margin', restProps, rtl),
-          ...getSpacingStyles('padding', restProps, rtl),
-          width
-        },
-        theme
-      })
-    };
-  });
-};
+    return map[property](value);
+  };
+
+  return {
+    ...componentStyleReset(theme),
+    ...getResponsiveStyles({
+      breakpoints,
+      mapValueToProperty,
+      styles: {
+        display: inline,
+        height,
+        ...getSpacingStyles('margin', restProps, rtl),
+        ...getSpacingStyles('padding', restProps, rtl),
+        width
+      },
+      theme
+    })
+  };
+});

@@ -75,7 +75,7 @@ export default class TableBase extends Component<
         <Root {...rootProps}>
           <TableTitle
             appearance={titleAppearance}
-            element={titleElement}
+            as={titleElement}
             hide={hideTitle}
             id={this.titleId}>
             {title}

@@ -50,8 +50,8 @@ export type GetDropdownData = ({
 export type GetDropdownItem = (itemElement: ItemElement) => MenuItemRenderFn;
 
 export type NavigationItem = MenuItemType & {
+  as?: React$Element<*>,
   child?: React$Element<*>,
-  element?: React$Element<*>,
   icon?: React$Element<*>,
   index?: number,
   maxWidth?: number | string,
@@ -61,7 +61,6 @@ export type NavigationItem = MenuItemType & {
 export type NavItemProps = {
   children?: React$Node,
   disabled?: boolean,
-  element?: ItemElement,
   icon?: React$Element<*>,
   index?: number,
   maxWidth?: number | string,
@@ -69,10 +68,6 @@ export type NavItemProps = {
   prefix?: Prefix,
   selected?: boolean,
   type?: InternalType
-};
-
-export type NavItemDefaultProps = {
-  element: string
 };
 
 export type NavOverflowMenuProps = {

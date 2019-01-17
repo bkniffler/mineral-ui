@@ -97,9 +97,9 @@ export default class Navigation extends Component<NavigationProps> {
       navChildren = items.map(
         (
           {
+            as,
             child,
             disabled,
-            element,
             maxWidth,
             onClick,
             selected,
@@ -127,7 +127,7 @@ export default class Navigation extends Component<NavigationProps> {
             const navItemProps = {
               children: text,
               disabled,
-              element: element || itemElement,
+              as: as || itemElement || 'a',
               index,
               maxWidth: maxWidth || maxItemWidth,
               onClick: !disabled

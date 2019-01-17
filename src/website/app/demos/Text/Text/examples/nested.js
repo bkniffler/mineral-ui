@@ -59,7 +59,7 @@ toggle inheritance in either case with the \`inherit\` prop.
             </Text>
           </CustomDiv>
 
-          <Text element="div">
+          <Text as="div">
             For nested Text components (inside another Text), you can opt
             <em>out</em> of style inheritance by passing false to the inherit prop.
 

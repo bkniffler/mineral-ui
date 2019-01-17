@@ -18,9 +18,6 @@ import {
 } from './themes';
 import DialogRow from './DialogRow';
 
-import type { CreateRootNode } from '../styles/types';
-import type { DialogRowDefaultProps, DialogRowProps } from './types';
-
 export const DialogRoot = styled('div', {
   shouldForwardProp: (prop) => prop !== 'title' && isPropValid(prop)
 })(({ modeless, theme }) => ({
@@ -230,32 +227,22 @@ export const DialogOverlay = styled('div')(({ theme: baseTheme }) => {
   };
 });
 
-export const createDialogRowRootNode: CreateRootNode<
-  DialogRowProps,
-  DialogRowDefaultProps
-> = (props, defaultProps) => {
-  const { element = defaultProps.element } = props;
+export const DialogRowRoot = styled('div')(({ theme: baseTheme }) => {
+  const theme = dialogRowTheme(baseTheme);
+  const fontSize = theme.DialogRow_fontSize;
 
-  return styled(element)(({ theme: baseTheme }) => {
-    const theme = dialogRowTheme(baseTheme);
-    const fontSize = theme.DialogRow_fontSize;
+  return {
+    ...componentStyleReset(baseTheme),
 
-    return {
-      ...componentStyleReset(baseTheme),
-
-      fontSize,
-      margin: `${getNormalizedValue(
-        theme.DialogRow_marginVertical,
-        fontSize
-      )} 0`,
-      outline: 0,
-      padding: `0 ${getNormalizedValue(
-        theme.DialogRow_paddingHorizontal,
-        fontSize
-      )}`
-    };
-  });
-};
+    fontSize,
+    margin: `${getNormalizedValue(theme.DialogRow_marginVertical, fontSize)} 0`,
+    outline: 0,
+    padding: `0 ${getNormalizedValue(
+      theme.DialogRow_paddingHorizontal,
+      fontSize
+    )}`
+  };
+});
 
 export const DialogTitleRoot = styled('div')(
   ({ theme: baseTheme, variant }) => {

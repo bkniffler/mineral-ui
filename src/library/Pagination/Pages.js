@@ -57,12 +57,7 @@ const getPageButtons = ({
       let pageView = null;
       if (firstPageInRange || lastPageInRange) {
         pageView = (
-          <EllipsisButton
-            disabled
-            element="span"
-            key={page}
-            minimal
-            size="medium">
+          <EllipsisButton disabled as="span" key={page} minimal size="medium">
             …
           </EllipsisButton>
         );

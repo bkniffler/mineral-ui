@@ -38,7 +38,7 @@ const getDropdownItem: GetDropdownItem = (itemElement) => (
      * with an `href` and then preventDefault (like we do for items directly in
      * Navigation). Instead, we force a `span` element.
      */
-    element:
+    as:
       itemElement === NavOverflowMenu.defaultProps.itemElement &&
       props &&
       props.props &&
@@ -66,7 +66,7 @@ const NavOverflowMenu = (props: NavOverflowMenuProps) => {
   const triggerProps = {
     'aria-label': messages.moreLabel,
     children: messages.moreText,
-    element: 'button',
+    as: 'button',
     iconEnd: <IconArrowDropdownDown />,
     prefix,
     type
@@ -82,7 +82,7 @@ const NavOverflowMenu = (props: NavOverflowMenuProps) => {
 NavOverflowMenu.displayName = 'NavOverflowMenu';
 
 const defaultProps: NavOverflowMenuDefaultProps = {
-  itemElement: NavItem.defaultProps.element
+  itemElement: 'a'
 };
 
 NavOverflowMenu.defaultProps = defaultProps;

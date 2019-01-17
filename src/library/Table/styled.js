@@ -1,4 +1,5 @@
 /* @flow */
+import isPropValid from '@emotion/is-prop-valid';
 import styled from '@emotion/styled';
 import withProps from 'recompose/withProps';
 import { hideVisually } from 'polished';
@@ -16,19 +17,48 @@ import {
   tableSortableHeaderCellTheme,
   tableTitleTheme
 } from './themes';
-import TableCell from './TableCell';
 import TableHeaderCell from './TableHeaderCell';
 import { SORT } from './constants';
 
-import type { CreateRootNode } from '../styles/types';
-import type {
-  TableCellDefaultProps,
-  TableCellProps,
-  TableHeaderCellDefaultProps,
-  TableHeaderCellProps
-} from './types';
-
 const REGEX_IS_EM_VALUE = /\d+em$/;
+
+const tableCellStyles = ({
+  density,
+  highContrast,
+  noPadding,
+  textAlign,
+  theme: baseTheme
+}) => {
+  const theme = tableCellTheme(baseTheme);
+  const fontSize = theme.TableCell_fontSize;
+  const rtl = theme.direction === 'rtl';
+  const borderProperty = rtl ? 'borderRight' : 'borderLeft';
+  const borderVertical = highContrast
+    ? theme.TableCell_borderVertical_highContrast
+    : theme.TableCell_borderVertical;
+  const paddingHorizontal = getNormalizedValue(
+    theme.TableCell_paddingHorizontal,
+    fontSize
+  );
+  const paddingVertical = getNormalizedValue(
+    density === 'spacious'
+      ? theme.TableCell_paddingVertical_spacious
+      : theme.TableCell_paddingVertical,
+    fontSize
+  );
+
+  return {
+    fontSize,
+    fontWeight: 'inherit',
+    padding: noPadding ? 0 : `${paddingVertical} ${paddingHorizontal}`,
+    textAlign: rtlTextAlign(textAlign || 'start', theme.direction),
+    verticalAlign: theme.TableCell_verticalAlign,
+
+    '&:not(:first-child)': {
+      [borderProperty]: borderVertical
+    }
+  };
+};
 
 export const TableOverflowContainer = createThemedComponent(
   OverflowContainer,
@@ -56,52 +86,7 @@ export const TableRoot = styled('table')(({ theme }) => ({
 
 export const TableBody = styled('tbody')();
 
-export const createTableCellRootNode: CreateRootNode<
-  TableCellProps,
-  TableCellDefaultProps
-> = (props, defaultProps) => {
-  const defaultElement = defaultProps.element;
-  const element =
-    props.element && props.element !== defaultElement
-      ? props.element
-      : props.primary
-      ? 'th'
-      : defaultElement;
-
-  return styled(element)(
-    ({ density, highContrast, noPadding, textAlign, theme: baseTheme }) => {
-      const theme = tableCellTheme(baseTheme);
-      const fontSize = theme.TableCell_fontSize;
-      const rtl = theme.direction === 'rtl';
-      const borderProperty = rtl ? 'borderRight' : 'borderLeft';
-      const borderVertical = highContrast
-        ? theme.TableCell_borderVertical_highContrast
-        : theme.TableCell_borderVertical;
-      const paddingHorizontal = getNormalizedValue(
-        theme.TableCell_paddingHorizontal,
-        fontSize
-      );
-      const paddingVertical = getNormalizedValue(
-        density === 'spacious'
-          ? theme.TableCell_paddingVertical_spacious
-          : theme.TableCell_paddingVertical,
-        fontSize
-      );
-
-      return {
-        fontSize,
-        fontWeight: 'inherit',
-        padding: noPadding ? 0 : `${paddingVertical} ${paddingHorizontal}`,
-        textAlign: rtlTextAlign(textAlign || 'start', theme.direction),
-        verticalAlign: theme.TableCell_verticalAlign,
-
-        '&:not(:first-child)': {
-          [borderProperty]: borderVertical
-        }
-      };
-    }
-  );
-};
+export const TableCellRoot = styled('td')(tableCellStyles);
 
 export const TableHeaderRoot = styled('thead')(
   ({ hide, highContrast, theme: baseTheme }) => {
@@ -120,81 +105,72 @@ export const TableHeaderRoot = styled('thead')(
   }
 );
 
-export const createTableHeaderCellRootNode: CreateRootNode<
-  TableHeaderCellProps,
-  TableHeaderCellDefaultProps
-> = (props, defaultProps) => {
-  const { element = defaultProps.element } = props;
+export const TableHeaderCellRoot = styled('th', {
+  shouldForwardProp: (prop) => prop !== 'width' && isPropValid(prop)
+})([
+  ({ theme: baseTheme, ...props }) => {
+    const theme = mapComponentThemes(
+      {
+        name: 'TableHeaderCell',
+        theme: tableHeaderCellTheme(baseTheme)
+      },
+      {
+        name: 'TableCell',
+        theme: {}
+      },
+      baseTheme,
+      [
+        'TableHeaderCell_borderVertical',
+        'TableHeaderCell_fontSize',
+        'TableHeaderCell_paddingHorizontal',
+        'TableHeaderCell_paddingVertical',
+        'TableHeaderCell_verticalAlign'
+      ]
+    );
 
-  const ThemedTableCell = createThemedComponent(
-    TableCell,
-    ({ theme: baseTheme }) =>
-      mapComponentThemes(
-        {
-          name: 'TableHeaderCell',
-          theme: tableHeaderCellTheme(baseTheme)
-        },
-        {
-          name: 'TableCell',
-          theme: {}
-        },
-        baseTheme,
-        [
-          'TableHeaderCell_borderVertical',
-          'TableHeaderCell_fontSize',
-          'TableHeaderCell_paddingHorizontal',
-          'TableHeaderCell_paddingVertical',
-          'TableHeaderCell_verticalAlign'
-        ]
-      )
-  );
+    return tableCellStyles({ theme, ...props });
+  },
+  ({ highContrast, maxWidth, minWidth, theme: baseTheme, width }) => {
+    const theme = tableHeaderCellTheme(baseTheme);
+    const fontSize = theme.TableHeaderCell_fontSize;
+    const rtl = theme.direction === 'rtl';
+    const borderProperty = rtl ? 'borderRight' : 'borderLeft';
+    const borderVertical = highContrast
+      ? theme.TableHeaderCell_borderVertical_highContrast
+      : theme.TableHeaderCell_borderVertical;
+    const positionProperty = rtl ? 'right' : 'left';
+    const getWidth = (value, fontSize) =>
+      REGEX_IS_EM_VALUE.test(value)
+        ? getNormalizedValue(value, fontSize)
+        : value;
 
-  return withProps({ element })(
-    styled(ThemedTableCell, {
-      shouldForwardProp: (prop) =>
-        ['noPadding', 'textAlign'].indexOf(prop) !== -1 || prop !== 'width'
-    })(({ highContrast, maxWidth, minWidth, theme: baseTheme, width }) => {
-      const theme = tableHeaderCellTheme(baseTheme);
-      const fontSize = theme.TableHeaderCell_fontSize;
-      const rtl = theme.direction === 'rtl';
-      const borderProperty = rtl ? 'borderRight' : 'borderLeft';
-      const borderVertical = highContrast
-        ? theme.TableHeaderCell_borderVertical_highContrast
-        : theme.TableHeaderCell_borderVertical;
-      const positionProperty = rtl ? 'right' : 'left';
-      const getWidth = (value, fontSize) =>
-        REGEX_IS_EM_VALUE.test(value)
-          ? getNormalizedValue(value, fontSize)
-          : value;
+    return {
+      fontWeight: theme.TableHeaderCell_fontWeight,
+      maxWidth: getWidth(maxWidth, fontSize),
+      minWidth: getWidth(minWidth, fontSize),
+      position: 'relative',
+      width: getWidth(width, fontSize),
+      zIndex: 1,
 
-      return {
-        fontWeight: theme.TableHeaderCell_fontWeight,
-        maxWidth: getWidth(maxWidth, fontSize),
-        minWidth: getWidth(minWidth, fontSize),
-        position: 'relative',
-        width: getWidth(width, fontSize),
-        zIndex: 1,
+      // Using this "border" to appease Firefox, which extends TableHeaderCell's
+      // real border down the entire column after clicking a TableSortableHeaderCell.
+      '&:not(:first-child)': {
+        [borderProperty]: 0,
 
-        // Using this "border" to appease Firefox, which extends TableHeaderCell's
-        // real border down the entire column after clicking a TableSortableHeaderCell.
-        '&:not(:first-child)': {
-          [borderProperty]: 0,
-
-          '&::before': {
-            [borderProperty]: borderVertical,
-            bottom: 0,
-            content: '""',
-            [positionProperty]: 0,
-            position: 'absolute',
-            top: 0,
-            width: 0,
-            zIndex: -1
-          }
+        '&::before': {
+          [borderProperty]: borderVertical,
+          bottom: 0,
+          content: '""',
+          [positionProperty]: 0,
+          position: 'absolute',
+          top: 0,
+          width: 0,
+          zIndex: -1
         }
-      };
-    })
-  );
-};
+      }
+    };
+  }
+]);
 
 export const TableRowRoot = styled('tr')(
   ({ highContrast, isSelected, theme: baseTheme, striped }) => {
@@ -298,7 +274,7 @@ export const TableSortableHeaderCellRoot = withProps({ noPadding: true })(
   })
 );
 
-export const TableSortableHeaderCellButton = withProps({ element: 'button' })(
+export const TableSortableHeaderCellButton = withProps({ as: 'button' })(
   styled(TableHeaderCell)(({ theme: baseTheme }) => {
     const theme = tableSortableHeaderCellTheme(baseTheme);
 

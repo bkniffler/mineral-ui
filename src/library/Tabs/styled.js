@@ -44,7 +44,7 @@ const TabThemedButton = createThemedComponent(
 );
 
 export const TabAnchor = withProps({
-  element: 'a',
+  as: 'a',
   fullWidth: true,
   role: 'tab',
   size: 'medium'
