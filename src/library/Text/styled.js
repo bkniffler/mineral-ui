@@ -121,16 +121,3 @@ export const TextRoot = styled('p')(
     };
   }
 );
-
-// export const createTextRootNode: CreateRootNode<TextProps, TextDefaultProps> = (
-//   props,
-//   defaultProps
-// ) => {
-//   let { parentElement, element = defaultProps.element, inherit } = props;
-//   element =
-//     parentElement === 'p' && element === defaultProps.element
-//       ? 'span'
-//       : element;
-
-//   return styled(element)(getTextStyles);
-// };

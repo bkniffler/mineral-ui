@@ -9,7 +9,7 @@ import Button from '../Button';
 
 import { paginationTheme } from './themes';
 
-export const PaginationRoot = withProps({ element: 'nav' })(
+export const PaginationRoot = withProps({ as: 'nav' })(
   styled(Flex)(({ theme: baseTheme }) => {
     const theme = paginationTheme(baseTheme);
 

@@ -195,13 +195,13 @@ export const DialogContent = styled('div')(({ size, theme: baseTheme }) => {
   };
 });
 
-export const DialogFooterRoot = withProps({ element: 'footer' })(
+export const DialogFooterRoot = withProps({ as: 'footer' })(
   styled(DialogRow)({
     flex: '0 0 auto'
   })
 );
 
-export const DialogHeaderRoot = withProps({ element: 'header' })(
+export const DialogHeaderRoot = withProps({ as: 'header' })(
   styled(DialogRow)({
     display: 'flex',
     flex: '0 0 auto',
