@@ -85,6 +85,8 @@ export default class Dialog extends Component<DialogProps, DialogState> {
       isOpen,
       hideOverlay,
       modeless,
+      onClose: ignoreOnClose,
+      onOpen: ignoreOnOpen,
       size,
       title,
       usePortal,

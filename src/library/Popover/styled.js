@@ -9,8 +9,7 @@ import { popoverArrowTheme, popoverContentTheme } from './themes';
 import { ARROW_SIZE } from './constants';
 
 export const PopoverRoot = styled('span', {
-  shouldForwardProp: (prop) =>
-    ['content', 'onClose', 'onOpen'].indexOf(prop) === -1 && isPropValid(prop)
+  shouldForwardProp: (prop) => prop !== 'content' && isPropValid(prop)
 })({
   color: null,
   display: 'inline-block'

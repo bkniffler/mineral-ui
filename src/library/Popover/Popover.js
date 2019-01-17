@@ -46,7 +46,12 @@ export default class Popover extends Component<PopoverProps, PopoverState> {
     return (
       <ModifiersContext.Consumer>
         {(contextModifiers) => {
-          const { modifiers, ...rootProps } = this.props;
+          const {
+            modifiers,
+            onClose: ignoreOnClose,
+            onOpen: ignoreOnOpen,
+            ...rootProps
+          } = this.props;
           const isOpen = this.getControllableValue('isOpen');
 
           const contentProps = {

@@ -17,11 +17,8 @@ export default class PageJumper extends PureComponent<PageJumperProps> {
       messages,
       onPageChange: ignoreOnPageChange,
       size,
-      ...restProps
+      ...rootProps
     } = this.props;
-    const rootProps = {
-      ...restProps
-    };
 
     const { label, placeholder } = messages;
     const inputProps = {
