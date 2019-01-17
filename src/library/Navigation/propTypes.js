@@ -32,7 +32,6 @@ const messagesPropType = shape({
 export const navItemPropTypes = {
   children: node,
   disabled: bool,
-  element: itemElementPropType,
   icon: element,
   maxWidth: maxWidthPropType,
   selected: bool
