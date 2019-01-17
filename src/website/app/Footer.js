@@ -21,7 +21,7 @@ const ThemedSection = createThemedComponent(Section, {
   Link_color_hover: siteColors.yellow_hover
 });
 
-const Root = withProps({ element: 'footer' })(
+const Root = withProps({ as: 'footer' })(
   styled(ThemedSection)(({ theme }) => ({
     ...componentStyleReset(theme),
 

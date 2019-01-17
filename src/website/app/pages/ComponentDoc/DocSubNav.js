@@ -42,7 +42,7 @@ const styles = {
   })
 };
 
-const Root = withProps({ element: 'nav' })(styled(Section)(styles.subnav));
+const Root = withProps({ as: 'nav' })(styled(Section)(styles.subnav));
 const NavElement = styled(Link)(styles.navElement);
 
 export default function DocSubNav(props: DocSubNavProps) {

@@ -362,7 +362,7 @@ const Canvas = styled(_Canvas)(styles.canvas);
 const Content = styled('main')(styles.content);
 const Dialog = styled('div')(styles.dialog);
 const Footer = styled(_Footer)(styles.footer);
-const Header = withProps({ element: 'header' })(styled(Section)(styles.header));
+const Header = withProps({ as: 'header' })(styled(Section)(styles.header));
 const MenuButton = withProps({ circular: true })(
   styled(Button)(styles.menuButton)
 );

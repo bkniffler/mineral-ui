@@ -1,22 +1,17 @@
 /* @flow */
 import React, { Component } from 'react';
-import memoizeOne from 'memoize-one';
 import styled from '@emotion/styled';
-
-import type { CreateRootNode } from '../../library/styles/types';
 
 type Props = {
   angles?: Array<number>,
   children: React$Node,
   clipColor?: string,
-  element?: string,
   point?: number | string
 };
 
 type DefaultProps = {
   angles: Array<number>,
-  clipColor: string,
-  element: string
+  clipColor: string
 };
 
 const styles = {
@@ -107,29 +102,13 @@ const styles = {
 };
 
 const Inner = styled('div')(styles.inner);
-
-const createRootNode: CreateRootNode<Props, DefaultProps> = (
-  props,
-  defaultProps
-) => {
-  const { element = defaultProps.element } = props;
-
-  return styled(element)(styles.root);
-};
+const Root = styled('section')(styles.root);
 
 export default class Section extends Component<Props> {
   static defaultProps: DefaultProps = {
     angles: [5, 5],
-    clipColor: '#fff',
-    element: 'section'
+    clipColor: '#fff'
   };
-
-  // Must be an instance method to avoid affecting other instances memoized keys
-  getRootNode = memoizeOne(
-    createRootNode,
-    (nextProps: Props, prevProps: Props) =>
-      nextProps.element === prevProps.element
-  );
 
   render() {
     const {
@@ -139,8 +118,6 @@ export default class Section extends Component<Props> {
       point,
       ...restProps
     } = this.props;
-
-    const Root = this.getRootNode(this.props, Section.defaultProps);
 
     const rootProps = {
       point,

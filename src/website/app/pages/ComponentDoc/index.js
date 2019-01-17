@@ -43,7 +43,7 @@ const DocHeading = ({
   children?: React$Node,
   id?: string
 }) => (
-  <DocSection element="div" {...restProps}>
+  <DocSection as="div" {...restProps}>
     <StyledDocHeading id={id}>{children}</StyledDocHeading>
   </DocSection>
 );
