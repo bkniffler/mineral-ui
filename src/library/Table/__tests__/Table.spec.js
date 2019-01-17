@@ -66,12 +66,6 @@ const findCheckedCheckboxes = (table) => {
     .findWhere((n) => n.type() === Checkbox && n.props().checked);
 };
 
-// Needed to run jest:react for snapshot testing in old versions of React
-const REGEX_REACT_TEXT = /<!-- react-text: \d+ -->(.*)<!-- \/react-text -->/g;
-const stripReactTextTags = (string: string) => {
-  return string.replace(REGEX_REACT_TEXT, '$1');
-};
-
 describe('Table', () => {
   testDemoExamples(examples, {
     exclude: ['large-data-sets']
@@ -398,9 +392,7 @@ describe('Table', () => {
         wrapper.update();
         table = wrapper.find(Table);
         const sortedData = table.find(TableBase).props().data;
-        const headerCellHtml = stripReactTextTags(
-          getSerializedHTML(headerCell)
-        );
+        const headerCellHtml = getSerializedHTML(headerCell);
 
         expect(sortedData).toMatchSnapshot();
         expect(headerCellHtml).toMatchSnapshot();
@@ -416,9 +408,7 @@ describe('Table', () => {
         wrapper.update();
         table = wrapper.find(Table);
         const sortedData = table.find(TableBase).props().data;
-        const headerCellHtml = stripReactTextTags(
-          getSerializedHTML(headerCell)
-        );
+        const headerCellHtml = getSerializedHTML(headerCell);
 
         expect(sortedData).toMatchSnapshot();
         expect(headerCellHtml).toMatchSnapshot();
@@ -436,12 +426,8 @@ describe('Table', () => {
         wrapper.update();
         table = wrapper.find(Table);
         const sortedData = table.find(TableBase).props().data;
-        const headerCellHtml = stripReactTextTags(
-          getSerializedHTML(headerCell)
-        );
-        const secondHeaderCellHtml = stripReactTextTags(
-          getSerializedHTML(secondHeaderCell)
-        );
+        const headerCellHtml = getSerializedHTML(headerCell);
+        const secondHeaderCellHtml = getSerializedHTML(secondHeaderCell);
 
         expect(sortedData).toMatchSnapshot();
         expect(headerCellHtml).toMatchSnapshot('Idle');
