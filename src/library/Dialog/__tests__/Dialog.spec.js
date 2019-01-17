@@ -4,6 +4,7 @@ import { shallow } from 'enzyme';
 import { mountInWrapper } from '../../../../utils/enzymeUtils';
 import Button from '../../Button';
 import Dialog from '../Dialog';
+import { DialogContent } from '../styled';
 import examples from '../../../website/app/demos/Dialog/Dialog/examples';
 import testDemoExamples from '../../../../utils/testDemoExamples';
 
@@ -51,7 +52,7 @@ describe('Dialog', () => {
     });
 
     it('displays dialog content', () => {
-      const content = wrapper.find('DialogContent');
+      const content = wrapper.find(DialogContent);
 
       expect(content.exists()).toEqual(true);
     });
