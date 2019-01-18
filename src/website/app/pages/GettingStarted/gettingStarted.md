@@ -11,13 +11,13 @@ Install the [Mineral UI package](https://www.npmjs.com/package/mineral-ui) and
 its dependencies.
 
 ```bash
-npm install --save mineral-ui emotion-theming @emotion/core @emotion/styled react react-dom
+npm install mineral-ui emotion-theming @emotion/core @emotion/is-prop-valid @emotion/styled react react-dom
 ```
 
 or
 
 ```bash
-yarn add mineral-ui emotion-theming @emotion/core @emotion/styled react react-dom
+yarn add mineral-ui emotion-theming @emotion/core @emotion/is-prop-valid @emotion/styled react react-dom
 ```
 
 ## Usage
