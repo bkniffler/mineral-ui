@@ -21,8 +21,7 @@ ${renderPropsDescription}`,
   },
   source: `
   () => {
-    const ThemedSortableTableHeaderCell = themed(
-      TableSortableHeaderCell)(
+    const ThemedSortableTableHeaderCell = themed(TableSortableHeaderCell)(
       ({ theme }) => ({
         TableSortableHeaderCell_border_focus: '1px dotted ' + theme.color_black,
         TableSortableHeaderCell_color_focus: theme.color_black
