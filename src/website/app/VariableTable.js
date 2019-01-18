@@ -2,7 +2,6 @@
 import React from 'react';
 import colorable from 'colorable';
 import { darken, getLuminance } from 'polished';
-import { isValidProp } from '../../library/utils';
 import styled from '@emotion/styled';
 import { Table, TableCell, TableHeaderCell, TableRow } from './Table';
 
@@ -21,7 +20,7 @@ const Name = styled('span')(({ theme }) => ({
   fontWeight: theme.fontWeight_semiBold
 }));
 const Value = styled('span', {
-  shouldForwardProp: (prop) => isValidProp('span', prop)
+  shouldForwardProp: (prop) => prop !== 'color'
 })(({ color, theme }) => {
   if (color) {
     return {

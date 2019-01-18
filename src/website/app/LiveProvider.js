@@ -8,7 +8,7 @@ import {
   LiveError,
   LivePreview
 } from 'react-live';
-import { isValidProp } from '../../library/utils';
+import isPropValid from '@emotion/is-prop-valid';
 import styled from '@emotion/styled';
 import { ThemeProvider } from '../../library/themes';
 import getCodeBlockStyles from './utils/getCodeBlockStyles';
@@ -65,7 +65,7 @@ const styles = {
 };
 
 const MyLivePreview = styled(LivePreview, {
-  shouldForwardProp: (prop) => isValidProp('div', prop)
+  shouldForwardProp: (prop) => isPropValid(prop)
 })(styles.livePreview);
 const MyLiveEditor = styled(LiveEditor)(styles.liveEditor);
 const MyLiveError = styled(LiveError)(styles.liveError);
