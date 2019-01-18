@@ -34,13 +34,13 @@ export type TableProps = {
   striped?: boolean,
   title: React$Node,
   titleAppearance?: TitleElement,
-  titleElement?: TitleElement
+  titleAs?: TitleElement
 };
 
 export type TableDefaultProps = {
   density: Density,
   messages: Messages,
-  titleElement: TitleElement
+  titleAs: TitleElement
 };
 
 export type SelectableTableProps = any; // TODO
@@ -63,13 +63,13 @@ export type TableBaseProps = {
   sortable?: SortableType,
   title: React$Node,
   titleAppearance?: TitleElement,
-  titleElement?: TitleElement
+  titleAs?: TitleElement
 } & TableContextType;
 
 export type TableBaseDefaultProps = {
   density: Density,
   scrollable: boolean,
-  titleElement: TitleElement
+  titleAs: TitleElement
 };
 
 export type TableBaseState = {

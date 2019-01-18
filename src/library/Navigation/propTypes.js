@@ -37,28 +37,24 @@ export const navItemPropTypes = {
   selected: bool
 };
 
-export const primaryNavPropTypes = {
+const baseNavPropTypes = {
   align: alignPropType,
   children: node,
-  itemElement: itemElementPropType,
+  itemAs: itemElementPropType,
   items: navigationItemsPropType,
   maxItemWidth: maxWidthPropType,
   messages: messagesPropType,
-  minimal: bool,
   onChange: func,
   overflowAtIndex: number,
   selectedIndex: number
 };
 
+export const primaryNavPropTypes = {
+  ...baseNavPropTypes,
+  minimal: bool
+};
+
 export const secondaryNavPropTypes = {
-  align: alignPropType,
-  children: node,
-  itemElement: itemElementPropType,
-  items: navigationItemsPropType,
-  maxItemWidth: maxWidthPropType,
-  messages: messagesPropType,
-  onChange: func,
-  overflowAtIndex: number,
-  selectedIndex: number,
+  ...baseNavPropTypes,
   type: oneOf(Object.keys(TYPE))
 };

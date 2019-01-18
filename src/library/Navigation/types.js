@@ -16,7 +16,7 @@ type Align = $Keys<typeof ALIGN>;
 type BaseNavigationProps = {
   align?: Align,
   children?: React$Node,
-  itemElement?: ItemElement,
+  itemAs?: ItemElement,
   items?: NavigationItems,
   maxItemWidth?: number | string,
   messages?: Messages,
@@ -47,7 +47,7 @@ export type GetDropdownData = ({
   startingIndex: number
 }) => Array<MenuItemType>;
 
-export type GetDropdownItem = (itemElement: ItemElement) => MenuItemRenderFn;
+export type GetDropdownItem = (itemAs: ItemElement) => MenuItemRenderFn;
 
 export type NavigationItem = MenuItemType & {
   as?: React$Element<*>,
@@ -74,14 +74,14 @@ export type NavOverflowMenuProps = {
   data: NavigationItems,
   onClick: (event: AnchorEvent, selectedIndex: number) => void,
   index: number,
-  itemElement: ItemElement,
+  itemAs: ItemElement,
   messages: Messages,
   prefix: Prefix,
   type: InternalType
 };
 
 export type NavOverflowMenuDefaultProps = {
-  itemElement: string
+  itemAs: string
 };
 
 export type NavigationProps = BaseNavigationProps & {
@@ -91,7 +91,7 @@ export type NavigationProps = BaseNavigationProps & {
 };
 
 export type NavigationDefaultProps = {
-  itemElement: string,
+  itemAs: string,
   maxItemWidth: string,
   messages: Messages
 };
