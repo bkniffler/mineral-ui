@@ -2,7 +2,7 @@
 import styled from '@emotion/styled';
 import isPropValid from '@emotion/is-prop-valid';
 import { componentStyleReset } from '../styles';
-import { createThemedComponent } from '../themes';
+import { themed } from '../themes';
 import Button from '../Button';
 import { ALIGN, INTERNAL_TYPE } from './constants';
 import { navigationTheme, navItemTheme } from './themes';
@@ -125,8 +125,7 @@ const NavItemButton = styled(Button, {
  * usually do) because we need to filter some props, which breaks the usual
  * pattern.
  */
-export const NavItemRoot = createThemedComponent(
-  NavItemButton,
+export const NavItemRoot = themed(NavItemButton)(
   ({ prefix, theme: baseTheme, type }) => {
     const theme = {
       ...navItemTheme(baseTheme),

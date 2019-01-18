@@ -1,10 +1,10 @@
 /* @flow */
 import styled from '@emotion/styled';
 import { getNormalizedValue, pxToEm } from '../../../../library/styles';
-import { createThemedComponent } from '../../../../library/themes';
+import { themed } from '../../../../library/themes';
 import Section from '../../Section';
 
-const ThemedSection = createThemedComponent(Section, ({ theme }) => ({
+const ThemedSection = themed(Section)(({ theme }) => ({
   SectionPaddingHorizontal: 0,
   SectionPaddingHorizontalWide: 0,
   SectionPaddingVertical: theme.baseline_3,

@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import React from 'react';
 import { ellipsis } from 'polished';
 import { componentStyleReset, getNormalizedValue, pxToEm } from '../styles';
-import { createThemedComponent } from '../themes';
+import { themed } from '../themes';
 import Button from '../Button';
 
 import {
@@ -160,11 +160,10 @@ const footerTheme = ({ theme }) => ({
 /*
  * We shouldn't just create a themed 'div', because it won't be able to apply
  * the provided theme to itself, which breaks the expectation of
- * createThemedComponent. So, we theme a simple functional component that
+ * themed. So, we theme a simple functional component that
  * returns a 'div' instead.
  */
-export const CardFooterContent = createThemedComponent(
-  (props) => <div {...props} />,
+export const CardFooterContent = themed((props) => <div {...props} />)(
   footerTheme
 );
 

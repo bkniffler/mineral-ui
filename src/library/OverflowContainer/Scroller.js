@@ -1,6 +1,6 @@
 /* @flow */
 import styled from '@emotion/styled';
-import { createThemedComponent, mapComponentThemes } from '../themes';
+import { themed, mapComponentThemes } from '../themes';
 import { overflowContainerWithShadowsTheme } from './themes';
 import { getScrollerStyles } from './styled';
 import OverflowContainer from './OverflowContainer';
@@ -8,8 +8,7 @@ import OverflowContainer from './OverflowContainer';
 // NOTE: These components cannot live in styled.js due to circular dependency
 // issues with OverflowContainer
 
-const ThemedOverflowContainer = createThemedComponent(
-  OverflowContainer,
+const ThemedOverflowContainer = themed(OverflowContainer)(
   ({ theme: baseTheme }) =>
     mapComponentThemes(
       {

@@ -1,25 +1,23 @@
 /* @flow */
 import styled from '@emotion/styled';
 import { getNormalizedValue } from '../styles';
-import { createThemedComponent, mapComponentThemes } from '../themes';
+import { themed, mapComponentThemes } from '../themes';
 import FauxControl from '../FauxControl';
 import { SIZE } from './constants';
 import { textInputTheme } from './themes';
 
-const ThemedFauxControl = createThemedComponent(
-  FauxControl,
-  ({ theme: baseTheme }) =>
-    mapComponentThemes(
-      {
-        name: 'TextInput',
-        theme: textInputTheme(baseTheme)
-      },
-      {
-        name: 'FauxControl',
-        theme: {}
-      },
-      baseTheme
-    )
+const ThemedFauxControl = themed(FauxControl)(({ theme: baseTheme }) =>
+  mapComponentThemes(
+    {
+      name: 'TextInput',
+      theme: textInputTheme(baseTheme)
+    },
+    {
+      name: 'FauxControl',
+      theme: {}
+    },
+    baseTheme
+  )
 );
 
 export const TextInputRoot = styled(ThemedFauxControl)(

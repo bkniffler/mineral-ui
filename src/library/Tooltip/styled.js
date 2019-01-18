@@ -1,23 +1,21 @@
 /* @flow */
 import styled from '@emotion/styled';
-import { createThemedComponent, mapComponentThemes } from '../themes';
+import { themed, mapComponentThemes } from '../themes';
 import Popover from '../Popover';
 import { tooltipTheme } from './themes';
 
-export const TooltipRoot = createThemedComponent(
-  Popover,
-  ({ theme: baseTheme }) =>
-    mapComponentThemes(
-      {
-        name: 'Tooltip',
-        theme: tooltipTheme(baseTheme)
-      },
-      {
-        name: 'Popover',
-        theme: {}
-      },
-      baseTheme
-    )
+export const TooltipRoot = themed(Popover)(({ theme: baseTheme }) =>
+  mapComponentThemes(
+    {
+      name: 'Tooltip',
+      theme: tooltipTheme(baseTheme)
+    },
+    {
+      name: 'Popover',
+      theme: {}
+    },
+    baseTheme
+  )
 );
 
 export const TriggerText = styled('span')(({ theme: baseTheme }) => {

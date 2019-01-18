@@ -3,7 +3,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import withProps from 'recompose/withProps';
 import { componentStyleReset, pxToEm } from '../styles';
-import { createThemedComponent } from '../themes';
+import { themed } from '../themes';
 import { ie10Plus } from '../utils/cssSelectors';
 import Button from '../Button';
 import OverflowContainer, {
@@ -28,20 +28,17 @@ export const TabsRoot = styled('div')(({ height, position, theme }) => {
   };
 });
 
-const TabThemedButton = createThemedComponent(
-  Button,
-  ({ theme: baseTheme }) => {
-    const theme = tabTheme(baseTheme);
-    return {
-      Button_backgroundColor_minimal_active: null,
-      Button_backgroundColor_minimal_hover: null,
-      Button_borderRadius: null,
-      Button_borderWidth: 0,
-      Button_boxShadow_focus: null,
-      Button_color_minimal: theme.Tab_color
-    };
-  }
-);
+const TabThemedButton = themed(Button)(({ theme: baseTheme }) => {
+  const theme = tabTheme(baseTheme);
+  return {
+    Button_backgroundColor_minimal_active: null,
+    Button_backgroundColor_minimal_hover: null,
+    Button_borderRadius: null,
+    Button_borderWidth: 0,
+    Button_boxShadow_focus: null,
+    Button_color_minimal: theme.Tab_color
+  };
+});
 
 export const TabAnchor = withProps({
   as: 'a',
@@ -111,30 +108,27 @@ export const TabAnchor = withProps({
   )
 );
 
-const TabListThemedButton = createThemedComponent(
-  Button,
-  ({ theme: baseTheme }) => {
-    const theme = tabListTheme(baseTheme);
-    return {
-      Button_backgroundColor_minimal_active: null,
-      Button_backgroundColor_minimal_hover: null,
-      Button_borderRadius: 0,
-      Button_borderWidth: 0,
-      Button_boxShadow_focus: null,
-      Button_paddingIconOnly_medium: 0,
-      ButtonIcon_color: theme.TabListArrow_color,
+const TabListThemedButton = themed(Button)(({ theme: baseTheme }) => {
+  const theme = tabListTheme(baseTheme);
+  return {
+    Button_backgroundColor_minimal_active: null,
+    Button_backgroundColor_minimal_hover: null,
+    Button_borderRadius: 0,
+    Button_borderWidth: 0,
+    Button_boxShadow_focus: null,
+    Button_paddingIconOnly_medium: 0,
+    ButtonIcon_color: theme.TabListArrow_color,
 
-      Icon_size_medium: pxToEm(20)
-    };
-  }
-);
+    Icon_size_medium: pxToEm(20)
+  };
+});
 
-const TabListThemedOverflowContainerWithShadows = createThemedComponent(
-  OverflowContainerWithShadows,
-  ({ theme: baseTheme }) => {
-    const theme = tabListTheme(baseTheme);
-    // prettier-ignore
-    return {
+const TabListThemedOverflowContainerWithShadows = themed(
+  OverflowContainerWithShadows
+)(({ theme: baseTheme }) => {
+  const theme = tabListTheme(baseTheme);
+  // prettier-ignore
+  return {
       OverflowContainerWithShadows_boxShadowBottom:
         `inset 0 -24px 22px -14px ${theme.TabListOverflowContainer_boxShadowColor}`,
       OverflowContainerWithShadows_boxShadowLeft:
@@ -144,8 +138,7 @@ const TabListThemedOverflowContainerWithShadows = createThemedComponent(
       OverflowContainerWithShadows_boxShadowTop:
         `inset 0 24px 22px -14px ${theme.TabListOverflowContainer_boxShadowColor}`
     };
-  }
-);
+});
 
 const TabListArrowButton = styled(TabListThemedButton)(
   ({ theme: baseTheme }) => {

@@ -14,11 +14,7 @@ import {
   getNormalizedValue,
   pxToEm
 } from '../../../../library/styles';
-import {
-  createTheme,
-  createThemedComponent,
-  ThemeProvider
-} from '../../../../library/themes';
+import { createTheme, themed, ThemeProvider } from '../../../../library/themes';
 import _Button from '../../../../library/Button';
 import IconChevronRight from 'mineral-ui-icons/IconChevronRight';
 import IconFavorite from 'mineral-ui-icons/IconFavorite';
@@ -583,11 +579,11 @@ const Root = styled('div')(styles.home);
 const Markdown = withProps({ anchors: false })(
   styled(_Markdown)(styles.markdown)
 );
-const SiteButton = createThemedComponent(_SiteButton, buttonTheme);
+const SiteButton = themed(_SiteButton)(buttonTheme);
 const BlogLink = styled(Link)(styles.blogLink);
-const Button = createThemedComponent(_Button, buttonTheme);
+const Button = themed(_Button)(buttonTheme);
 const Buttons = styled('div')(styles.buttons);
-const ThemedCTALink = createThemedComponent(Link, CTALinkTheme);
+const ThemedCTALink = themed(Link)(CTALinkTheme);
 const CTALink = styled(ThemedCTALink)(styles.CTALink);
 const Feature = styled('div')(styles.feature);
 const FeatureImg = withProps({ alt: '' })(styled('img')(styles.featureImg));

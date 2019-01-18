@@ -2,7 +2,7 @@
 import isPropValid from '@emotion/is-prop-valid';
 import styled from '@emotion/styled';
 import { componentStyleReset } from '../styles';
-import { createThemedComponent } from '../themes';
+import { themed } from '../themes';
 import CardBlock from '../Card/CardBlock';
 import CardTitle from '../Card/CardTitle';
 import { popoverArrowTheme, popoverContentTheme } from './themes';
@@ -57,9 +57,9 @@ const cardOverrides = ({ theme: baseTheme }) => {
   };
 };
 
-export const PopoverBlock = createThemedComponent(CardBlock, cardOverrides);
+export const PopoverBlock = themed(CardBlock)(cardOverrides);
 
-export const PopoverTitle = createThemedComponent(CardTitle, cardOverrides);
+export const PopoverTitle = themed(CardTitle)(cardOverrides);
 
 export const PopoverArrowRoot = styled('span')(
   ({ placement, size, theme: baseTheme }) => {

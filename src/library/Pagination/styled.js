@@ -2,7 +2,7 @@
 import styled from '@emotion/styled';
 import withProps from 'recompose/withProps';
 import { componentStyleReset } from '../styles';
-import { createThemedComponent } from '../themes';
+import { themed } from '../themes';
 import Flex, { FlexItem } from '../Flex';
 import TextInput from '../TextInput';
 import Button from '../Button';
@@ -39,12 +39,9 @@ export const PagesRoot = styled(FlexItem)(({ theme: baseTheme }) => {
   };
 });
 
-export const PagesEllipsisButton = createThemedComponent(
-  Button,
-  ({ theme }) => ({
-    color_disabled: theme.color_theme
-  })
-);
+export const PagesEllipsisButton = themed(Button)(({ theme }) => ({
+  color_disabled: theme.color_theme
+}));
 
 export const PageJumperNumberInput = styled(TextInput)({
   '& > input': {

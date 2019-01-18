@@ -2,13 +2,13 @@
 import styled from '@emotion/styled';
 import { ellipsis } from 'polished';
 import { getNormalizedValue, pxToEm } from '../styles';
-import { createThemedComponent, mapComponentThemes } from '../themes';
+import { themed, mapComponentThemes } from '../themes';
 import FauxControl from '../FauxControl';
 import Dropdown from '../Dropdown/Dropdown';
 import { selectTheme, selectTriggerTheme } from './themes';
 import { SIZE } from './constants';
 
-const ThemedDropdown = createThemedComponent(Dropdown, ({ theme: baseTheme }) =>
+const ThemedDropdown = themed(Dropdown)(({ theme: baseTheme }) =>
   mapComponentThemes(
     {
       name: 'Select',
@@ -39,20 +39,18 @@ export const contentWidthModifier = {
   }
 };
 
-const ThemedFauxControl = createThemedComponent(
-  FauxControl,
-  ({ theme: baseTheme }) =>
-    mapComponentThemes(
-      {
-        name: 'Select',
-        theme: selectTriggerTheme(baseTheme)
-      },
-      {
-        name: 'FauxControl',
-        theme: {}
-      },
-      baseTheme
-    )
+const ThemedFauxControl = themed(FauxControl)(({ theme: baseTheme }) =>
+  mapComponentThemes(
+    {
+      name: 'Select',
+      theme: selectTriggerTheme(baseTheme)
+    },
+    {
+      name: 'FauxControl',
+      theme: {}
+    },
+    baseTheme
+  )
 );
 
 export const SelectTriggerRoot = styled(ThemedFauxControl)(

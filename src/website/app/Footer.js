@@ -3,14 +3,14 @@ import React from 'react';
 import styled from '@emotion/styled';
 import withProps from 'recompose/withProps';
 import { componentStyleReset, getNormalizedValue } from '../../library/styles';
-import { createThemedComponent, mineralTheme } from '../../library/themes';
+import { themed, mineralTheme } from '../../library/themes';
 import Markdown from './Markdown';
 import Section from './Section';
 import siteColors from './siteColors';
 
 type Props = {};
 
-const ThemedSection = createThemedComponent(Section, {
+const ThemedSection = themed(Section)({
   color: mineralTheme.color_white,
 
   Heading_color_4: mineralTheme.color_white,

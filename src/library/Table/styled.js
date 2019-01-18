@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import withProps from 'recompose/withProps';
 import { hideVisually } from 'polished';
 import { componentStyleReset, getNormalizedValue, pxToEm } from '../styles';
-import { createThemedComponent, mapComponentThemes } from '../themes';
+import { themed, mapComponentThemes } from '../themes';
 import { rtlTextAlign } from '../utils';
 import Checkbox from '../Checkbox';
 import OverflowContainer from '../OverflowContainer/OverflowContainer';
@@ -60,8 +60,7 @@ const tableCellStyles = ({
   };
 };
 
-export const TableOverflowContainer = createThemedComponent(
-  OverflowContainer,
+export const TableOverflowContainer = themed(OverflowContainer)(
   ({ theme: baseTheme }) =>
     mapComponentThemes(
       {

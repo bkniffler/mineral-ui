@@ -4,7 +4,7 @@ import isPropValid from '@emotion/is-prop-valid';
 import React from 'react';
 import withProps from 'recompose/withProps';
 import { componentStyleReset, getNormalizedValue } from '../styles';
-import { createThemedComponent, mapComponentThemes } from '../themes';
+import { themed, mapComponentThemes } from '../themes';
 import Button from '../Button';
 import Text from '../Text';
 import IconClose from '../Icon/IconClose';
@@ -87,20 +87,20 @@ export const DialogBodyRoot = styled(DialogRow)(({ theme: baseTheme }) => {
   };
 });
 
-const DialogBodyThemedOverflowContainerWithShadows = createThemedComponent(
-  _OverflowContainerWithShadows,
-  ({ theme: baseTheme }) =>
-    mapComponentThemes(
-      {
-        name: 'DialogBody',
-        theme: dialogBodyTheme(baseTheme)
-      },
-      {
-        name: 'OverflowContainerWithShadows',
-        theme: {}
-      },
-      baseTheme
-    )
+const DialogBodyThemedOverflowContainerWithShadows = themed(
+  _OverflowContainerWithShadows
+)(({ theme: baseTheme }) =>
+  mapComponentThemes(
+    {
+      name: 'DialogBody',
+      theme: dialogBodyTheme(baseTheme)
+    },
+    {
+      name: 'OverflowContainerWithShadows',
+      theme: {}
+    },
+    baseTheme
+  )
 );
 
 export const DialogBodyOverflowContainerWithShadows = withProps({
@@ -137,7 +137,7 @@ export const DialogBodyOverflowContainerWithShadows = withProps({
   )
 );
 
-const DialogThemedButton = createThemedComponent(Button, ({ theme }) => ({
+const DialogThemedButton = themed(Button)(({ theme }) => ({
   ButtonIcon_color: theme.color
 }));
 

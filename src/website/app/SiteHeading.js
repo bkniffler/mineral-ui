@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react';
 import styled from '@emotion/styled';
-import { createThemedComponent } from '../../library/themes';
+import { themed } from '../../library/themes';
 import Heading from './Heading';
 import Link from './SiteLink';
 
@@ -60,7 +60,7 @@ const siteHeadingStyles = ({ level, theme }) => ({
   }
 });
 
-const SiteThemedHeading = createThemedComponent(Heading, ({ theme }) => ({
+const SiteThemedHeading = themed(Heading)(({ theme }) => ({
   ...siteComponentTheme(theme)
 }));
 

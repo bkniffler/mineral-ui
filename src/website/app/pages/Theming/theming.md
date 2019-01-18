@@ -58,9 +58,9 @@ shown below.  It is effectively the same as wrapping your component with a
 ThemeProvider.
 
 ```jsx
-import { createThemedComponent } from 'mineral-ui/themes';
+import { themed } from 'mineral-ui/themes';
 
-const MyButton = createThemedComponent(Button, {
+const MyButton = themed(Button, {
   Button_backgroundColor: 'tomato'
 });
 ```
@@ -131,7 +131,7 @@ parent theme.
 See the previous examples and the [ThemeProvider](/components/theme-provider)
 page for more details.
 
-### `createThemedComponent(component, theme)`
+### `themed(component, theme)`
 
 This function is useful when you need to override component-level theme
 variables.  It is effectively the same as wrapping a ThemeProvider around a
@@ -151,9 +151,9 @@ provided.
 **Example**
 
 ```jsx
-import { createThemedComponent } from 'mineral-ui/themes';
+import { themed } from 'mineral-ui/themes';
 
-const MyButton = createThemedComponent(Button, {
+const MyButton = themed(Button, {
   Button_backgroundColor: 'tomato'
 });
 ```

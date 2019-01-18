@@ -44,8 +44,8 @@ export { default as TextInput } from './TextInput';
 export { default as Tooltip } from './Tooltip';
 export {
   createTheme,
-  createThemedComponent,
   mineralTheme,
+  themed,
   ThemeProvider,
   withTheme
 } from './themes';

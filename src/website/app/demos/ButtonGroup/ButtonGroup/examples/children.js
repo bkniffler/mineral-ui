@@ -1,6 +1,6 @@
 /* @flow */
 import styled from '@emotion/styled';
-import { createThemedComponent } from '../../../../../../library/themes';
+import { themed } from '../../../../../../library/themes';
 import Button from '../../../../../../library/Button';
 import ButtonGroup from '../../../../../../library/ButtonGroup';
 import Dropdown from '../../../../../../library/Dropdown';
@@ -11,7 +11,7 @@ const StyledButton = styled(Button)({
   color: 'lime !important'
 });
 
-const ThemedButton = createThemedComponent(Button, {
+const ThemedButton = themed(Button)({
   Button_backgroundColor: 'lime'
 });
 

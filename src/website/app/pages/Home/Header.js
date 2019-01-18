@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import styled from '@emotion/styled';
 import Media from 'react-media';
 import { pxToEm } from '../../../../library/styles';
-import { createThemedComponent } from '../../../../library/themes';
+import { themed } from '../../../../library/themes';
 import Button from '../../../../library/Button';
 import IconArrowDropDown from 'mineral-ui-icons/IconArrowDropDown';
 import _Popover from '../../../../library/Popover';
@@ -132,7 +132,7 @@ const styles = {
   })
 };
 
-const ThemedMenuButton = createThemedComponent(Button, ({ theme }) => ({
+const ThemedMenuButton = themed(Button)(({ theme }) => ({
   fontFamily: theme.fontFamily_headline,
   Button_color_minimal: theme.color_white,
   Button_backgroundColor_minimal_hover: 'transparent',
@@ -144,7 +144,7 @@ const ThemedMenuButton = createThemedComponent(Button, ({ theme }) => ({
   ButtonIcon_margin: null
 }));
 
-const Popover = createThemedComponent(_Popover, {
+const Popover = themed(_Popover)({
   PopoverContent_backgroundColor: null,
   PopoverContent_borderColor: 'transparent',
   PopoverContent_borderRadius: null,

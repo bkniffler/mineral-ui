@@ -1,24 +1,22 @@
 /* @flow */
 import styled from '@emotion/styled';
 import { getNormalizedValue, pxToEm } from '../styles';
-import { createThemedComponent, mapComponentThemes } from '../themes';
+import { themed, mapComponentThemes } from '../themes';
 import FauxControl from '../FauxControl';
 import { textAreaTheme } from './themes';
 
-const ThemedFauxControl = createThemedComponent(
-  FauxControl,
-  ({ theme: baseTheme }) =>
-    mapComponentThemes(
-      {
-        name: 'TextArea',
-        theme: textAreaTheme(baseTheme)
-      },
-      {
-        name: 'FauxControl',
-        theme: {}
-      },
-      baseTheme
-    )
+const ThemedFauxControl = themed(FauxControl)(({ theme: baseTheme }) =>
+  mapComponentThemes(
+    {
+      name: 'TextArea',
+      theme: textAreaTheme(baseTheme)
+    },
+    {
+      name: 'FauxControl',
+      theme: {}
+    },
+    baseTheme
+  )
 );
 
 export const TextAreaRoot = styled(ThemedFauxControl)({

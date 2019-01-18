@@ -3,7 +3,7 @@ import React from 'react';
 import { Link as ReactRouterLink } from 'react-router-dom';
 import rgba from 'polished/lib/color/rgba';
 import styled from '@emotion/styled';
-import { createThemedComponent } from '../../library/themes';
+import { themed } from '../../library/themes';
 import IconLaunch from 'mineral-ui-icons/IconLaunch';
 import Link from '../../library/Link';
 
@@ -25,7 +25,7 @@ const siteLinkTheme = baseTheme => ({
   ...baseTheme
 });
 
-const ThemedLink = createThemedComponent(Link, ({ theme }) => ({
+const ThemedLink = themed(Link)(({ theme }) => ({
   ...siteLinkTheme(theme)
 }));
 
