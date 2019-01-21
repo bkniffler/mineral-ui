@@ -66,7 +66,7 @@ export const BoxRoot = styled('div', {
     value: SpacingValue
   ): number | string => {
     const map = {
-      display: (value) => (value ? 'inline-block' : 'block'),
+      display: (value) => (value ? 'inline-block' : undefined),
       height: getMeasurement,
       width: getMeasurement,
       ...['margin', 'padding'].reduce((acc, property) => {
