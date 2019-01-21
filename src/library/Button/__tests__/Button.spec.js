@@ -47,7 +47,7 @@ describe('Button', () => {
 
   describe('root node', () => {
     describe('when props change', () => {
-      fit('retains focus', () => {
+      it('retains focus', () => {
         const [wrapper, button] = mountButton();
         button.getDOMNode().focus();
         wrapper.setProps({ id: 'test' });
