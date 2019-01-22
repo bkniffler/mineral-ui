@@ -33,7 +33,12 @@ const config = {
     ];
 
     if (!isTest && !isHappo) {
-      presets.push('@emotion/babel-preset-css-prop');
+      presets.push([
+        '@emotion/babel-preset-css-prop',
+        {
+          sourceMap: !isProduction
+        }
+      ]);
     }
 
     return presets;
