@@ -1,8 +1,9 @@
 /* @flow */
+import React from 'react';
 import styled from '@emotion/styled';
 import { pxToEm } from '../../../../../library/styles';
 
-export default styled('div')(({ theme, width }) => ({
+const Root = styled('div')(({ theme, width }) => ({
   overflow: 'hidden',
 
   '& > div': {
@@ -13,3 +14,7 @@ export default styled('div')(({ theme, width }) => ({
     width: width || pxToEm(224)
   }
 }));
+
+const DemoLayout = (props: Object) => <Root {...props} />;
+
+export default DemoLayout;

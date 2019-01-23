@@ -1,15 +1,18 @@
 /* @flow */
+import React from 'react';
 import Button from '../../../../../../library/Button';
 import styled from '@emotion/styled';
 import Tooltip from '../../../../../../library/Tooltip';
 import IconDelete from 'mineral-ui-icons/IconDelete';
 
-const DemoLayout = styled('div')({
+const Root = styled('div')({
   height: '200px',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center'
 });
+
+const DemoLayout = (props: Object) => <Root {...props} />;
 
 export default {
   id: 'placement',

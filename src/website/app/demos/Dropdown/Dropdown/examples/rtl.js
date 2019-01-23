@@ -1,4 +1,5 @@
 /* @flow */
+import React from 'react';
 import styled from '@emotion/styled';
 import { pxToEm } from '../../../../../../library/styles';
 import Button from '../../../../../../library/Button';
@@ -6,9 +7,11 @@ import Dropdown from '../../../../../../library/Dropdown';
 import { ThemeProvider } from '../../../../../../library/themes';
 import data from '../../../Menu/common/menuData';
 
-const DemoLayout = styled('div')({
+const Root = styled('div')({
   paddingBottom: pxToEm(130)
 });
+
+const DemoLayout = (props: Object) => <Root {...props} />;
 
 export default {
   id: 'rtl',

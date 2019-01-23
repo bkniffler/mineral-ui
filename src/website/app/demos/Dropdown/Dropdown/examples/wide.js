@@ -1,11 +1,14 @@
 /* @flow */
+import React from 'react';
 import styled from '@emotion/styled';
 import Button from '../../../../../../library/Button';
 import Dropdown from '../../../../../../library/Dropdown';
 
-const DemoLayout = styled('div')({
+const Root = styled('div')({
   height: '210px'
 });
+
+const DemoLayout = (props: Object) => <Root {...props} />;
 
 const data = [
   {

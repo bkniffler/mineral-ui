@@ -1,11 +1,13 @@
 /* @flow */
-import withProps from 'recompose/withProps';
+import React from 'react';
 import styled from '@emotion/styled';
 import FlexItem from '../../common/DemoFlexItem';
 import _DemoLayout from '../../common/DemoLayout';
 import _Flex from '../../common/DemoFlex';
 
-const DemoLayout = withProps({ lastRowStartsAt: 5 })(styled(_DemoLayout)());
+const DemoLayout = (props: Object) => (
+  <_DemoLayout lastRowStartsAt={5} {...props} />
+);
 
 const Flex = styled(_Flex)(({ direction }) => {
   return direction === 'column'

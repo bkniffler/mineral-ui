@@ -1,8 +1,9 @@
 /* @flow */
+import React from 'react';
 import clearFix from 'polished/lib/mixins/clearFix';
 import styled from '@emotion/styled';
 
-export default styled('div')(({ theme }) => {
+const Root = styled('div')(({ theme }) => {
   const rtl = theme.direction === 'rtl';
 
   return {
@@ -27,3 +28,7 @@ export default styled('div')(({ theme }) => {
     }
   };
 });
+
+const DemoLayout = (props: Object) => <Root {...props} />;
+
+export default DemoLayout;

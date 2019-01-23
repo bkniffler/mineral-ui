@@ -1,11 +1,13 @@
 /* @flow */
-import withProps from 'recompose/withProps';
+import React from 'react';
 import styled from '@emotion/styled';
 import GridItem from '../../common/DemoGridItem';
 import _DemoLayout from '../../common/DemoLayout';
 import _Grid from '../../common/DemoGrid';
 
-const DemoLayout = withProps({ lastRowStartsAt: 5 })(styled(_DemoLayout)());
+const DemoLayout = (props: Object) => (
+  <_DemoLayout lastRowStartsAt={5} {...props} />
+);
 
 const Grid = styled(_Grid)({
   height: '5rem'

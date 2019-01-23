@@ -1,7 +1,8 @@
 /* @flow */
+import React from 'react';
 import styled from '@emotion/styled';
 
-export default styled('div')(({ theme }) => ({
+const Root = styled('div')(({ theme }) => ({
   padding: `${theme.space_inset_md}`,
   position: 'relative',
 
@@ -17,3 +18,7 @@ export default styled('div')(({ theme }) => ({
     width: 'auto'
   }
 }));
+
+const DemoLayout = (props: Object) => <Root {...props} />;
+
+export default DemoLayout;
