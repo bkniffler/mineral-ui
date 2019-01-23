@@ -2,17 +2,19 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-const Form = styled('form')({
+const Root = styled('form')({
   '& > *:not(:last-child)': {
     marginBottom: '1rem'
   }
 });
 
-export default function DemoForm(props: Object) {
-  const formProps = {
+const DemoForm = (props: Object) => {
+  const rootProps = {
     onSubmit: (event) => event.preventDefault(),
     ...props
   };
 
-  return <Form {...formProps} />;
-}
+  return <Root {...rootProps} />;
+};
+
+export default DemoForm;

@@ -1,4 +1,5 @@
 /* @flow */
+import React from 'react';
 import styled from '@emotion/styled';
 import { rgba } from 'polished';
 import _Box from '../../../../../library/Box';
@@ -41,4 +42,8 @@ export const boxStyles = ({ inline, padding, theme }: Props) => {
   return styles;
 };
 
-export default styled(_Box)(boxStyles);
+const Root = styled(_Box)(boxStyles);
+
+const DemoBox = (props: Object) => <Root {...props} />;
+
+export default DemoBox;

@@ -1,4 +1,5 @@
 /* @flow */
+import React from 'react';
 import styled from '@emotion/styled';
 import _Flex from '../../../../../library/Flex';
 
@@ -12,4 +13,8 @@ export const containerStyles = ({ theme }: Props) => ({
   outlineOffset: 4
 });
 
-export default styled(_Flex)((props) => containerStyles(props));
+const Root = styled(_Flex)((props) => containerStyles(props));
+
+const DemoFlex = (props: Props) => <Root {...props} />;
+
+export default DemoFlex;
