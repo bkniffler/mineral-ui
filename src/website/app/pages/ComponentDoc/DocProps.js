@@ -16,9 +16,10 @@ type DocPropsProps = {
 const Callout = styled(_Callout)(({ theme }) => ({
   marginTop: theme.baseline_2
 }));
-const PropsComment = styled('p')({
-  fontStyle: 'italic'
-});
+const PropsComment = styled(Markdown)(({ theme }) => ({
+  fontStyle: 'italic',
+  marginTop: theme.baseline_2
+}));
 
 export default function DocProps(props: DocPropsProps) {
   const {
@@ -38,7 +39,7 @@ export default function DocProps(props: DocPropsProps) {
             <Callout title="Note">{propsComment}</Callout>
           ) : (
             <PropsComment>
-              Undocumented properties will be applied to the root element.
+              {`Undocumented properties, including [\`as\`](/styling#customization-techniques-try-theming-first-{{8}}-{{14}}-prop) and [\`css\`](/styling#customization-techniques-try-theming-first-{{22}}-prop), will be applied to the root element.`}
             </PropsComment>
           )}
         </div>
