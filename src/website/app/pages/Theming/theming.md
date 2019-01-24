@@ -243,7 +243,7 @@ const myTheme = createTheme({
 });
 ```
 
-### `withTheme(component, options)`
+### `withTheme(component)`
 
 A [higher order component (HOC)](https://reactjs.org/docs/higher-order-components.html)
 that enables theme access inside any component.
