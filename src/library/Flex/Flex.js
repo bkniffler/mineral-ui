@@ -2,7 +2,7 @@
 import React, { Children, cloneElement } from 'react';
 import { pxToEm } from '../styles';
 import { getPrevNonNull } from '../styles/getResponsiveStyles';
-import { withTheme } from '../themes';
+import { withTheme } from 'emotion-theming';
 import {
   ALIGN_ITEMS,
   DIRECTION,

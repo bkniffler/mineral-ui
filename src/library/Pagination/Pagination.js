@@ -1,6 +1,6 @@
 /* @flow */
 import React, { PureComponent } from 'react';
-import { withTheme } from '../themes';
+import { withTheme } from 'emotion-theming';
 import { FlexItem } from '../Flex';
 import Pages from './Pages';
 import PageJumper from './PageJumper';

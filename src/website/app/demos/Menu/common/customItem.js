@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react';
 import styled from '@emotion/styled';
-import { withTheme } from '../../../../../library/themes';
+import { withTheme } from 'emotion-theming';
 import { componentStyleReset, pxToEm } from '../../../../../library/styles';
 import Avatar from '../../../../../library/Avatar';
 import { menuItemTheme } from '../../../../../library/Menu/themes';

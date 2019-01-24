@@ -2,7 +2,7 @@
 import React from 'react';
 import hoistNonReactStatics from 'hoist-non-react-statics';
 import wrapDisplayName from 'recompose/wrapDisplayName';
-import withTheme from './withTheme';
+import { withTheme } from 'emotion-theming';
 import ThemeProvider from './ThemeProvider';
 
 import type { Theme } from './types';

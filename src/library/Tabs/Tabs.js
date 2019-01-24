@@ -1,7 +1,7 @@
 /* @flow */
 import React, { Children, cloneElement, Component } from 'react';
 import { canUseDOM } from 'exenv';
-import { withTheme } from '../themes';
+import { withTheme } from 'emotion-theming';
 import { generateId } from '../utils';
 import TabList from './TabList';
 import TabPanel from './TabPanel';

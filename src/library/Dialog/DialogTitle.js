@@ -1,6 +1,6 @@
 /* @flow */
 import React from 'react';
-import { withTheme } from '../themes';
+import { withTheme } from 'emotion-theming';
 import IconDanger from '../Icon/IconDanger';
 import IconSuccess from '../Icon/IconSuccess';
 import IconWarning from '../Icon/IconWarning';

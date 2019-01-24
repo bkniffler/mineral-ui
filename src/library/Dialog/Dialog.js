@@ -4,7 +4,7 @@ import { canUseDOM } from 'exenv';
 import FocusTrap from 'focus-trap-react';
 import noScroll from 'no-scroll';
 import Transition from 'react-transition-group/Transition';
-import { withTheme } from '../themes';
+import { withTheme } from 'emotion-theming';
 import { generateId } from '../utils';
 import { excludeByType, findByType } from '../utils/children';
 import Button from '../Button';

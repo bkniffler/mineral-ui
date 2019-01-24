@@ -2,7 +2,7 @@
 import React from 'react';
 import LiveProvider from '../../../LiveProvider';
 import styled from '@emotion/styled';
-import { withTheme } from '../../../../../library/themes';
+import { withTheme } from 'emotion-theming';
 import Menu from '../../../../../library/Menu';
 import { menuItemTheme } from '../../../../../library/Menu/themes';
 

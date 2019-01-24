@@ -259,7 +259,7 @@ that enables theme access inside any component.
 **Example**
 
 ```jsx
-import { withTheme } from 'mineral-ui/themes';
+import { withTheme } from 'emotion-theming';
 
 const Direction = withTheme(({ theme }) => {
   return <span>{theme.direction}</span>;

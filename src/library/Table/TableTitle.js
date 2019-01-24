@@ -1,6 +1,6 @@
 /* @flow */
 import React from 'react';
-import { withTheme } from '../themes';
+import { withTheme } from 'emotion-theming';
 import Text, { textWithThemeOverrides } from '../Text';
 import { TableTitleRoot as Root } from './styled';
 
