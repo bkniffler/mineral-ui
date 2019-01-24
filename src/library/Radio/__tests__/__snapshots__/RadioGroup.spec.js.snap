@@ -1,6 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RadioGroup demo examples Snapshots: controlled 1`] = `
+.emotion-16 > *:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
 .emotion-15 {
   box-sizing: border-box;
   color: #333840;
@@ -27,10 +31,6 @@ exports[`RadioGroup demo examples Snapshots: controlled 1`] = `
 
 .emotion-15 > *:not(:last-child) {
   margin-bottom: 1em;
-}
-
-.emotion-16 > *:not(:last-child) {
-  margin-bottom: 1rem;
 }
 
 .emotion-4 {
@@ -69,7 +69,7 @@ exports[`RadioGroup demo examples Snapshots: controlled 1`] = `
 }
 
 .emotion-0 {
-  border: 0px;
+  border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(50%);
@@ -77,7 +77,7 @@ exports[`RadioGroup demo examples Snapshots: controlled 1`] = `
   height: 1px;
   margin: -1px;
   overflow: hidden;
-  padding: 0px;
+  padding: 0;
   position: absolute;
   white-space: nowrap;
   width: 1px;
@@ -272,13 +272,14 @@ exports[`RadioGroup demo examples Snapshots: controlled 1`] = `
                       size="large"
                       type="radio"
                     >
-                      <ChoiceGroup
+                      <Styled(div)
                         role="radiogroup"
                         size="large"
                       >
                         <div
                           className="emotion-15"
                           role="radiogroup"
+                          size="large"
                         >
                           <Radio
                             checked={false}
@@ -343,16 +344,16 @@ exports[`RadioGroup demo examples Snapshots: controlled 1`] = `
                                       type="radio"
                                       value="fluorite"
                                     >
-                                      <Choice
+                                      <Styled(label)
                                         labelPosition="end"
                                         size="large"
                                       >
                                         <label
                                           className="emotion-4"
+                                          size="large"
                                         >
                                           <Styled(input)
                                             checked={false}
-                                            innerRef={[Function]}
                                             name="mineral"
                                             onChange={[Function]}
                                             size="large"
@@ -369,11 +370,12 @@ exports[`RadioGroup demo examples Snapshots: controlled 1`] = `
                                               value="fluorite"
                                             />
                                           </Styled(input)>
-                                          <Control
+                                          <Styled(span)
                                             size="large"
                                           >
                                             <span
                                               className="emotion-2"
+                                              size="large"
                                             >
                                               <IconRadioButtonCheck>
                                                 <Icon
@@ -393,6 +395,7 @@ exports[`RadioGroup demo examples Snapshots: controlled 1`] = `
                                                       className="emotion-1"
                                                       focusable="false"
                                                       role="img"
+                                                      size="medium"
                                                       viewBox="0 0 24 24"
                                                     >
                                                       <g>
@@ -407,19 +410,20 @@ exports[`RadioGroup demo examples Snapshots: controlled 1`] = `
                                                 </Icon>
                                               </IconRadioButtonCheck>
                                             </span>
-                                          </Control>
-                                          <Text
+                                          </Styled(span)>
+                                          <Styled(span)
                                             labelPosition="end"
                                             size="large"
                                           >
                                             <span
                                               className="emotion-3"
+                                              size="large"
                                             >
                                               Fluorite
                                             </span>
-                                          </Text>
+                                          </Styled(span)>
                                         </label>
-                                      </Choice>
+                                      </Styled(label)>
                                     </Choice>
                                   </ThemeProvider>
                                 </ThemeProvider>
@@ -489,16 +493,16 @@ exports[`RadioGroup demo examples Snapshots: controlled 1`] = `
                                       type="radio"
                                       value="magnetite"
                                     >
-                                      <Choice
+                                      <Styled(label)
                                         labelPosition="end"
                                         size="large"
                                       >
                                         <label
                                           className="emotion-4"
+                                          size="large"
                                         >
                                           <Styled(input)
                                             checked={false}
-                                            innerRef={[Function]}
                                             name="mineral"
                                             onChange={[Function]}
                                             size="large"
@@ -515,11 +519,12 @@ exports[`RadioGroup demo examples Snapshots: controlled 1`] = `
                                               value="magnetite"
                                             />
                                           </Styled(input)>
-                                          <Control
+                                          <Styled(span)
                                             size="large"
                                           >
                                             <span
                                               className="emotion-2"
+                                              size="large"
                                             >
                                               <IconRadioButtonCheck>
                                                 <Icon
@@ -539,6 +544,7 @@ exports[`RadioGroup demo examples Snapshots: controlled 1`] = `
                                                       className="emotion-1"
                                                       focusable="false"
                                                       role="img"
+                                                      size="medium"
                                                       viewBox="0 0 24 24"
                                                     >
                                                       <g>
@@ -553,19 +559,20 @@ exports[`RadioGroup demo examples Snapshots: controlled 1`] = `
                                                 </Icon>
                                               </IconRadioButtonCheck>
                                             </span>
-                                          </Control>
-                                          <Text
+                                          </Styled(span)>
+                                          <Styled(span)
                                             labelPosition="end"
                                             size="large"
                                           >
                                             <span
                                               className="emotion-3"
+                                              size="large"
                                             >
                                               Magnetite
                                             </span>
-                                          </Text>
+                                          </Styled(span)>
                                         </label>
-                                      </Choice>
+                                      </Styled(label)>
                                     </Choice>
                                   </ThemeProvider>
                                 </ThemeProvider>
@@ -635,16 +642,16 @@ exports[`RadioGroup demo examples Snapshots: controlled 1`] = `
                                       type="radio"
                                       value="quartz"
                                     >
-                                      <Choice
+                                      <Styled(label)
                                         labelPosition="end"
                                         size="large"
                                       >
                                         <label
                                           className="emotion-4"
+                                          size="large"
                                         >
                                           <Styled(input)
                                             checked={true}
-                                            innerRef={[Function]}
                                             name="mineral"
                                             onChange={[Function]}
                                             size="large"
@@ -661,11 +668,12 @@ exports[`RadioGroup demo examples Snapshots: controlled 1`] = `
                                               value="quartz"
                                             />
                                           </Styled(input)>
-                                          <Control
+                                          <Styled(span)
                                             size="large"
                                           >
                                             <span
                                               className="emotion-2"
+                                              size="large"
                                             >
                                               <IconRadioButtonCheck>
                                                 <Icon
@@ -685,6 +693,7 @@ exports[`RadioGroup demo examples Snapshots: controlled 1`] = `
                                                       className="emotion-1"
                                                       focusable="false"
                                                       role="img"
+                                                      size="medium"
                                                       viewBox="0 0 24 24"
                                                     >
                                                       <g>
@@ -699,19 +708,20 @@ exports[`RadioGroup demo examples Snapshots: controlled 1`] = `
                                                 </Icon>
                                               </IconRadioButtonCheck>
                                             </span>
-                                          </Control>
-                                          <Text
+                                          </Styled(span)>
+                                          <Styled(span)
                                             labelPosition="end"
                                             size="large"
                                           >
                                             <span
                                               className="emotion-3"
+                                              size="large"
                                             >
                                               Quartz
                                             </span>
-                                          </Text>
+                                          </Styled(span)>
                                         </label>
-                                      </Choice>
+                                      </Styled(label)>
                                     </Choice>
                                   </ThemeProvider>
                                 </ThemeProvider>
@@ -719,7 +729,7 @@ exports[`RadioGroup demo examples Snapshots: controlled 1`] = `
                             </WithTheme(Themed(Choice))>
                           </Radio>
                         </div>
-                      </ChoiceGroup>
+                      </Styled(div)>
                     </ChoiceGroup>
                   </ThemeProvider>
                 </ThemeProvider>
@@ -734,6 +744,10 @@ exports[`RadioGroup demo examples Snapshots: controlled 1`] = `
 `;
 
 exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
+.emotion-33 > *:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
 .emotion-15 {
   box-sizing: border-box;
   color: #333840;
@@ -760,10 +774,6 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
 
 .emotion-15 > *:not(:last-child) {
   margin-bottom: 1em;
-}
-
-.emotion-33 > *:not(:last-child) {
-  margin-bottom: 1rem;
 }
 
 .emotion-4 {
@@ -802,7 +812,7 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
 }
 
 .emotion-0 {
-  border: 0px;
+  border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(50%);
@@ -810,7 +820,7 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
   height: 1px;
   margin: -1px;
   overflow: hidden;
-  padding: 0px;
+  padding: 0;
   position: absolute;
   white-space: nowrap;
   width: 1px;
@@ -1005,13 +1015,14 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
                   size="large"
                   type="radio"
                 >
-                  <ChoiceGroup
+                  <Styled(div)
                     role="radiogroup"
                     size="large"
                   >
                     <div
                       className="emotion-15"
                       role="radiogroup"
+                      size="large"
                     >
                       <Radio
                         defaultChecked={false}
@@ -1072,16 +1083,16 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
                                   type="radio"
                                   value="fluorite"
                                 >
-                                  <Choice
+                                  <Styled(label)
                                     labelPosition="end"
                                     size="large"
                                   >
                                     <label
                                       className="emotion-4"
+                                      size="large"
                                     >
                                       <Styled(input)
                                         defaultChecked={false}
-                                        innerRef={[Function]}
                                         name="mineral-1"
                                         size="large"
                                         type="radio"
@@ -1096,11 +1107,12 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
                                           value="fluorite"
                                         />
                                       </Styled(input)>
-                                      <Control
+                                      <Styled(span)
                                         size="large"
                                       >
                                         <span
                                           className="emotion-2"
+                                          size="large"
                                         >
                                           <IconRadioButtonCheck>
                                             <Icon
@@ -1120,6 +1132,7 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
                                                   className="emotion-1"
                                                   focusable="false"
                                                   role="img"
+                                                  size="medium"
                                                   viewBox="0 0 24 24"
                                                 >
                                                   <g>
@@ -1134,19 +1147,20 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
                                             </Icon>
                                           </IconRadioButtonCheck>
                                         </span>
-                                      </Control>
-                                      <Text
+                                      </Styled(span)>
+                                      <Styled(span)
                                         labelPosition="end"
                                         size="large"
                                       >
                                         <span
                                           className="emotion-3"
+                                          size="large"
                                         >
                                           Fluorite
                                         </span>
-                                      </Text>
+                                      </Styled(span)>
                                     </label>
-                                  </Choice>
+                                  </Styled(label)>
                                 </Choice>
                               </ThemeProvider>
                             </ThemeProvider>
@@ -1212,16 +1226,16 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
                                   type="radio"
                                   value="magnetite"
                                 >
-                                  <Choice
+                                  <Styled(label)
                                     labelPosition="end"
                                     size="large"
                                   >
                                     <label
                                       className="emotion-4"
+                                      size="large"
                                     >
                                       <Styled(input)
                                         defaultChecked={false}
-                                        innerRef={[Function]}
                                         name="mineral-1"
                                         size="large"
                                         type="radio"
@@ -1236,11 +1250,12 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
                                           value="magnetite"
                                         />
                                       </Styled(input)>
-                                      <Control
+                                      <Styled(span)
                                         size="large"
                                       >
                                         <span
                                           className="emotion-2"
+                                          size="large"
                                         >
                                           <IconRadioButtonCheck>
                                             <Icon
@@ -1260,6 +1275,7 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
                                                   className="emotion-1"
                                                   focusable="false"
                                                   role="img"
+                                                  size="medium"
                                                   viewBox="0 0 24 24"
                                                 >
                                                   <g>
@@ -1274,19 +1290,20 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
                                             </Icon>
                                           </IconRadioButtonCheck>
                                         </span>
-                                      </Control>
-                                      <Text
+                                      </Styled(span)>
+                                      <Styled(span)
                                         labelPosition="end"
                                         size="large"
                                       >
                                         <span
                                           className="emotion-3"
+                                          size="large"
                                         >
                                           Magnetite
                                         </span>
-                                      </Text>
+                                      </Styled(span)>
                                     </label>
-                                  </Choice>
+                                  </Styled(label)>
                                 </Choice>
                               </ThemeProvider>
                             </ThemeProvider>
@@ -1352,16 +1369,16 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
                                   type="radio"
                                   value="quartz"
                                 >
-                                  <Choice
+                                  <Styled(label)
                                     labelPosition="end"
                                     size="large"
                                   >
                                     <label
                                       className="emotion-4"
+                                      size="large"
                                     >
                                       <Styled(input)
                                         defaultChecked={true}
-                                        innerRef={[Function]}
                                         name="mineral-1"
                                         size="large"
                                         type="radio"
@@ -1376,11 +1393,12 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
                                           value="quartz"
                                         />
                                       </Styled(input)>
-                                      <Control
+                                      <Styled(span)
                                         size="large"
                                       >
                                         <span
                                           className="emotion-2"
+                                          size="large"
                                         >
                                           <IconRadioButtonCheck>
                                             <Icon
@@ -1400,6 +1418,7 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
                                                   className="emotion-1"
                                                   focusable="false"
                                                   role="img"
+                                                  size="medium"
                                                   viewBox="0 0 24 24"
                                                 >
                                                   <g>
@@ -1414,19 +1433,20 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
                                             </Icon>
                                           </IconRadioButtonCheck>
                                         </span>
-                                      </Control>
-                                      <Text
+                                      </Styled(span)>
+                                      <Styled(span)
                                         labelPosition="end"
                                         size="large"
                                       >
                                         <span
                                           className="emotion-3"
+                                          size="large"
                                         >
                                           Quartz
                                         </span>
-                                      </Text>
+                                      </Styled(span)>
                                     </label>
-                                  </Choice>
+                                  </Styled(label)>
                                 </Choice>
                               </ThemeProvider>
                             </ThemeProvider>
@@ -1434,7 +1454,7 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
                         </WithTheme(Themed(Choice))>
                       </Radio>
                     </div>
-                  </ChoiceGroup>
+                  </Styled(div)>
                 </ChoiceGroup>
               </ThemeProvider>
             </ThemeProvider>
@@ -1442,14 +1462,14 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
         </WithTheme(Themed(ChoiceGroup))>
       </RadioGroup>
       <FormFieldDivider>
-        <FormFieldDivider
+        <Styled(div)
           role="separator"
         >
           <div
             className="emotion-16"
             role="separator"
           />
-        </FormFieldDivider>
+        </Styled(div)>
       </FormFieldDivider>
       <RadioGroup
         defaultChecked="pyrite"
@@ -1492,13 +1512,14 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
                   size="large"
                   type="radio"
                 >
-                  <ChoiceGroup
+                  <Styled(div)
                     role="radiogroup"
                     size="large"
                   >
                     <div
                       className="emotion-15"
                       role="radiogroup"
+                      size="large"
                     >
                       <Radio
                         defaultChecked={false}
@@ -1559,16 +1580,16 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
                                   type="radio"
                                   value="azurite"
                                 >
-                                  <Choice
+                                  <Styled(label)
                                     labelPosition="end"
                                     size="large"
                                   >
                                     <label
                                       className="emotion-4"
+                                      size="large"
                                     >
                                       <Styled(input)
                                         defaultChecked={false}
-                                        innerRef={[Function]}
                                         name="mineral-2"
                                         size="large"
                                         type="radio"
@@ -1583,11 +1604,12 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
                                           value="azurite"
                                         />
                                       </Styled(input)>
-                                      <Control
+                                      <Styled(span)
                                         size="large"
                                       >
                                         <span
                                           className="emotion-2"
+                                          size="large"
                                         >
                                           <IconRadioButtonCheck>
                                             <Icon
@@ -1607,6 +1629,7 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
                                                   className="emotion-1"
                                                   focusable="false"
                                                   role="img"
+                                                  size="medium"
                                                   viewBox="0 0 24 24"
                                                 >
                                                   <g>
@@ -1621,19 +1644,20 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
                                             </Icon>
                                           </IconRadioButtonCheck>
                                         </span>
-                                      </Control>
-                                      <Text
+                                      </Styled(span)>
+                                      <Styled(span)
                                         labelPosition="end"
                                         size="large"
                                       >
                                         <span
                                           className="emotion-3"
+                                          size="large"
                                         >
                                           Azurite
                                         </span>
-                                      </Text>
+                                      </Styled(span)>
                                     </label>
-                                  </Choice>
+                                  </Styled(label)>
                                 </Choice>
                               </ThemeProvider>
                             </ThemeProvider>
@@ -1699,16 +1723,16 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
                                   type="radio"
                                   value="hematite"
                                 >
-                                  <Choice
+                                  <Styled(label)
                                     labelPosition="end"
                                     size="large"
                                   >
                                     <label
                                       className="emotion-4"
+                                      size="large"
                                     >
                                       <Styled(input)
                                         defaultChecked={false}
-                                        innerRef={[Function]}
                                         name="mineral-2"
                                         size="large"
                                         type="radio"
@@ -1723,11 +1747,12 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
                                           value="hematite"
                                         />
                                       </Styled(input)>
-                                      <Control
+                                      <Styled(span)
                                         size="large"
                                       >
                                         <span
                                           className="emotion-2"
+                                          size="large"
                                         >
                                           <IconRadioButtonCheck>
                                             <Icon
@@ -1747,6 +1772,7 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
                                                   className="emotion-1"
                                                   focusable="false"
                                                   role="img"
+                                                  size="medium"
                                                   viewBox="0 0 24 24"
                                                 >
                                                   <g>
@@ -1761,19 +1787,20 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
                                             </Icon>
                                           </IconRadioButtonCheck>
                                         </span>
-                                      </Control>
-                                      <Text
+                                      </Styled(span)>
+                                      <Styled(span)
                                         labelPosition="end"
                                         size="large"
                                       >
                                         <span
                                           className="emotion-3"
+                                          size="large"
                                         >
                                           Hematite
                                         </span>
-                                      </Text>
+                                      </Styled(span)>
                                     </label>
-                                  </Choice>
+                                  </Styled(label)>
                                 </Choice>
                               </ThemeProvider>
                             </ThemeProvider>
@@ -1839,16 +1866,16 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
                                   type="radio"
                                   value="pyrite"
                                 >
-                                  <Choice
+                                  <Styled(label)
                                     labelPosition="end"
                                     size="large"
                                   >
                                     <label
                                       className="emotion-4"
+                                      size="large"
                                     >
                                       <Styled(input)
                                         defaultChecked={true}
-                                        innerRef={[Function]}
                                         name="mineral-2"
                                         size="large"
                                         type="radio"
@@ -1863,11 +1890,12 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
                                           value="pyrite"
                                         />
                                       </Styled(input)>
-                                      <Control
+                                      <Styled(span)
                                         size="large"
                                       >
                                         <span
                                           className="emotion-2"
+                                          size="large"
                                         >
                                           <IconRadioButtonCheck>
                                             <Icon
@@ -1887,6 +1915,7 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
                                                   className="emotion-1"
                                                   focusable="false"
                                                   role="img"
+                                                  size="medium"
                                                   viewBox="0 0 24 24"
                                                 >
                                                   <g>
@@ -1901,19 +1930,20 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
                                             </Icon>
                                           </IconRadioButtonCheck>
                                         </span>
-                                      </Control>
-                                      <Text
+                                      </Styled(span)>
+                                      <Styled(span)
                                         labelPosition="end"
                                         size="large"
                                       >
                                         <span
                                           className="emotion-3"
+                                          size="large"
                                         >
                                           Pyrite
                                         </span>
-                                      </Text>
+                                      </Styled(span)>
                                     </label>
-                                  </Choice>
+                                  </Styled(label)>
                                 </Choice>
                               </ThemeProvider>
                             </ThemeProvider>
@@ -1921,7 +1951,7 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
                         </WithTheme(Themed(Choice))>
                       </Radio>
                     </div>
-                  </ChoiceGroup>
+                  </Styled(div)>
                 </ChoiceGroup>
               </ThemeProvider>
             </ThemeProvider>
@@ -1934,6 +1964,10 @@ exports[`RadioGroup demo examples Snapshots: data-vs-children 1`] = `
 `;
 
 exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
+.emotion-25 > *:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
 .emotion-22 {
   box-sizing: border-box;
   color: #333840;
@@ -1960,10 +1994,6 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
 
 .emotion-22 > *:not(:last-child) {
   margin-bottom: 1em;
-}
-
-.emotion-25 > *:not(:last-child) {
-  margin-bottom: 1rem;
 }
 
 .emotion-6 {
@@ -2002,7 +2032,7 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
 }
 
 .emotion-2 {
-  border: 0px;
+  border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(50%);
@@ -2010,7 +2040,7 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
   height: 1px;
   margin: -1px;
   overflow: hidden;
-  padding: 0px;
+  padding: 0;
   position: absolute;
   white-space: nowrap;
   width: 1px;
@@ -2174,19 +2204,19 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
         required={true}
         requiredText="Required"
       >
-        <FormField>
+        <Styled(div)>
           <div
             className="emotion-24"
           >
             <div>
               <Styled(div)
-                key="formField-31-textWrapper"
+                key="formField-16-textWrapper"
               >
                 <div
                   className="emotion-1"
                 >
                   <span
-                    id="formField-31-labelText"
+                    id="formField-16-labelText"
                   >
                     What is your preferred contact method?
                   </span>
@@ -2200,7 +2230,7 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                 </div>
               </Styled(div)>
               <RadioGroup
-                aria-describedby="formField-31-caption"
+                aria-describedby="formField-16-caption"
                 data={
                   Array [
                     Object {
@@ -2222,18 +2252,18 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                   ]
                 }
                 defaultChecked="none"
-                key="formField-31-control"
+                key="formField-16-control"
                 name="contact"
                 required={true}
                 rootProps={
                   Object {
-                    "aria-describedby": "formField-31-caption",
-                    "aria-labelledby": "formField-31-labelText",
+                    "aria-describedby": "formField-16-caption",
+                    "aria-labelledby": "formField-16-labelText",
                   }
                 }
               >
                 <WithTheme(Themed(ChoiceGroup))
-                  aria-describedby="formField-31-caption"
+                  aria-describedby="formField-16-caption"
                   data={
                     Array [
                       Object {
@@ -2260,15 +2290,15 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                   required={true}
                   rootProps={
                     Object {
-                      "aria-describedby": "formField-31-caption",
-                      "aria-labelledby": "formField-31-labelText",
+                      "aria-describedby": "formField-16-caption",
+                      "aria-labelledby": "formField-16-labelText",
                       "role": "radiogroup",
                     }
                   }
                   type="radio"
                 >
                   <Themed(ChoiceGroup)
-                    aria-describedby="formField-31-caption"
+                    aria-describedby="formField-16-caption"
                     data={
                       Array [
                         Object {
@@ -2295,8 +2325,8 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                     required={true}
                     rootProps={
                       Object {
-                        "aria-describedby": "formField-31-caption",
-                        "aria-labelledby": "formField-31-labelText",
+                        "aria-describedby": "formField-16-caption",
+                        "aria-labelledby": "formField-16-labelText",
                         "role": "radiogroup",
                       }
                     }
@@ -2305,7 +2335,7 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                     <ThemeProvider>
                       <ThemeProvider>
                         <ChoiceGroup
-                          aria-describedby="formField-31-caption"
+                          aria-describedby="formField-16-caption"
                           data={
                             Array [
                               Object {
@@ -2333,28 +2363,29 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                           role="group"
                           rootProps={
                             Object {
-                              "aria-describedby": "formField-31-caption",
-                              "aria-labelledby": "formField-31-labelText",
+                              "aria-describedby": "formField-16-caption",
+                              "aria-labelledby": "formField-16-labelText",
                               "role": "radiogroup",
                             }
                           }
                           size="large"
                           type="radio"
                         >
-                          <ChoiceGroup
-                            aria-describedby="formField-31-caption"
-                            aria-labelledby="formField-31-labelText"
+                          <Styled(div)
+                            aria-describedby="formField-16-caption"
+                            aria-labelledby="formField-16-labelText"
                             role="radiogroup"
                             size="large"
                           >
                             <div
-                              aria-describedby="formField-31-caption"
-                              aria-labelledby="formField-31-labelText"
+                              aria-describedby="formField-16-caption"
+                              aria-labelledby="formField-16-labelText"
                               className="emotion-22"
                               role="radiogroup"
+                              size="large"
                             >
                               <Radio
-                                aria-describedby="formField-31-caption"
+                                aria-describedby="formField-16-caption"
                                 defaultChecked={false}
                                 key="0"
                                 label="Email"
@@ -2365,7 +2396,7 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                 value="email"
                               >
                                 <WithTheme(Themed(Choice))
-                                  aria-describedby="formField-31-caption"
+                                  aria-describedby="formField-16-caption"
                                   defaultChecked={false}
                                   iconChecked={<IconRadioButtonCheck />}
                                   inputRef={[Function]}
@@ -2383,7 +2414,7 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                   value="email"
                                 >
                                   <Themed(Choice)
-                                    aria-describedby="formField-31-caption"
+                                    aria-describedby="formField-16-caption"
                                     defaultChecked={false}
                                     iconChecked={<IconRadioButtonCheck />}
                                     inputRef={[Function]}
@@ -2403,7 +2434,7 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                     <ThemeProvider>
                                       <ThemeProvider>
                                         <Choice
-                                          aria-describedby="formField-31-caption"
+                                          aria-describedby="formField-16-caption"
                                           defaultChecked={false}
                                           iconChecked={<IconRadioButtonCheck />}
                                           inputRef={[Function]}
@@ -2420,18 +2451,18 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                           type="radio"
                                           value="email"
                                         >
-                                          <Choice
+                                          <Styled(label)
                                             labelPosition="end"
                                             size="large"
                                           >
                                             <label
                                               className="emotion-6"
+                                              size="large"
                                             >
                                               <Styled(input)
-                                                aria-describedby="formField-31-caption"
+                                                aria-describedby="formField-16-caption"
                                                 aria-required={true}
                                                 defaultChecked={false}
-                                                innerRef={[Function]}
                                                 name="contact"
                                                 required={true}
                                                 size="large"
@@ -2439,7 +2470,7 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                                 value="email"
                                               >
                                                 <input
-                                                  aria-describedby="formField-31-caption"
+                                                  aria-describedby="formField-16-caption"
                                                   aria-required={true}
                                                   className="emotion-2"
                                                   defaultChecked={false}
@@ -2450,11 +2481,12 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                                   value="email"
                                                 />
                                               </Styled(input)>
-                                              <Control
+                                              <Styled(span)
                                                 size="large"
                                               >
                                                 <span
                                                   className="emotion-4"
+                                                  size="large"
                                                 >
                                                   <IconRadioButtonCheck>
                                                     <Icon
@@ -2474,6 +2506,7 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                                           className="emotion-3"
                                                           focusable="false"
                                                           role="img"
+                                                          size="medium"
                                                           viewBox="0 0 24 24"
                                                         >
                                                           <g>
@@ -2488,19 +2521,20 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                                     </Icon>
                                                   </IconRadioButtonCheck>
                                                 </span>
-                                              </Control>
-                                              <Text
+                                              </Styled(span)>
+                                              <Styled(span)
                                                 labelPosition="end"
                                                 size="large"
                                               >
                                                 <span
                                                   className="emotion-5"
+                                                  size="large"
                                                 >
                                                   Email
                                                 </span>
-                                              </Text>
+                                              </Styled(span)>
                                             </label>
-                                          </Choice>
+                                          </Styled(label)>
                                         </Choice>
                                       </ThemeProvider>
                                     </ThemeProvider>
@@ -2508,7 +2542,7 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                 </WithTheme(Themed(Choice))>
                               </Radio>
                               <Radio
-                                aria-describedby="formField-31-caption"
+                                aria-describedby="formField-16-caption"
                                 defaultChecked={false}
                                 key="1"
                                 label="Telephone"
@@ -2519,7 +2553,7 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                 value="telephone"
                               >
                                 <WithTheme(Themed(Choice))
-                                  aria-describedby="formField-31-caption"
+                                  aria-describedby="formField-16-caption"
                                   defaultChecked={false}
                                   iconChecked={<IconRadioButtonCheck />}
                                   inputRef={[Function]}
@@ -2537,7 +2571,7 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                   value="telephone"
                                 >
                                   <Themed(Choice)
-                                    aria-describedby="formField-31-caption"
+                                    aria-describedby="formField-16-caption"
                                     defaultChecked={false}
                                     iconChecked={<IconRadioButtonCheck />}
                                     inputRef={[Function]}
@@ -2557,7 +2591,7 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                     <ThemeProvider>
                                       <ThemeProvider>
                                         <Choice
-                                          aria-describedby="formField-31-caption"
+                                          aria-describedby="formField-16-caption"
                                           defaultChecked={false}
                                           iconChecked={<IconRadioButtonCheck />}
                                           inputRef={[Function]}
@@ -2574,18 +2608,18 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                           type="radio"
                                           value="telephone"
                                         >
-                                          <Choice
+                                          <Styled(label)
                                             labelPosition="end"
                                             size="large"
                                           >
                                             <label
                                               className="emotion-6"
+                                              size="large"
                                             >
                                               <Styled(input)
-                                                aria-describedby="formField-31-caption"
+                                                aria-describedby="formField-16-caption"
                                                 aria-required={true}
                                                 defaultChecked={false}
-                                                innerRef={[Function]}
                                                 name="contact"
                                                 required={true}
                                                 size="large"
@@ -2593,7 +2627,7 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                                 value="telephone"
                                               >
                                                 <input
-                                                  aria-describedby="formField-31-caption"
+                                                  aria-describedby="formField-16-caption"
                                                   aria-required={true}
                                                   className="emotion-2"
                                                   defaultChecked={false}
@@ -2604,11 +2638,12 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                                   value="telephone"
                                                 />
                                               </Styled(input)>
-                                              <Control
+                                              <Styled(span)
                                                 size="large"
                                               >
                                                 <span
                                                   className="emotion-4"
+                                                  size="large"
                                                 >
                                                   <IconRadioButtonCheck>
                                                     <Icon
@@ -2628,6 +2663,7 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                                           className="emotion-3"
                                                           focusable="false"
                                                           role="img"
+                                                          size="medium"
                                                           viewBox="0 0 24 24"
                                                         >
                                                           <g>
@@ -2642,19 +2678,20 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                                     </Icon>
                                                   </IconRadioButtonCheck>
                                                 </span>
-                                              </Control>
-                                              <Text
+                                              </Styled(span)>
+                                              <Styled(span)
                                                 labelPosition="end"
                                                 size="large"
                                               >
                                                 <span
                                                   className="emotion-5"
+                                                  size="large"
                                                 >
                                                   Telephone
                                                 </span>
-                                              </Text>
+                                              </Styled(span)>
                                             </label>
-                                          </Choice>
+                                          </Styled(label)>
                                         </Choice>
                                       </ThemeProvider>
                                     </ThemeProvider>
@@ -2662,7 +2699,7 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                 </WithTheme(Themed(Choice))>
                               </Radio>
                               <Radio
-                                aria-describedby="formField-31-caption"
+                                aria-describedby="formField-16-caption"
                                 defaultChecked={false}
                                 key="2"
                                 label="Text message"
@@ -2673,7 +2710,7 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                 value="text"
                               >
                                 <WithTheme(Themed(Choice))
-                                  aria-describedby="formField-31-caption"
+                                  aria-describedby="formField-16-caption"
                                   defaultChecked={false}
                                   iconChecked={<IconRadioButtonCheck />}
                                   inputRef={[Function]}
@@ -2691,7 +2728,7 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                   value="text"
                                 >
                                   <Themed(Choice)
-                                    aria-describedby="formField-31-caption"
+                                    aria-describedby="formField-16-caption"
                                     defaultChecked={false}
                                     iconChecked={<IconRadioButtonCheck />}
                                     inputRef={[Function]}
@@ -2711,7 +2748,7 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                     <ThemeProvider>
                                       <ThemeProvider>
                                         <Choice
-                                          aria-describedby="formField-31-caption"
+                                          aria-describedby="formField-16-caption"
                                           defaultChecked={false}
                                           iconChecked={<IconRadioButtonCheck />}
                                           inputRef={[Function]}
@@ -2728,18 +2765,18 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                           type="radio"
                                           value="text"
                                         >
-                                          <Choice
+                                          <Styled(label)
                                             labelPosition="end"
                                             size="large"
                                           >
                                             <label
                                               className="emotion-6"
+                                              size="large"
                                             >
                                               <Styled(input)
-                                                aria-describedby="formField-31-caption"
+                                                aria-describedby="formField-16-caption"
                                                 aria-required={true}
                                                 defaultChecked={false}
-                                                innerRef={[Function]}
                                                 name="contact"
                                                 required={true}
                                                 size="large"
@@ -2747,7 +2784,7 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                                 value="text"
                                               >
                                                 <input
-                                                  aria-describedby="formField-31-caption"
+                                                  aria-describedby="formField-16-caption"
                                                   aria-required={true}
                                                   className="emotion-2"
                                                   defaultChecked={false}
@@ -2758,11 +2795,12 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                                   value="text"
                                                 />
                                               </Styled(input)>
-                                              <Control
+                                              <Styled(span)
                                                 size="large"
                                               >
                                                 <span
                                                   className="emotion-4"
+                                                  size="large"
                                                 >
                                                   <IconRadioButtonCheck>
                                                     <Icon
@@ -2782,6 +2820,7 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                                           className="emotion-3"
                                                           focusable="false"
                                                           role="img"
+                                                          size="medium"
                                                           viewBox="0 0 24 24"
                                                         >
                                                           <g>
@@ -2796,19 +2835,20 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                                     </Icon>
                                                   </IconRadioButtonCheck>
                                                 </span>
-                                              </Control>
-                                              <Text
+                                              </Styled(span)>
+                                              <Styled(span)
                                                 labelPosition="end"
                                                 size="large"
                                               >
                                                 <span
                                                   className="emotion-5"
+                                                  size="large"
                                                 >
                                                   Text message
                                                 </span>
-                                              </Text>
+                                              </Styled(span)>
                                             </label>
-                                          </Choice>
+                                          </Styled(label)>
                                         </Choice>
                                       </ThemeProvider>
                                     </ThemeProvider>
@@ -2816,7 +2856,7 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                 </WithTheme(Themed(Choice))>
                               </Radio>
                               <Radio
-                                aria-describedby="formField-31-caption"
+                                aria-describedby="formField-16-caption"
                                 defaultChecked={true}
                                 key="3"
                                 label="None"
@@ -2827,7 +2867,7 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                 value="none"
                               >
                                 <WithTheme(Themed(Choice))
-                                  aria-describedby="formField-31-caption"
+                                  aria-describedby="formField-16-caption"
                                   defaultChecked={true}
                                   iconChecked={<IconRadioButtonCheck />}
                                   inputRef={[Function]}
@@ -2845,7 +2885,7 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                   value="none"
                                 >
                                   <Themed(Choice)
-                                    aria-describedby="formField-31-caption"
+                                    aria-describedby="formField-16-caption"
                                     defaultChecked={true}
                                     iconChecked={<IconRadioButtonCheck />}
                                     inputRef={[Function]}
@@ -2865,7 +2905,7 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                     <ThemeProvider>
                                       <ThemeProvider>
                                         <Choice
-                                          aria-describedby="formField-31-caption"
+                                          aria-describedby="formField-16-caption"
                                           defaultChecked={true}
                                           iconChecked={<IconRadioButtonCheck />}
                                           inputRef={[Function]}
@@ -2882,18 +2922,18 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                           type="radio"
                                           value="none"
                                         >
-                                          <Choice
+                                          <Styled(label)
                                             labelPosition="end"
                                             size="large"
                                           >
                                             <label
                                               className="emotion-6"
+                                              size="large"
                                             >
                                               <Styled(input)
-                                                aria-describedby="formField-31-caption"
+                                                aria-describedby="formField-16-caption"
                                                 aria-required={true}
                                                 defaultChecked={true}
-                                                innerRef={[Function]}
                                                 name="contact"
                                                 required={true}
                                                 size="large"
@@ -2901,7 +2941,7 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                                 value="none"
                                               >
                                                 <input
-                                                  aria-describedby="formField-31-caption"
+                                                  aria-describedby="formField-16-caption"
                                                   aria-required={true}
                                                   className="emotion-2"
                                                   defaultChecked={true}
@@ -2912,11 +2952,12 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                                   value="none"
                                                 />
                                               </Styled(input)>
-                                              <Control
+                                              <Styled(span)
                                                 size="large"
                                               >
                                                 <span
                                                   className="emotion-4"
+                                                  size="large"
                                                 >
                                                   <IconRadioButtonCheck>
                                                     <Icon
@@ -2936,6 +2977,7 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                                           className="emotion-3"
                                                           focusable="false"
                                                           role="img"
+                                                          size="medium"
                                                           viewBox="0 0 24 24"
                                                         >
                                                           <g>
@@ -2950,19 +2992,20 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                                     </Icon>
                                                   </IconRadioButtonCheck>
                                                 </span>
-                                              </Control>
-                                              <Text
+                                              </Styled(span)>
+                                              <Styled(span)
                                                 labelPosition="end"
                                                 size="large"
                                               >
                                                 <span
                                                   className="emotion-5"
+                                                  size="large"
                                                 >
                                                   None
                                                 </span>
-                                              </Text>
+                                              </Styled(span)>
                                             </label>
-                                          </Choice>
+                                          </Styled(label)>
                                         </Choice>
                                       </ThemeProvider>
                                     </ThemeProvider>
@@ -2970,7 +3013,7 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
                                 </WithTheme(Themed(Choice))>
                               </Radio>
                             </div>
-                          </ChoiceGroup>
+                          </Styled(div)>
                         </ChoiceGroup>
                       </ThemeProvider>
                     </ThemeProvider>
@@ -2980,18 +3023,18 @@ exports[`RadioGroup demo examples Snapshots: form-field 1`] = `
             </div>
             <Styled(div)
               caption="We promise not to spam you."
-              id="formField-31-caption"
+              id="formField-16-caption"
               isGroup={true}
             >
               <div
                 className="emotion-23"
-                id="formField-31-caption"
+                id="formField-16-caption"
               >
                 We promise not to spam you.
               </div>
             </Styled(div)>
           </div>
-        </FormField>
+        </Styled(div)>
       </FormField>
     </form>
   </Styled(form)>
@@ -3039,7 +3082,7 @@ exports[`RadioGroup demo examples Snapshots: inline 1`] = `
 }
 
 .emotion-0 {
-  border: 0px;
+  border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(50%);
@@ -3047,7 +3090,7 @@ exports[`RadioGroup demo examples Snapshots: inline 1`] = `
   height: 1px;
   margin: -1px;
   overflow: hidden;
-  padding: 0px;
+  padding: 0;
   position: absolute;
   white-space: nowrap;
   width: 1px;
@@ -3269,7 +3312,7 @@ exports[`RadioGroup demo examples Snapshots: inline 1`] = `
                   size="large"
                   type="radio"
                 >
-                  <ChoiceGroup
+                  <Styled(div)
                     inline={true}
                     role="radiogroup"
                     size="large"
@@ -3277,6 +3320,7 @@ exports[`RadioGroup demo examples Snapshots: inline 1`] = `
                     <div
                       className="emotion-15"
                       role="radiogroup"
+                      size="large"
                     >
                       <Radio
                         defaultChecked={false}
@@ -3337,16 +3381,16 @@ exports[`RadioGroup demo examples Snapshots: inline 1`] = `
                                   type="radio"
                                   value="fluorite"
                                 >
-                                  <Choice
+                                  <Styled(label)
                                     labelPosition="end"
                                     size="large"
                                   >
                                     <label
                                       className="emotion-4"
+                                      size="large"
                                     >
                                       <Styled(input)
                                         defaultChecked={false}
-                                        innerRef={[Function]}
                                         name="mineral"
                                         size="large"
                                         type="radio"
@@ -3361,11 +3405,12 @@ exports[`RadioGroup demo examples Snapshots: inline 1`] = `
                                           value="fluorite"
                                         />
                                       </Styled(input)>
-                                      <Control
+                                      <Styled(span)
                                         size="large"
                                       >
                                         <span
                                           className="emotion-2"
+                                          size="large"
                                         >
                                           <IconRadioButtonCheck>
                                             <Icon
@@ -3385,6 +3430,7 @@ exports[`RadioGroup demo examples Snapshots: inline 1`] = `
                                                   className="emotion-1"
                                                   focusable="false"
                                                   role="img"
+                                                  size="medium"
                                                   viewBox="0 0 24 24"
                                                 >
                                                   <g>
@@ -3399,19 +3445,20 @@ exports[`RadioGroup demo examples Snapshots: inline 1`] = `
                                             </Icon>
                                           </IconRadioButtonCheck>
                                         </span>
-                                      </Control>
-                                      <Text
+                                      </Styled(span)>
+                                      <Styled(span)
                                         labelPosition="end"
                                         size="large"
                                       >
                                         <span
                                           className="emotion-3"
+                                          size="large"
                                         >
                                           Fluorite
                                         </span>
-                                      </Text>
+                                      </Styled(span)>
                                     </label>
-                                  </Choice>
+                                  </Styled(label)>
                                 </Choice>
                               </ThemeProvider>
                             </ThemeProvider>
@@ -3477,16 +3524,16 @@ exports[`RadioGroup demo examples Snapshots: inline 1`] = `
                                   type="radio"
                                   value="magnetite"
                                 >
-                                  <Choice
+                                  <Styled(label)
                                     labelPosition="end"
                                     size="large"
                                   >
                                     <label
                                       className="emotion-4"
+                                      size="large"
                                     >
                                       <Styled(input)
                                         defaultChecked={false}
-                                        innerRef={[Function]}
                                         name="mineral"
                                         size="large"
                                         type="radio"
@@ -3501,11 +3548,12 @@ exports[`RadioGroup demo examples Snapshots: inline 1`] = `
                                           value="magnetite"
                                         />
                                       </Styled(input)>
-                                      <Control
+                                      <Styled(span)
                                         size="large"
                                       >
                                         <span
                                           className="emotion-2"
+                                          size="large"
                                         >
                                           <IconRadioButtonCheck>
                                             <Icon
@@ -3525,6 +3573,7 @@ exports[`RadioGroup demo examples Snapshots: inline 1`] = `
                                                   className="emotion-1"
                                                   focusable="false"
                                                   role="img"
+                                                  size="medium"
                                                   viewBox="0 0 24 24"
                                                 >
                                                   <g>
@@ -3539,19 +3588,20 @@ exports[`RadioGroup demo examples Snapshots: inline 1`] = `
                                             </Icon>
                                           </IconRadioButtonCheck>
                                         </span>
-                                      </Control>
-                                      <Text
+                                      </Styled(span)>
+                                      <Styled(span)
                                         labelPosition="end"
                                         size="large"
                                       >
                                         <span
                                           className="emotion-3"
+                                          size="large"
                                         >
                                           Magnetite
                                         </span>
-                                      </Text>
+                                      </Styled(span)>
                                     </label>
-                                  </Choice>
+                                  </Styled(label)>
                                 </Choice>
                               </ThemeProvider>
                             </ThemeProvider>
@@ -3617,16 +3667,16 @@ exports[`RadioGroup demo examples Snapshots: inline 1`] = `
                                   type="radio"
                                   value="quartz"
                                 >
-                                  <Choice
+                                  <Styled(label)
                                     labelPosition="end"
                                     size="large"
                                   >
                                     <label
                                       className="emotion-4"
+                                      size="large"
                                     >
                                       <Styled(input)
                                         defaultChecked={true}
-                                        innerRef={[Function]}
                                         name="mineral"
                                         size="large"
                                         type="radio"
@@ -3641,11 +3691,12 @@ exports[`RadioGroup demo examples Snapshots: inline 1`] = `
                                           value="quartz"
                                         />
                                       </Styled(input)>
-                                      <Control
+                                      <Styled(span)
                                         size="large"
                                       >
                                         <span
                                           className="emotion-2"
+                                          size="large"
                                         >
                                           <IconRadioButtonCheck>
                                             <Icon
@@ -3665,6 +3716,7 @@ exports[`RadioGroup demo examples Snapshots: inline 1`] = `
                                                   className="emotion-1"
                                                   focusable="false"
                                                   role="img"
+                                                  size="medium"
                                                   viewBox="0 0 24 24"
                                                 >
                                                   <g>
@@ -3679,19 +3731,20 @@ exports[`RadioGroup demo examples Snapshots: inline 1`] = `
                                             </Icon>
                                           </IconRadioButtonCheck>
                                         </span>
-                                      </Control>
-                                      <Text
+                                      </Styled(span)>
+                                      <Styled(span)
                                         labelPosition="end"
                                         size="large"
                                       >
                                         <span
                                           className="emotion-3"
+                                          size="large"
                                         >
                                           Quartz
                                         </span>
-                                      </Text>
+                                      </Styled(span)>
                                     </label>
-                                  </Choice>
+                                  </Styled(label)>
                                 </Choice>
                               </ThemeProvider>
                             </ThemeProvider>
@@ -3699,7 +3752,7 @@ exports[`RadioGroup demo examples Snapshots: inline 1`] = `
                         </WithTheme(Themed(Choice))>
                       </Radio>
                     </div>
-                  </ChoiceGroup>
+                  </Styled(div)>
                 </ChoiceGroup>
               </ThemeProvider>
             </ThemeProvider>
@@ -3712,6 +3765,10 @@ exports[`RadioGroup demo examples Snapshots: inline 1`] = `
 `;
 
 exports[`RadioGroup demo examples Snapshots: uncontrolled 1`] = `
+.emotion-16 > *:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
 .emotion-15 {
   box-sizing: border-box;
   color: #333840;
@@ -3738,10 +3795,6 @@ exports[`RadioGroup demo examples Snapshots: uncontrolled 1`] = `
 
 .emotion-15 > *:not(:last-child) {
   margin-bottom: 1em;
-}
-
-.emotion-16 > *:not(:last-child) {
-  margin-bottom: 1rem;
 }
 
 .emotion-4 {
@@ -3780,7 +3833,7 @@ exports[`RadioGroup demo examples Snapshots: uncontrolled 1`] = `
 }
 
 .emotion-0 {
-  border: 0px;
+  border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(50%);
@@ -3788,7 +3841,7 @@ exports[`RadioGroup demo examples Snapshots: uncontrolled 1`] = `
   height: 1px;
   margin: -1px;
   overflow: hidden;
-  padding: 0px;
+  padding: 0;
   position: absolute;
   white-space: nowrap;
   width: 1px;
@@ -3977,13 +4030,14 @@ exports[`RadioGroup demo examples Snapshots: uncontrolled 1`] = `
                   size="large"
                   type="radio"
                 >
-                  <ChoiceGroup
+                  <Styled(div)
                     role="radiogroup"
                     size="large"
                   >
                     <div
                       className="emotion-15"
                       role="radiogroup"
+                      size="large"
                     >
                       <Radio
                         defaultChecked={false}
@@ -4044,16 +4098,16 @@ exports[`RadioGroup demo examples Snapshots: uncontrolled 1`] = `
                                   type="radio"
                                   value="fluorite"
                                 >
-                                  <Choice
+                                  <Styled(label)
                                     labelPosition="end"
                                     size="large"
                                   >
                                     <label
                                       className="emotion-4"
+                                      size="large"
                                     >
                                       <Styled(input)
                                         defaultChecked={false}
-                                        innerRef={[Function]}
                                         name="mineral"
                                         size="large"
                                         type="radio"
@@ -4068,11 +4122,12 @@ exports[`RadioGroup demo examples Snapshots: uncontrolled 1`] = `
                                           value="fluorite"
                                         />
                                       </Styled(input)>
-                                      <Control
+                                      <Styled(span)
                                         size="large"
                                       >
                                         <span
                                           className="emotion-2"
+                                          size="large"
                                         >
                                           <IconRadioButtonCheck>
                                             <Icon
@@ -4092,6 +4147,7 @@ exports[`RadioGroup demo examples Snapshots: uncontrolled 1`] = `
                                                   className="emotion-1"
                                                   focusable="false"
                                                   role="img"
+                                                  size="medium"
                                                   viewBox="0 0 24 24"
                                                 >
                                                   <g>
@@ -4106,19 +4162,20 @@ exports[`RadioGroup demo examples Snapshots: uncontrolled 1`] = `
                                             </Icon>
                                           </IconRadioButtonCheck>
                                         </span>
-                                      </Control>
-                                      <Text
+                                      </Styled(span)>
+                                      <Styled(span)
                                         labelPosition="end"
                                         size="large"
                                       >
                                         <span
                                           className="emotion-3"
+                                          size="large"
                                         >
                                           Fluorite
                                         </span>
-                                      </Text>
+                                      </Styled(span)>
                                     </label>
-                                  </Choice>
+                                  </Styled(label)>
                                 </Choice>
                               </ThemeProvider>
                             </ThemeProvider>
@@ -4184,16 +4241,16 @@ exports[`RadioGroup demo examples Snapshots: uncontrolled 1`] = `
                                   type="radio"
                                   value="magnetite"
                                 >
-                                  <Choice
+                                  <Styled(label)
                                     labelPosition="end"
                                     size="large"
                                   >
                                     <label
                                       className="emotion-4"
+                                      size="large"
                                     >
                                       <Styled(input)
                                         defaultChecked={false}
-                                        innerRef={[Function]}
                                         name="mineral"
                                         size="large"
                                         type="radio"
@@ -4208,11 +4265,12 @@ exports[`RadioGroup demo examples Snapshots: uncontrolled 1`] = `
                                           value="magnetite"
                                         />
                                       </Styled(input)>
-                                      <Control
+                                      <Styled(span)
                                         size="large"
                                       >
                                         <span
                                           className="emotion-2"
+                                          size="large"
                                         >
                                           <IconRadioButtonCheck>
                                             <Icon
@@ -4232,6 +4290,7 @@ exports[`RadioGroup demo examples Snapshots: uncontrolled 1`] = `
                                                   className="emotion-1"
                                                   focusable="false"
                                                   role="img"
+                                                  size="medium"
                                                   viewBox="0 0 24 24"
                                                 >
                                                   <g>
@@ -4246,19 +4305,20 @@ exports[`RadioGroup demo examples Snapshots: uncontrolled 1`] = `
                                             </Icon>
                                           </IconRadioButtonCheck>
                                         </span>
-                                      </Control>
-                                      <Text
+                                      </Styled(span)>
+                                      <Styled(span)
                                         labelPosition="end"
                                         size="large"
                                       >
                                         <span
                                           className="emotion-3"
+                                          size="large"
                                         >
                                           Magnetite
                                         </span>
-                                      </Text>
+                                      </Styled(span)>
                                     </label>
-                                  </Choice>
+                                  </Styled(label)>
                                 </Choice>
                               </ThemeProvider>
                             </ThemeProvider>
@@ -4324,16 +4384,16 @@ exports[`RadioGroup demo examples Snapshots: uncontrolled 1`] = `
                                   type="radio"
                                   value="quartz"
                                 >
-                                  <Choice
+                                  <Styled(label)
                                     labelPosition="end"
                                     size="large"
                                   >
                                     <label
                                       className="emotion-4"
+                                      size="large"
                                     >
                                       <Styled(input)
                                         defaultChecked={true}
-                                        innerRef={[Function]}
                                         name="mineral"
                                         size="large"
                                         type="radio"
@@ -4348,11 +4408,12 @@ exports[`RadioGroup demo examples Snapshots: uncontrolled 1`] = `
                                           value="quartz"
                                         />
                                       </Styled(input)>
-                                      <Control
+                                      <Styled(span)
                                         size="large"
                                       >
                                         <span
                                           className="emotion-2"
+                                          size="large"
                                         >
                                           <IconRadioButtonCheck>
                                             <Icon
@@ -4372,6 +4433,7 @@ exports[`RadioGroup demo examples Snapshots: uncontrolled 1`] = `
                                                   className="emotion-1"
                                                   focusable="false"
                                                   role="img"
+                                                  size="medium"
                                                   viewBox="0 0 24 24"
                                                 >
                                                   <g>
@@ -4386,19 +4448,20 @@ exports[`RadioGroup demo examples Snapshots: uncontrolled 1`] = `
                                             </Icon>
                                           </IconRadioButtonCheck>
                                         </span>
-                                      </Control>
-                                      <Text
+                                      </Styled(span)>
+                                      <Styled(span)
                                         labelPosition="end"
                                         size="large"
                                       >
                                         <span
                                           className="emotion-3"
+                                          size="large"
                                         >
                                           Quartz
                                         </span>
-                                      </Text>
+                                      </Styled(span)>
                                     </label>
-                                  </Choice>
+                                  </Styled(label)>
                                 </Choice>
                               </ThemeProvider>
                             </ThemeProvider>
@@ -4406,7 +4469,7 @@ exports[`RadioGroup demo examples Snapshots: uncontrolled 1`] = `
                         </WithTheme(Themed(Choice))>
                       </Radio>
                     </div>
-                  </ChoiceGroup>
+                  </Styled(div)>
                 </ChoiceGroup>
               </ThemeProvider>
             </ThemeProvider>
